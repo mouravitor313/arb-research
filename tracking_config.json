@@ -1,11 +1,23 @@
 {
-  "$schema": "arb-tracking-config/v1",
-  "_comment": "Concrete venues/pairs the tracker polls. CEX section runs out-of-the-box (public data, no keys). DEX entries with an address starting with 'TODO' are skipped until you fill them from watchlist.json -> verificationQueue.",
+  "$schema": "arb-tracking-config/v2",
+  "_comment": "v2 (2026-09-18): added takerFees per exchange, BRLA multi-chain pools, FX refs, updated threshold to 25 bps (above ~20 bps round-trip minimum on cheap venues). DEX token addresses verified against GeckoTerminal and PolygonScan/Solscan.",
 
   "defaults": {
     "depthNotionalUsd": 25000,
-    "alertThresholdBps": 15,
-    "pegDeviationAlertBps": 20
+    "alertThresholdBps": 25,
+    "pegDeviationAlertBps": 20,
+    "dexPollDelayMs": 3000
+  },
+
+  "takerFees": {
+    "_comment": "Default (non-VIP) taker fee in basis points per exchange, for stable/stable spot pairs. Round-trip = buy_fee + sell_fee. Sources: official fee pages, verified 2026-09-18.",
+    "binance":  {"taker_bps": 7,  "note": "USDC pairs ~0.07125% standard; other stables 0.10%; recurring 0% USDC promos. Round-trip ~14 bps."},
+    "okx":      {"taker_bps": 10, "note": "Standard Lv1 0.10%; stable pairs excluded from tier-vol calc. Round-trip ~20 bps."},
+    "bybit":    {"taker_bps": 10, "note": "Flat non-VIP 0.10%; USDC discount only for VIP tiers. Round-trip ~20 bps."},
+    "kraken":   {"taker_bps": 20, "note": "Separate flat stable/FX schedule, no maker/taker split, 0.20% retail. Stable vol excluded from tier. Round-trip ~40 bps."},
+    "coinbase": {"taker_bps": 90, "note": "US entry tier 0.90%; USDT/USDC lost stablepair discount May 2025. NOT viable for stable arb at default tier."},
+    "gate":     {"taker_bps": 20, "note": "Conservative; GT token gives discount; occasional zero-fee promos. Round-trip ~40 bps."},
+    "bitget":   {"taker_bps": 10, "note": "Standard 0.10%; 0% promo on USDC/USD launched Dec 2025 (check if active). Round-trip ~20 bps."}
   },
 
   "cexSpreads": [
@@ -14,8 +26,9 @@
       "label": "USDC/USDT cross-venue",
       "symbol": "USDC/USDT",
       "pegRef": 1.0,
-      "exchanges": ["binance", "okx", "bybit", "kraken", "coinbase"],
-      "priority": 1
+      "exchanges": ["binance", "okx", "bybit", "kraken", "gate", "bitget"],
+      "priority": 1,
+      "note": "Coinbase removed from rotation — 90 bps taker US tier makes it non-viable."
     },
     {
       "id": "fdusd-usdt",
@@ -35,7 +48,7 @@
     },
     {
       "id": "usde-usdt",
-      "label": "USDe/USDT (Ethena)",
+      "label": "USDe/USDT (Ethena) — live +6 bps Gate→Bitget flagged",
       "symbol": "USDE/USDT",
       "pegRef": 1.0,
       "exchanges": ["bybit", "okx", "gate", "bitget"],
@@ -47,7 +60,8 @@
       "symbol": "USDC/USD",
       "pegRef": 1.0,
       "exchanges": ["kraken", "coinbase"],
-      "priority": 1
+      "priority": 1,
+      "note": "Coinbase kept here only for USDC/USD fiat pair (0% maker / 0.001% taker vs USD — the exception)."
     },
     {
       "id": "eurc-usdc",
@@ -56,46 +70,112 @@
       "pegRef": null,
       "exchanges": ["coinbase", "kraken"],
       "priority": 5,
-      "note": "EUR/USD FX pair. Compare vs live EURUSD FX ref (not implemented) to spot dislocation; MiCA-gated in EEA."
+      "note": "EUR/USD FX pair. Tracker fetches Coinbase USD/EUR rate; compare vs live EURUSD to spot dislocation. MiCA-gated in EEA."
     }
   ],
 
   "dexPools": [
     {
-      "id": "usdy-top-pool",
-      "label": "USDY top pool (Ondo)",
+      "id": "usdc-usdt-polygon",
+      "label": "USDC/USDT core depth (Polygon)",
+      "network": "polygon_pos",
+      "tokenAddress": null,
+      "poolAddress": "0xa37d3e6da98dfeb7dc8103a6614f586916a6e04d41ea0a929bc19a029de1a399",
+      "pegType": "usd",
+      "note": "Deepest USD-stable on-chain pool. Verified live 2026-09-18: reserve ~$8.29M, 24h vol ~$24.5M. Absorbs $10k and $100k at low bps. Core-route depth anchor (research_v2 sec 2). Uniswap v4 pool id (64-char)."
+    },
+    {
+      "id": "brla-usdc-polygon",
+      "label": "BRLA/USDC (Polygon) — primary BRL peg pool",
+      "network": "polygon_pos",
+      "tokenAddress": null,
+      "poolAddress": "0x0e7754127dedd4097be750825dbb4669bc32c956",
+      "pegType": "fx_brl",
+      "pegTokenSide": "quote",
+      "note": "BRLA token: 0xe6a537a407488807f0bbeb0038b79004f19dddfb (verified PolygonScan). Uniswap v3 0.05%. Verified 2026-09-18: reserve ~$139k, vol ~$115-118k/day. Primary BRLA pool (~51% of all BRLA volume). $10k clean; $100k needs multi-pool split across Gnosis + Base pools below. peg-dev displayed as BRL using live Foxbit USD/BRL ref."
+    },
+    {
+      "id": "brla-usdc-gnosis",
+      "label": "BRLA/USDC.e (Gnosis) — 2nd deepest BRL peg",
+      "network": "xdai",
+      "tokenAddress": null,
+      "poolAddress": "0x576bf065cbc15cb2d61affb156118fcff01a8238",
+      "pegType": "fx_brl",
+      "pegTokenSide": "quote",
+      "note": "BRLA token on Gnosis: 0xfecb3f7c54e2caae9dc6ac9060a822d47e053760. Oku Trade (Uni v3 0.05%). Verified 2026-09-18: reserve ~$103k, vol ~$16.7k/day. Quote token is USDC.e (bridged, 0x2a22...76f0) — factor into routing. Part of $100k BRLA split strategy."
+    },
+    {
+      "id": "brla-usdc-gnosis-curve",
+      "label": "BRLA/USDC.e Curve (Gnosis) — 3rd BRL peg venue",
+      "network": "xdai",
+      "tokenAddress": null,
+      "poolAddress": "0xfb8b95fb2296a0ad4b6b1419fdaa5aa5f13e4009",
+      "pegType": "fx_brl",
+      "note": "Curve stableswap on Gnosis. Verified 2026-09-18: reserve ~$56k, vol ~$2.2k/day. Low volume but usable supplementary depth for $100k split."
+    },
+    {
+      "id": "brla-usdc-base",
+      "label": "BRLA/USDC (Base) — 4th BRL peg venue",
+      "network": "base",
+      "tokenAddress": null,
+      "poolAddress": "0x1c33aa5cc206ed3d9e29fb136796a8815e48af58",
+      "pegType": "fx_brl",
+      "note": "BRLA token on Base: 0xfcb34c47f850f452c15ea1b84d51231c38a61783. Aerodrome Slipstream (0.05%). Verified 2026-09-18: reserve ~$45k, vol ~$2.2k/day. Supplementary venue for $100k split. USDC = native 0x8335...2913."
+    },
+    {
+      "id": "usdy-solana",
+      "label": "USDY/USDC (Solana) — real USDY venue",
+      "network": "solana",
+      "tokenAddress": null,
+      "poolAddress": "AGXrswVDRoUf62UX9voTXv6TCGw6fBUEwDpyUd9YdZfD",
+      "pegType": "accruing_nav",
+      "note": "USDY mint (Solana): A1KLoBrKBde8Ty9qtNQUtq3C2ortoC3u7twggz7sEto6 (verified Solscan). Verified 2026-09-18: reserve ~$2.92M, vol ~$85k — the REAL USDY venue. USDY accrues (~$1.14, no $1 peg) so peg-dev vs 1.0 is expected. Also: Sui ~$2.05M, Sei-EVM ~$1.0M. The 5BJZ... $1.14B pool is a zero-vol artifact — NOT tradable. Jupiter keyless quote: lite-api.jup.ag/swap/v1/quote (mint above)."
+    },
+    {
+      "id": "brz-tesouro-polygon",
+      "label": "BRZ (Polygon, thin) — secondary BRL peg",
+      "network": "polygon_pos",
+      "tokenAddress": null,
+      "poolAddress": "0xc89f31f74573cc19fffc06108601c1ac71ba9735",
+      "pegType": "fx_brl",
+      "note": "TESOURO/BRZ/stBRZ/BRLA multi-token Curve pool, reserve ~$170k, vol ~$5.9k/day (2026-09-18). No clean USD quote pair — all BRL-side assets. BRZ thinner than BRLA; $10k only with slippage. Shown for monitoring, not for $100k routing."
+    },
+    {
+      "id": "usdy-eth-thin",
+      "label": "USDY top pool (ETH, thin — monitor only)",
       "network": "eth",
-      "tokenAddress": "TODO_USDY_ERC20_ADDRESS",
+      "tokenAddress": "0x96F6eF951840721AdBF46Ac996b59E0235CB985C",
       "poolAddress": null,
       "pegType": "accruing_nav",
-      "note": "Fill tokenAddress; script auto-selects highest-liquidity pool. Or set poolAddress directly (Curve/Aerodrome/Solana)."
+      "note": "USDY ERC-20 on ETH. ETH pools are thin (~$15-20k) — real USDY depth is on Solana above. Kept for monitoring price divergence only. Auto-resolves to top ETH pool. Do NOT route $10k+ here."
     },
     {
       "id": "usde-top-pool",
       "label": "USDe top pool (Ethena)",
       "network": "eth",
-      "tokenAddress": "TODO_USDE_ERC20_ADDRESS",
+      "tokenAddress": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
       "poolAddress": null,
       "pegType": "usd",
-      "note": "Fill tokenAddress from verification. GeckoTerminal networks: eth, solana, base, arbitrum, celo, stellar-not-supported."
+      "note": "Ethena USDe ERC-20. Deep pools (USDe/FRAX ~$34M, USDe/USDC, USDe/USDT). Live peg-dev −5.4 bps measured 2026-09-18. Cross-venue CEX spread +6 bps Gate→Bitget also live. sUSDe = 0x9d39a5de30e57443bff2a8307a4256c8797a3497."
     },
     {
       "id": "mxne-stabull",
-      "label": "MXNe on Stabull",
+      "label": "MXNe on Base (dead — monitoring only)",
       "network": "base",
-      "tokenAddress": "TODO_MXNE_BASE_ADDRESS",
+      "tokenAddress": "0x269caE7Dc59803e5C596c95756faEeBb6030E0aF",
       "poolAddress": null,
       "pegType": "fx_mxn",
-      "note": "Regional peg — FX vs on-chain. USD exit = swap to USDC then CEX withdraw."
+      "note": "MXNe by Etherfuse/Brale. CONFIRMED NOT EXECUTABLE: top pools ~$140-550 reserve. Peg-dev now shown vs live USD/MXN from Coinbase rates (peg = MX$1.00 per token). Kept for completeness; exclude from any capital routing."
     },
     {
       "id": "ccop-mento",
-      "label": "cCOP on Celo (Mento)",
+      "label": "cCOP on Celo (dead — monitoring only)",
       "network": "celo",
-      "tokenAddress": "TODO_CCOP_CELO_ADDRESS",
+      "tokenAddress": "0x8A567e2aE79CA692Bd748aB832081C45de4041eA",
       "poolAddress": null,
       "pegType": "fx_cop",
-      "note": "Mento Asset Exchange; verify depth. USD exit via USDT/USDC swap then CEX."
+      "pegTokenSide": "quote",
+      "note": "cCOP (Celo Colombian Peso, Mento). CONFIRMED NOT EXECUTABLE: pools ~$450-16k. Peg-dev now shown vs live USD/COP from Coinbase rates (peg = COP$1.00 per token). Kept for completeness; exclude from any capital routing."
     }
   ]
 }

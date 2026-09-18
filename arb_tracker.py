@@ -35,6 +35,17 @@ except ImportError:
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 GECKO_BASE = "https://api.geckoterminal.com/api/v2"
+FOXBIT_BASE = "https://api.foxbit.com.br/rest/v3"
+COINBASE_RATES_URL = "https://api.coinbase.com/v2/exchange-rates"
+
+# On-chain pool names can contain non-Latin symbols (e.g. USD₮ = U+20AE). The
+# default Windows console codec (cp1252) can't encode those and crashes on print.
+# Force UTF-8 output with replacement so a stray glyph never kills a poll.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 
 # ----------------------------------------------------------------------------- utils
 
@@ -56,6 +67,43 @@ def fmt(x, nd=6):
 
 def fmt_bps(x):
     return "n/a" if x is None else f"{x:+.1f}bps"
+
+# ----------------------------------------------------------------------------- FX references
+
+def fetch_fx_refs():
+    """
+    Fetch live FX rates needed for peg-deviation on BRL/MXN/COP DEX pools.
+    USD/BRL: Foxbit USDC/BRL mid (stablecoin rate — most relevant for arb).
+    USD/MXN, USD/COP: Coinbase public exchange-rates (keyless, intraday).
+    Returns dict with keys: usd_brl, usd_brl_ask, usd_brl_bid, usd_mxn, usd_cop.
+    """
+    refs = {"usd_brl": None, "usd_brl_ask": None, "usd_brl_bid": None,
+            "usd_mxn": None, "usd_cop": None}
+    try:
+        r = requests.get(f"{FOXBIT_BASE}/markets/ticker/24hr",
+                         params={"symbols": "usdcbrl,usdtbrl"},
+                         headers={"accept": "application/json"}, timeout=10)
+        r.raise_for_status()
+        for item in r.json().get("data", []):
+            if item.get("market_symbol") == "usdcbrl":
+                ask = float(item["best"]["ask"]["price"])
+                bid = float(item["best"]["bid"]["price"])
+                refs["usd_brl_ask"] = ask
+                refs["usd_brl_bid"] = bid
+                refs["usd_brl"] = (ask + bid) / 2
+                break
+    except Exception:
+        pass
+    try:
+        r = requests.get(COINBASE_RATES_URL, params={"currency": "USD"},
+                         headers={"accept": "application/json"}, timeout=10)
+        r.raise_for_status()
+        rates = r.json().get("data", {}).get("rates", {})
+        refs["usd_mxn"] = float(rates["MXN"]) if "MXN" in rates else None
+        refs["usd_cop"] = float(rates["COP"]) if "COP" in rates else None
+    except Exception:
+        pass
+    return refs
 
 # ----------------------------------------------------------------------------- CEX
 
@@ -126,7 +174,7 @@ def slippage_for_notional(exchange_name, symbol, notional_usd, side):
     slip = bps(vwap, best) if side == "buy" else bps(best, vwap)
     return {"vwap": vwap, "slippage_bps": slip, "filled_fraction": filled_fraction}
 
-def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps):
+def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps, taker_fees=None):
     symbol = cfg["symbol"]
     peg = cfg.get("pegRef")
     print(f"\n  [{cfg.get('priority','?')}] {cfg['label']}  ({symbol})")
@@ -151,9 +199,14 @@ def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps):
     best_bid = max(((n, q["bid"]) for n, q in quotes.items() if q["bid"]), key=lambda x: x[1], default=None)
     if best_ask and best_bid:
         spread = bps(best_bid[1], best_ask[1])
+        fees = taker_fees or {}
+        buy_fee = fees.get(best_ask[0], {}).get("taker_bps", 10)
+        sell_fee = fees.get(best_bid[0], {}).get("taker_bps", 10)
+        net = (spread - buy_fee - sell_fee) if spread is not None else None
         flag = "  <<< OPPORTUNITY" if (spread is not None and spread >= threshold_bps) else ""
         print(f"      -> buy {best_ask[0]} @ {fmt(best_ask[1])} | sell {best_bid[0]} @ {fmt(best_bid[1])} "
-              f"| gross spread {fmt_bps(spread)}{flag}")
+              f"| gross {fmt_bps(spread)} | net-of-fees {fmt_bps(net)} "
+              f"(buy {buy_fee}bps + sell {sell_fee}bps){flag}")
         if flag:  # only pay for order-book calls when there's a headline spread
             buy = slippage_for_notional(best_ask[0], symbol, depth_notional, "buy")
             sell = slippage_for_notional(best_bid[0], symbol, depth_notional, "sell")
@@ -198,7 +251,7 @@ def resolve_pool(network, token_address):
     pool = data["data"][0]
     return pool["attributes"].get("address"), pool["attributes"]
 
-def track_dex_pool(cfg):
+def track_dex_pool(cfg, fx_refs=None):
     label = cfg["label"]
     network = cfg["network"]
     token = cfg.get("tokenAddress")
@@ -223,15 +276,54 @@ def track_dex_pool(cfg):
             return
         attrs = data["data"]["attributes"]
 
-    price = attrs.get("base_token_price_usd")
+    base_price = attrs.get("base_token_price_usd")
     quote_price = attrs.get("quote_token_price_usd")
     liq = attrs.get("reserve_in_usd")
     name = attrs.get("name", "?")
     print(f"\n  [DEX] {label}  ({network}:{pool[:10]}...)")
-    print(f"      pool={name}  base=${fmt(float(price)) if price else 'n/a':<12} "
+    print(f"      pool={name}  base=${fmt(float(base_price)) if base_price else 'n/a':<12} "
           f"quote=${fmt(float(quote_price)) if quote_price else 'n/a'}  liquidity=${liq}")
-    if cfg.get("pegType") == "usd" and price:
-        print(f"      peg-dev vs $1: {fmt_bps(bps(float(price), 1.0))}")
+
+    # pegTokenSide: which side of the pool is the pegged token?
+    # "base" (default) uses base_token_price_usd; "quote" uses quote_token_price_usd.
+    # Use "quote" when the pool is named "USDC / BRLA" (USD is base, peg token is quote).
+    peg_side = cfg.get("pegTokenSide", "base")
+    raw_price = quote_price if peg_side == "quote" else base_price
+    peg_type = cfg.get("pegType", "")
+    price_f = float(raw_price) if raw_price else None
+    refs = fx_refs or {}
+    if peg_type == "usd" and price_f:
+        print(f"      peg-dev vs $1.00: {fmt_bps(bps(price_f, 1.0))}")
+    elif peg_type == "fx_brl" and price_f and refs.get("usd_brl"):
+        price_brl = price_f * refs["usd_brl"]
+        print(f"      {peg_side}={fmt(price_f, 4)} USD = {fmt(price_brl, 4)} BRL  "
+              f"peg-dev vs R$1.00: {fmt_bps(bps(price_brl, 1.0))}")
+    elif peg_type == "fx_mxn" and price_f and refs.get("usd_mxn"):
+        price_mxn = price_f * refs["usd_mxn"]
+        print(f"      {peg_side}={fmt(price_f, 4)} USD = {fmt(price_mxn, 4)} MXN  "
+              f"peg-dev vs MX$1.00: {fmt_bps(bps(price_mxn, 1.0))}")
+    elif peg_type == "fx_cop" and price_f and refs.get("usd_cop"):
+        price_cop = price_f * refs["usd_cop"]
+        print(f"      {peg_side}={fmt(price_f, 4)} USD = {fmt(price_cop, 4)} COP  "
+              f"peg-dev vs COP$1.00: {fmt_bps(bps(price_cop, 1.0))}")
+    elif peg_type == "accruing_nav" and price_f:
+        print(f"      NAV ~${fmt(price_f, 4)} (accruing — drift vs $1.00 is expected, not a dislocation)")
+
+# ----------------------------------------------------------------------------- BRL terminal
+
+def track_foxbit_terminal(fx_refs):
+    brl = fx_refs.get("usd_brl")
+    ask = fx_refs.get("usd_brl_ask")
+    bid = fx_refs.get("usd_brl_bid")
+    print("\n--- BRL Terminal (Foxbit USDC/BRL) -------------------------------------")
+    if brl is None:
+        print("  (fetch failed — check Foxbit API connectivity)")
+        return
+    spread_bps = ((ask - bid) / brl) * 1e4 if (ask and bid and brl) else None
+    print(f"  bid={fmt(bid, 4)} | ask={fmt(ask, 4)} | mid={fmt(brl, 4)} BRL/USDC  "
+          f"spread={fmt_bps(spread_bps)}")
+    print(f"  Sell $10k  USDC → R${brl * 10_000:,.2f}  |  Sell $100k → R${brl * 100_000:,.2f}")
+    print(f"  (Confirmed $100k absorbs ~0 bps impact — terminal is not the bottleneck)")
 
 # ----------------------------------------------------------------------------- main
 
@@ -241,21 +333,35 @@ def run_once(watchlist, config, args):
     thr = args.threshold_bps if args.threshold_bps is not None else d.get("alertThresholdBps", 15)
     peg_dev = d.get("pegDeviationAlertBps", 20)
 
+    taker_fees = config.get("takerFees", {})
+
     print("=" * 78)
     print(f"ARB TRACKER  {utcnow()}   depth=${depth:,.0f}  spread-alert>={thr}bps  peg-alert>={peg_dev}bps")
     print("=" * 78)
 
+    print("\nFetching FX references (Foxbit BRL + Coinbase MXN/COP)...")
+    fx_refs = fetch_fx_refs()
+    brl_str = f"R${fx_refs['usd_brl']:.4f}" if fx_refs.get("usd_brl") else "n/a"
+    mxn_str = f"MX${fx_refs['usd_mxn']:.4f}" if fx_refs.get("usd_mxn") else "n/a"
+    cop_str = f"COP${fx_refs['usd_cop']:.2f}" if fx_refs.get("usd_cop") else "n/a"
+    print(f"  USD/BRL={brl_str}  USD/MXN={mxn_str}  USD/COP={cop_str}")
+
+    track_foxbit_terminal(fx_refs)
+
     print("\n--- CEX cross-venue & peg deviation ------------------------------------")
     for cfg in config.get("cexSpreads", []):
-        track_cex_pair(cfg, depth, thr, peg_dev)
+        track_cex_pair(cfg, depth, thr, peg_dev, taker_fees)
 
     print("\n--- DEX on-chain (GeckoTerminal) ---------------------------------------")
+    dex_delay = config.get("defaults", {}).get("dexPollDelayMs", 2000) / 1000
     for cfg in config.get("dexPools", []):
-        track_dex_pool(cfg)
+        track_dex_pool(cfg, fx_refs)
+        time.sleep(dex_delay)
 
     print("\n" + "-" * 78)
-    print("Reminder: gross spreads exclude taker fees, withdrawal fees, and bridge/settlement time.")
-    print("See watchlist.json -> verificationQueue for what to prove before deploying capital.")
+    print("Net-of-fees = gross - taker_buy - taker_sell. Round-trip ~14 bps Binance / ~20 bps OKX·Bybit·Bitget / ~40 bps Kraken·Gate.")
+    print("Alert threshold is on gross spread — confirm net > 0 before acting.")
+    print("See research_v2.md verification queue for open items before deploying capital.")
 
 def main():
     ap = argparse.ArgumentParser(description="Stablecoin/RWA arbitrage price tracker (CCXT + GeckoTerminal)")
