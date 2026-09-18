@@ -1,0 +1,101 @@
+{
+  "$schema": "arb-tracking-config/v1",
+  "_comment": "Concrete venues/pairs the tracker polls. CEX section runs out-of-the-box (public data, no keys). DEX entries with an address starting with 'TODO' are skipped until you fill them from watchlist.json -> verificationQueue.",
+
+  "defaults": {
+    "depthNotionalUsd": 25000,
+    "alertThresholdBps": 15,
+    "pegDeviationAlertBps": 20
+  },
+
+  "cexSpreads": [
+    {
+      "id": "usdc-usdt",
+      "label": "USDC/USDT cross-venue",
+      "symbol": "USDC/USDT",
+      "pegRef": 1.0,
+      "exchanges": ["binance", "okx", "bybit", "kraken", "coinbase"],
+      "priority": 1
+    },
+    {
+      "id": "fdusd-usdt",
+      "label": "FDUSD/USDT",
+      "symbol": "FDUSD/USDT",
+      "pegRef": 1.0,
+      "exchanges": ["binance", "bybit"],
+      "priority": 1
+    },
+    {
+      "id": "dai-usdt",
+      "label": "DAI/USDT cross-venue",
+      "symbol": "DAI/USDT",
+      "pegRef": 1.0,
+      "exchanges": ["binance", "okx", "kraken"],
+      "priority": 1
+    },
+    {
+      "id": "usde-usdt",
+      "label": "USDe/USDT (Ethena)",
+      "symbol": "USDE/USDT",
+      "pegRef": 1.0,
+      "exchanges": ["bybit", "okx", "gate", "bitget"],
+      "priority": 2
+    },
+    {
+      "id": "usdc-usd",
+      "label": "USDC vs fiat USD",
+      "symbol": "USDC/USD",
+      "pegRef": 1.0,
+      "exchanges": ["kraken", "coinbase"],
+      "priority": 1
+    },
+    {
+      "id": "eurc-usdc",
+      "label": "EURC/USDC (EUR stable, FX not peg=1)",
+      "symbol": "EURC/USDC",
+      "pegRef": null,
+      "exchanges": ["coinbase", "kraken"],
+      "priority": 5,
+      "note": "EUR/USD FX pair. Compare vs live EURUSD FX ref (not implemented) to spot dislocation; MiCA-gated in EEA."
+    }
+  ],
+
+  "dexPools": [
+    {
+      "id": "usdy-top-pool",
+      "label": "USDY top pool (Ondo)",
+      "network": "eth",
+      "tokenAddress": "TODO_USDY_ERC20_ADDRESS",
+      "poolAddress": null,
+      "pegType": "accruing_nav",
+      "note": "Fill tokenAddress; script auto-selects highest-liquidity pool. Or set poolAddress directly (Curve/Aerodrome/Solana)."
+    },
+    {
+      "id": "usde-top-pool",
+      "label": "USDe top pool (Ethena)",
+      "network": "eth",
+      "tokenAddress": "TODO_USDE_ERC20_ADDRESS",
+      "poolAddress": null,
+      "pegType": "usd",
+      "note": "Fill tokenAddress from verification. GeckoTerminal networks: eth, solana, base, arbitrum, celo, stellar-not-supported."
+    },
+    {
+      "id": "mxne-stabull",
+      "label": "MXNe on Stabull",
+      "network": "base",
+      "tokenAddress": "TODO_MXNE_BASE_ADDRESS",
+      "poolAddress": null,
+      "pegType": "fx_mxn",
+      "note": "Regional peg — FX vs on-chain. USD exit = swap to USDC then CEX withdraw."
+    },
+    {
+      "id": "ccop-mento",
+      "label": "cCOP on Celo (Mento)",
+      "network": "celo",
+      "tokenAddress": "TODO_CCOP_CELO_ADDRESS",
+      "poolAddress": null,
+      "pegType": "fx_cop",
+      "note": "Mento Asset Exchange; verify depth. USD exit via USDT/USDC swap then CEX."
+    }
+  ]
+}
