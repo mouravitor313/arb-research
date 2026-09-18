@@ -17,8 +17,10 @@ Usage:
 """
 
 import argparse
+import csv
 import json
 import os
+import sqlite3
 import sys
 import time
 from datetime import datetime, timezone
@@ -46,6 +48,111 @@ for _stream in (sys.stdout, sys.stderr):
         _stream.reconfigure(encoding="utf-8", errors="replace")
     except (AttributeError, ValueError):
         pass
+
+# ----------------------------------------------------------------------------- persistence
+
+def init_db(db_path=None):
+    """Initialize SQLite schema. Returns db connection."""
+    if db_path is None:
+        db_path = os.path.join(HERE, "arb_tracker.db")
+    conn = sqlite3.connect(db_path)
+    c = conn.cursor()
+
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS fx_refs (
+            ts TEXT PRIMARY KEY,
+            usd_brl REAL,
+            usd_brl_ask REAL,
+            usd_brl_bid REAL,
+            usd_mxn REAL,
+            usd_cop REAL
+        )
+    """)
+
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS cex_quotes (
+            ts TEXT,
+            exchange TEXT,
+            symbol TEXT,
+            bid REAL,
+            ask REAL,
+            last REAL,
+            peg_dev_bps REAL,
+            PRIMARY KEY (ts, exchange, symbol)
+        )
+    """)
+
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS cex_spreads (
+            ts TEXT,
+            symbol TEXT,
+            best_ask_exchange TEXT,
+            best_ask_price REAL,
+            best_bid_exchange TEXT,
+            best_bid_price REAL,
+            gross_spread_bps REAL,
+            net_spread_bps REAL,
+            depth_notional REAL,
+            slippage_buy_bps REAL,
+            slippage_buy_fraction REAL,
+            slippage_sell_bps REAL,
+            slippage_sell_fraction REAL,
+            PRIMARY KEY (ts, symbol)
+        )
+    """)
+
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS dex_pools (
+            ts TEXT,
+            label TEXT,
+            network TEXT,
+            pool_address TEXT,
+            base_price REAL,
+            quote_price REAL,
+            liquidity_usd REAL,
+            peg_price_usd REAL,
+            peg_dev_bps REAL,
+            peg_type TEXT,
+            PRIMARY KEY (ts, label)
+        )
+    """)
+
+    conn.commit()
+    return conn
+
+def init_csv_files():
+    """Initialize CSV files if they don't exist."""
+    fx_csv = os.path.join(HERE, "arb_tracker_fx_refs.csv")
+    quotes_csv = os.path.join(HERE, "arb_tracker_cex_quotes.csv")
+    spreads_csv = os.path.join(HERE, "arb_tracker_cex_spreads.csv")
+    dex_csv = os.path.join(HERE, "arb_tracker_dex_pools.csv")
+
+    if not os.path.exists(fx_csv):
+        with open(fx_csv, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=["ts", "usd_brl", "usd_brl_ask", "usd_brl_bid", "usd_mxn", "usd_cop"])
+            w.writeheader()
+
+    if not os.path.exists(quotes_csv):
+        with open(quotes_csv, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=["ts", "exchange", "symbol", "bid", "ask", "last", "peg_dev_bps"])
+            w.writeheader()
+
+    if not os.path.exists(spreads_csv):
+        with open(spreads_csv, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=[
+                "ts", "symbol", "best_ask_exchange", "best_ask_price", "best_bid_exchange", "best_bid_price",
+                "gross_spread_bps", "net_spread_bps", "depth_notional", "slippage_buy_bps", "slippage_buy_fraction",
+                "slippage_sell_bps", "slippage_sell_fraction"
+            ])
+            w.writeheader()
+
+    if not os.path.exists(dex_csv):
+        with open(dex_csv, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=[
+                "ts", "label", "network", "pool_address", "base_price", "quote_price", "liquidity_usd",
+                "peg_price_usd", "peg_dev_bps", "peg_type"
+            ])
+            w.writeheader()
 
 # ----------------------------------------------------------------------------- utils
 
@@ -174,11 +281,12 @@ def slippage_for_notional(exchange_name, symbol, notional_usd, side):
     slip = bps(vwap, best) if side == "buy" else bps(best, vwap)
     return {"vwap": vwap, "slippage_bps": slip, "filled_fraction": filled_fraction}
 
-def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps, taker_fees=None):
+def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps, taker_fees=None, ts=None):
     symbol = cfg["symbol"]
     peg = cfg.get("pegRef")
     print(f"\n  [{cfg.get('priority','?')}] {cfg['label']}  ({symbol})")
     quotes = {}
+    quote_rows = []
     for exname in cfg["exchanges"]:
         t = fetch_ticker(exname, symbol)
         if t and (t["bid"] or t["ask"] or t["last"]):
@@ -187,12 +295,24 @@ def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps, taker_fees=N
             if t["bid"] and t["ask"]:
                 mid = (t["bid"] + t["ask"]) / 2
             dev = fmt_bps(bps(mid or t["last"], peg)) if peg else "  (fx)"
+            dev_bps = bps(mid or t["last"], peg) if peg else None
             print(f"      {exname:<10} bid={fmt(t['bid'])} ask={fmt(t['ask'])} last={fmt(t['last'])}  peg-dev={dev}")
+            if ts:
+                quote_rows.append({
+                    "ts": ts,
+                    "exchange": exname,
+                    "symbol": symbol,
+                    "bid": t["bid"],
+                    "ask": t["ask"],
+                    "last": t["last"],
+                    "peg_dev_bps": dev_bps
+                })
         else:
             print(f"      {exname:<10} (no data / symbol not listed)")
 
+    spread_row = None
     if len(quotes) < 2:
-        return
+        return quote_rows, spread_row
 
     # cross-venue: cheapest ask (buy here) vs richest bid (sell there)
     best_ask = min(((n, q["ask"]) for n, q in quotes.items() if q["ask"]), key=lambda x: x[1], default=None)
@@ -207,6 +327,12 @@ def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps, taker_fees=N
         print(f"      -> buy {best_ask[0]} @ {fmt(best_ask[1])} | sell {best_bid[0]} @ {fmt(best_bid[1])} "
               f"| gross {fmt_bps(spread)} | net-of-fees {fmt_bps(net)} "
               f"(buy {buy_fee}bps + sell {sell_fee}bps){flag}")
+
+        slippage_buy_bps = None
+        slippage_sell_bps = None
+        slippage_buy_fraction = None
+        slippage_sell_fraction = None
+
         if flag:  # only pay for order-book calls when there's a headline spread
             buy = slippage_for_notional(best_ask[0], symbol, depth_notional, "buy")
             sell = slippage_for_notional(best_bid[0], symbol, depth_notional, "sell")
@@ -214,9 +340,30 @@ def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps, taker_fees=N
                 net = None
                 if spread is not None and buy["slippage_bps"] is not None and sell["slippage_bps"] is not None:
                     net = spread - buy["slippage_bps"] - sell["slippage_bps"]
+                slippage_buy_bps = buy["slippage_bps"]
+                slippage_buy_fraction = buy["filled_fraction"]
+                slippage_sell_bps = sell["slippage_bps"]
+                slippage_sell_fraction = sell["filled_fraction"]
                 print(f"         depth@${depth_notional:,.0f}: buy slip {fmt_bps(buy['slippage_bps'])} "
                       f"(filled {buy['filled_fraction']*100:.0f}%) | sell slip {fmt_bps(sell['slippage_bps'])} "
                       f"(filled {sell['filled_fraction']*100:.0f}%) | net-of-slippage {fmt_bps(net)}")
+
+        if ts:
+            spread_row = {
+                "ts": ts,
+                "symbol": symbol,
+                "best_ask_exchange": best_ask[0],
+                "best_ask_price": best_ask[1],
+                "best_bid_exchange": best_bid[0],
+                "best_bid_price": best_bid[1],
+                "gross_spread_bps": spread,
+                "net_spread_bps": net,
+                "depth_notional": depth_notional,
+                "slippage_buy_bps": slippage_buy_bps,
+                "slippage_buy_fraction": slippage_buy_fraction,
+                "slippage_sell_bps": slippage_sell_bps,
+                "slippage_sell_fraction": slippage_sell_fraction
+            }
 
     # peg deviation alert (uses the most extreme venue)
     if peg:
@@ -225,6 +372,8 @@ def track_cex_pair(cfg, depth_notional, threshold_bps, peg_dev_bps, taker_fees=N
             d = bps(mid, peg)
             if d is not None and abs(d) >= peg_dev_bps:
                 print(f"      !!! peg deviation on {n}: {fmt_bps(d)} (threshold {peg_dev_bps}bps)")
+
+    return quote_rows, spread_row
 
 # ----------------------------------------------------------------------------- DEX (GeckoTerminal)
 
@@ -251,7 +400,7 @@ def resolve_pool(network, token_address):
     pool = data["data"][0]
     return pool["attributes"].get("address"), pool["attributes"]
 
-def track_dex_pool(cfg, fx_refs=None):
+def track_dex_pool(cfg, fx_refs=None, ts=None):
     label = cfg["label"]
     network = cfg["network"]
     token = cfg.get("tokenAddress")
@@ -259,21 +408,21 @@ def track_dex_pool(cfg, fx_refs=None):
 
     if (token and str(token).startswith("TODO")) or (not token and not pool):
         print(f"\n  [DEX] {label}: SKIPPED (fill tokenAddress/poolAddress from verification queue)")
-        return
+        return None
 
     attrs = None
     if not pool and token:
         resolved = resolve_pool(network, token)
         if not resolved:
             print(f"\n  [DEX] {label}: no pool found for token on {network}")
-            return
+            return None
         pool, attrs = resolved
 
     if not attrs:
         data = gecko_get(f"/networks/{network}/pools/{pool}")
         if not data or "data" not in data:
             print(f"\n  [DEX] {label}: pool fetch failed")
-            return
+            return None
         attrs = data["data"]["attributes"]
 
     base_price = attrs.get("base_token_price_usd")
@@ -292,24 +441,143 @@ def track_dex_pool(cfg, fx_refs=None):
     peg_type = cfg.get("pegType", "")
     price_f = float(raw_price) if raw_price else None
     refs = fx_refs or {}
+
+    peg_dev_bps = None
+    peg_price_usd = price_f
+
     if peg_type == "usd" and price_f:
-        print(f"      peg-dev vs $1.00: {fmt_bps(bps(price_f, 1.0))}")
+        peg_dev_bps = bps(price_f, 1.0)
+        print(f"      peg-dev vs $1.00: {fmt_bps(peg_dev_bps)}")
     elif peg_type == "fx_brl" and price_f and refs.get("usd_brl"):
         price_brl = price_f * refs["usd_brl"]
+        peg_dev_bps = bps(price_brl, 1.0)
         print(f"      {peg_side}={fmt(price_f, 4)} USD = {fmt(price_brl, 4)} BRL  "
-              f"peg-dev vs R$1.00: {fmt_bps(bps(price_brl, 1.0))}")
+              f"peg-dev vs R$1.00: {fmt_bps(peg_dev_bps)}")
     elif peg_type == "fx_mxn" and price_f and refs.get("usd_mxn"):
         price_mxn = price_f * refs["usd_mxn"]
+        peg_dev_bps = bps(price_mxn, 1.0)
         print(f"      {peg_side}={fmt(price_f, 4)} USD = {fmt(price_mxn, 4)} MXN  "
-              f"peg-dev vs MX$1.00: {fmt_bps(bps(price_mxn, 1.0))}")
+              f"peg-dev vs MX$1.00: {fmt_bps(peg_dev_bps)}")
     elif peg_type == "fx_cop" and price_f and refs.get("usd_cop"):
         price_cop = price_f * refs["usd_cop"]
+        peg_dev_bps = bps(price_cop, 1.0)
         print(f"      {peg_side}={fmt(price_f, 4)} USD = {fmt(price_cop, 4)} COP  "
-              f"peg-dev vs COP$1.00: {fmt_bps(bps(price_cop, 1.0))}")
+              f"peg-dev vs COP$1.00: {fmt_bps(peg_dev_bps)}")
     elif peg_type == "accruing_nav" and price_f:
         print(f"      NAV ~${fmt(price_f, 4)} (accruing — drift vs $1.00 is expected, not a dislocation)")
 
+    if ts:
+        return {
+            "ts": ts,
+            "label": label,
+            "network": network,
+            "pool_address": pool,
+            "base_price": base_price,
+            "quote_price": quote_price,
+            "liquidity_usd": liq,
+            "peg_price_usd": peg_price_usd,
+            "peg_dev_bps": peg_dev_bps,
+            "peg_type": peg_type
+        }
+    return None
+
 # ----------------------------------------------------------------------------- BRL terminal
+
+def persist_poll(ts, fx_refs, cex_quote_rows, cex_spread_rows, dex_pool_rows, db):
+    """Write poll data to CSV and SQLite."""
+    try:
+        # Write FX refs to CSV
+        fx_csv = os.path.join(HERE, "arb_tracker_fx_refs.csv")
+        with open(fx_csv, "a", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=["ts", "usd_brl", "usd_brl_ask", "usd_brl_bid", "usd_mxn", "usd_cop"])
+            w.writerow({
+                "ts": ts,
+                "usd_brl": fx_refs.get("usd_brl"),
+                "usd_brl_ask": fx_refs.get("usd_brl_ask"),
+                "usd_brl_bid": fx_refs.get("usd_brl_bid"),
+                "usd_mxn": fx_refs.get("usd_mxn"),
+                "usd_cop": fx_refs.get("usd_cop")
+            })
+
+        # Write CEX quotes to CSV
+        quotes_csv = os.path.join(HERE, "arb_tracker_cex_quotes.csv")
+        with open(quotes_csv, "a", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=["ts", "exchange", "symbol", "bid", "ask", "last", "peg_dev_bps"])
+            w.writerows(cex_quote_rows)
+
+        # Write CEX spreads to CSV
+        spreads_csv = os.path.join(HERE, "arb_tracker_cex_spreads.csv")
+        with open(spreads_csv, "a", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=[
+                "ts", "symbol", "best_ask_exchange", "best_ask_price", "best_bid_exchange", "best_bid_price",
+                "gross_spread_bps", "net_spread_bps", "depth_notional", "slippage_buy_bps", "slippage_buy_fraction",
+                "slippage_sell_bps", "slippage_sell_fraction"
+            ])
+            w.writerows(cex_spread_rows)
+
+        # Write DEX pools to CSV
+        dex_csv = os.path.join(HERE, "arb_tracker_dex_pools.csv")
+        with open(dex_csv, "a", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=[
+                "ts", "label", "network", "pool_address", "base_price", "quote_price", "liquidity_usd",
+                "peg_price_usd", "peg_dev_bps", "peg_type"
+            ])
+            w.writerows(dex_pool_rows)
+
+        # Write to SQLite if connection provided
+        if db:
+            c = db.cursor()
+
+            # FX refs (replace if exists)
+            c.execute("""
+                INSERT OR REPLACE INTO fx_refs
+                (ts, usd_brl, usd_brl_ask, usd_brl_bid, usd_mxn, usd_cop)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (
+                ts,
+                fx_refs.get("usd_brl"),
+                fx_refs.get("usd_brl_ask"),
+                fx_refs.get("usd_brl_bid"),
+                fx_refs.get("usd_mxn"),
+                fx_refs.get("usd_cop")
+            ))
+
+            # CEX quotes
+            for row in cex_quote_rows:
+                c.execute("""
+                    INSERT OR REPLACE INTO cex_quotes
+                    (ts, exchange, symbol, bid, ask, last, peg_dev_bps)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                """, (row["ts"], row["exchange"], row["symbol"], row["bid"], row["ask"],
+                      row["last"], row["peg_dev_bps"]))
+
+            # CEX spreads
+            for row in cex_spread_rows:
+                c.execute("""
+                    INSERT OR REPLACE INTO cex_spreads
+                    (ts, symbol, best_ask_exchange, best_ask_price, best_bid_exchange, best_bid_price,
+                     gross_spread_bps, net_spread_bps, depth_notional, slippage_buy_bps, slippage_buy_fraction,
+                     slippage_sell_bps, slippage_sell_fraction)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (row["ts"], row["symbol"], row["best_ask_exchange"], row["best_ask_price"],
+                      row["best_bid_exchange"], row["best_bid_price"], row["gross_spread_bps"],
+                      row["net_spread_bps"], row["depth_notional"], row["slippage_buy_bps"],
+                      row["slippage_buy_fraction"], row["slippage_sell_bps"], row["slippage_sell_fraction"]))
+
+            # DEX pools
+            for row in dex_pool_rows:
+                c.execute("""
+                    INSERT OR REPLACE INTO dex_pools
+                    (ts, label, network, pool_address, base_price, quote_price, liquidity_usd,
+                     peg_price_usd, peg_dev_bps, peg_type)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (row["ts"], row["label"], row["network"], row["pool_address"],
+                      row["base_price"], row["quote_price"], row["liquidity_usd"],
+                      row["peg_price_usd"], row["peg_dev_bps"], row["peg_type"]))
+
+            db.commit()
+    except Exception as e:
+        print(f"Persistence error: {e}")
 
 def track_foxbit_terminal(fx_refs):
     brl = fx_refs.get("usd_brl")
@@ -327,13 +595,14 @@ def track_foxbit_terminal(fx_refs):
 
 # ----------------------------------------------------------------------------- main
 
-def run_once(watchlist, config, args):
+def run_once(watchlist, config, args, db=None):
     d = config.get("defaults", {})
     depth = args.depth_notional or d.get("depthNotionalUsd", 25000)
     thr = args.threshold_bps if args.threshold_bps is not None else d.get("alertThresholdBps", 15)
     peg_dev = d.get("pegDeviationAlertBps", 20)
 
     taker_fees = config.get("takerFees", {})
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S.%f")
 
     print("=" * 78)
     print(f"ARB TRACKER  {utcnow()}   depth=${depth:,.0f}  spread-alert>={thr}bps  peg-alert>={peg_dev}bps")
@@ -348,20 +617,34 @@ def run_once(watchlist, config, args):
 
     track_foxbit_terminal(fx_refs)
 
+    # Collect data for persistence
+    cex_quote_rows = []
+    cex_spread_rows = []
+    dex_pool_rows = []
+
     print("\n--- CEX cross-venue & peg deviation ------------------------------------")
     for cfg in config.get("cexSpreads", []):
-        track_cex_pair(cfg, depth, thr, peg_dev, taker_fees)
+        quotes, spread = track_cex_pair(cfg, depth, thr, peg_dev, taker_fees, ts)
+        cex_quote_rows.extend(quotes)
+        if spread:
+            cex_spread_rows.append(spread)
 
     print("\n--- DEX on-chain (GeckoTerminal) ---------------------------------------")
     dex_delay = config.get("defaults", {}).get("dexPollDelayMs", 2000) / 1000
     for cfg in config.get("dexPools", []):
-        track_dex_pool(cfg, fx_refs)
+        dex_row = track_dex_pool(cfg, fx_refs, ts)
+        if dex_row:
+            dex_pool_rows.append(dex_row)
         time.sleep(dex_delay)
 
     print("\n" + "-" * 78)
     print("Net-of-fees = gross - taker_buy - taker_sell. Round-trip ~14 bps Binance / ~20 bps OKX·Bybit·Bitget / ~40 bps Kraken·Gate.")
     print("Alert threshold is on gross spread — confirm net > 0 before acting.")
     print("See research_v2.md verification queue for open items before deploying capital.")
+
+    # Persist data to CSV and SQLite
+    if db:
+        persist_poll(ts, fx_refs, cex_quote_rows, cex_spread_rows, dex_pool_rows, db)
 
 def main():
     ap = argparse.ArgumentParser(description="Stablecoin/RWA arbitrage price tracker (CCXT + GeckoTerminal)")
@@ -371,6 +654,7 @@ def main():
     ap.add_argument("--interval", type=int, default=None, help="Seconds between polls (loop mode)")
     ap.add_argument("--depth-notional", type=float, default=None, help="USD notional for slippage check")
     ap.add_argument("--threshold-bps", type=float, default=None, help="Min gross spread to flag as opportunity")
+    ap.add_argument("--persist", action="store_true", help="Log to CSV and SQLite (enabled by default in loop mode)")
     args = ap.parse_args()
 
     config = load_json(args.config)
@@ -381,17 +665,27 @@ def main():
         except Exception:
             pass
 
+    db = None
+    if args.persist or args.interval:
+        init_csv_files()
+        db = init_db()
+        print(f"Persistence enabled: CSV + SQLite → {os.path.join(HERE, 'arb_tracker*.csv')} & {os.path.join(HERE, 'arb_tracker.db')}")
+
     if args.once or args.interval is None:
-        run_once(watchlist, config, args)
+        run_once(watchlist, config, args, db)
+        if db:
+            db.close()
         return
 
-    print(f"Looping every {args.interval}s. Ctrl+C to stop.")
+    print(f"Looping every {args.interval}s (persistence enabled). Ctrl+C to stop.")
     try:
         while True:
-            run_once(watchlist, config, args)
+            run_once(watchlist, config, args, db)
             time.sleep(args.interval)
     except KeyboardInterrupt:
         print("\nStopped.")
+        if db:
+            db.close()
 
 if __name__ == "__main__":
     main()
