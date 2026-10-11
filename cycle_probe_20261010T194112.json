@@ -1,0 +1,646 @@
+{
+  "ts": "2026-10-10T19:41:12+00:00",
+  "block": 95304010,
+  "gas_price_gwei": 276.487732075,
+  "pol_usd": 0.10197732953097513,
+  "cycles": [
+    {
+      "direction": "fwd",
+      "route": "uni",
+      "size_usd": 1000,
+      "ok": true,
+      "exhausted": false,
+      "venues": "usdc_brla>uni>brz_usdt0>v4",
+      "amount_in": 1000.0,
+      "amount_out": 994.157119,
+      "gross_bps": -58.43,
+      "gas": 832812,
+      "gas_usd": 0.02348,
+      "net_bps": -58.66,
+      "legs": [
+        {
+          "venue": "usdc_brla",
+          "in": 1000000000,
+          "out": 5026969796352623709860,
+          "gas": 200277,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "uni",
+          "in": 5026969796352623709860,
+          "out": 5055078250594580555441,
+          "gas": 305576,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 5055078250594580555441,
+          "out": 995048317,
+          "gas": 189723,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "v4",
+          "in": 995048317,
+          "out": 994157119,
+          "gas": 56236,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "fwd",
+      "route": "uni",
+      "size_usd": 10000,
+      "ok": true,
+      "exhausted": true,
+      "venues": "usdc_brla>uni>brz_usdt0>v4",
+      "amount_in": 10000.0,
+      "amount_out": 7614.128116,
+      "gross_bps": -2385.87,
+      "gas": 5456068,
+      "gas_usd": 0.15384,
+      "net_bps": -2386.03,
+      "legs": [
+        {
+          "venue": "usdc_brla",
+          "in": 10000000000,
+          "out": 50155599674286288554234,
+          "gas": 293078,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "uni",
+          "in": 50155599674286288554234,
+          "out": 38807596629271565718238,
+          "gas": 4782303,
+          "exhausted": true,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 38807596629271565718238,
+          "out": 7620975231,
+          "gas": 245951,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "v4",
+          "in": 7620975231,
+          "out": 7614128116,
+          "gas": 53736,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "fwd",
+      "route": "uni",
+      "size_usd": 100000,
+      "ok": true,
+      "exhausted": true,
+      "venues": "usdc_brla>uni>brz_usdt0>v4",
+      "amount_in": 100000.0,
+      "amount_out": 7614.128116,
+      "gross_bps": -9238.59,
+      "gas": 5263854,
+      "gas_usd": 0.14842,
+      "net_bps": -9238.6,
+      "legs": [
+        {
+          "venue": "usdc_brla",
+          "in": 100000000000,
+          "out": 183224108505499553948325,
+          "gas": 1960784,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "uni",
+          "in": 183224108505499553948325,
+          "out": 38807596629271565718238,
+          "gas": 2922383,
+          "exhausted": true,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 38807596629271565718238,
+          "out": 7620975231,
+          "gas": 245951,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "v4",
+          "in": 7620975231,
+          "out": 7614128116,
+          "gas": 53736,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "fwd",
+      "route": "curve",
+      "size_usd": 1000,
+      "ok": true,
+      "exhausted": false,
+      "venues": "usdc_brla>curve>brz_usdt0>v4",
+      "amount_in": 1000.0,
+      "amount_out": 996.466349,
+      "gross_bps": -35.34,
+      "gas": 658296,
+      "gas_usd": 0.01856,
+      "net_bps": -35.52,
+      "legs": [
+        {
+          "venue": "usdc_brla",
+          "in": 1000000000,
+          "out": 5026969796352623709860,
+          "gas": 187057,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "curve",
+          "in": 5026969796352623709860,
+          "out": 5066824355431230998683,
+          "gas": 160000,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 5066824355431230998683,
+          "out": 997359618,
+          "gas": 176503,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "v4",
+          "in": 997359618,
+          "out": 996466349,
+          "gas": 53736,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "fwd",
+      "route": "curve",
+      "size_usd": 10000,
+      "ok": true,
+      "exhausted": false,
+      "venues": "usdc_brla>curve>brz_usdt0>v4",
+      "amount_in": 10000.0,
+      "amount_out": 9871.587941,
+      "gross_bps": -128.41,
+      "gas": 902221,
+      "gas_usd": 0.02544,
+      "net_bps": -128.44,
+      "legs": [
+        {
+          "venue": "usdc_brla",
+          "in": 10000000000,
+          "out": 50155599674286288554234,
+          "gas": 293078,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "curve",
+          "in": 50155599674286288554234,
+          "out": 50353972905349805408107,
+          "gas": 160000,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 50353972905349805408107,
+          "out": 9880474633,
+          "gas": 314407,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "v4",
+          "in": 9880474633,
+          "out": 9871587941,
+          "gas": 53736,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "fwd",
+      "route": "curve",
+      "size_usd": 100000,
+      "ok": true,
+      "exhausted": false,
+      "venues": "usdc_brla>curve>brz_usdt0>v4",
+      "amount_in": 100000.0,
+      "amount_out": 35580.221188,
+      "gross_bps": -6441.98,
+      "gas": 3039403,
+      "gas_usd": 0.0857,
+      "net_bps": -6441.99,
+      "legs": [
+        {
+          "venue": "usdc_brla",
+          "in": 100000000000,
+          "out": 183224108505499553948325,
+          "gas": 1633824,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "curve",
+          "in": 183224108505499553948325,
+          "out": 183466849324358543598361,
+          "gas": 160000,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 183466849324358543598361,
+          "out": 35613029669,
+          "gas": 1078616,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "v4",
+          "in": 35613029669,
+          "out": 35580221188,
+          "gas": 85963,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "rev",
+      "route": "uni",
+      "size_usd": 1000,
+      "ok": true,
+      "exhausted": true,
+      "venues": "v4>brz_usdt0>uni>usdc_brla",
+      "amount_in": 1000.0,
+      "amount_out": 667.352356,
+      "gross_bps": -3326.48,
+      "gas": 4804935,
+      "gas_usd": 0.13548,
+      "net_bps": -3327.83,
+      "legs": [
+        {
+          "venue": "v4",
+          "in": 1000000000,
+          "out": 1000875565,
+          "gas": 56456,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 1000875565,
+          "out": 5076022613193363825371,
+          "gas": 141087,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "uni",
+          "in": 5076022613193363825371,
+          "out": 3359505934735904375786,
+          "gas": 4379442,
+          "exhausted": true,
+          "ok": true
+        },
+        {
+          "venue": "usdc_brla",
+          "in": 3359505934735904375786,
+          "out": 667352356,
+          "gas": 146950,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "rev",
+      "route": "uni",
+      "size_usd": 10000,
+      "ok": true,
+      "exhausted": true,
+      "venues": "v4>brz_usdt0>uni>usdc_brla",
+      "amount_in": 10000.0,
+      "amount_out": 667.352356,
+      "gross_bps": -9332.65,
+      "gas": 3090128,
+      "gas_usd": 0.08713,
+      "net_bps": -9332.73,
+      "legs": [
+        {
+          "venue": "v4",
+          "in": 10000000000,
+          "out": 10008717190,
+          "gas": 53956,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 10008717190,
+          "out": 50598208717134527837415,
+          "gas": 309780,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "uni",
+          "in": 50598208717134527837415,
+          "out": 3359505934735904375786,
+          "gas": 2511662,
+          "exhausted": true,
+          "ok": true
+        },
+        {
+          "venue": "usdc_brla",
+          "in": 3359505934735904375786,
+          "out": 667352356,
+          "gas": 133730,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "rev",
+      "route": "uni",
+      "size_usd": 100000,
+      "ok": true,
+      "exhausted": true,
+      "venues": "v4>brz_usdt0>uni>usdc_brla",
+      "amount_in": 100000.0,
+      "amount_out": 667.352356,
+      "gross_bps": -9933.26,
+      "gas": 6169498,
+      "gas_usd": 0.17395,
+      "net_bps": -9933.28,
+      "legs": [
+        {
+          "venue": "v4",
+          "in": 100000000000,
+          "out": 100083325907,
+          "gas": 53952,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 100083325907,
+          "out": 143811136039823295543179,
+          "gas": 3389154,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "uni",
+          "in": 143811136039823295543179,
+          "out": 3359505934735904375786,
+          "gas": 2511662,
+          "exhausted": true,
+          "ok": true
+        },
+        {
+          "venue": "usdc_brla",
+          "in": 3359505934735904375786,
+          "out": 667352356,
+          "gas": 133730,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "rev",
+      "route": "curve",
+      "size_usd": 1000,
+      "ok": true,
+      "exhausted": false,
+      "venues": "v4>brz_usdt0>curve>usdc_brla",
+      "amount_in": 1000.0,
+      "amount_out": 996.885943,
+      "gross_bps": -31.14,
+      "gas": 556567,
+      "gas_usd": 0.01569,
+      "net_bps": -31.3,
+      "legs": [
+        {
+          "venue": "v4",
+          "in": 1000000000,
+          "out": 1000875565,
+          "gas": 53956,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 1000875565,
+          "out": 5076022613193363825371,
+          "gas": 127867,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "curve",
+          "in": 5076022613193363825371,
+          "out": 5018814468078683568178,
+          "gas": 160000,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "usdc_brla",
+          "in": 5018814468078683568178,
+          "out": 996885943,
+          "gas": 133744,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "rev",
+      "route": "curve",
+      "size_usd": 10000,
+      "ok": true,
+      "exhausted": false,
+      "venues": "v4>brz_usdt0>curve>usdc_brla",
+      "amount_in": 10000.0,
+      "amount_out": 8556.497583,
+      "gross_bps": -1443.5,
+      "gas": 887674,
+      "gas_usd": 0.02503,
+      "net_bps": -1443.53,
+      "legs": [
+        {
+          "venue": "v4",
+          "in": 10000000000,
+          "out": 10008717190,
+          "gas": 53956,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 10008717190,
+          "out": 50598208717134527837415,
+          "gas": 309780,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "curve",
+          "in": 50598208717134527837415,
+          "out": 43157324506969322358401,
+          "gas": 160000,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "usdc_brla",
+          "in": 43157324506969322358401,
+          "out": 8556497583,
+          "gas": 282938,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "direction": "rev",
+      "route": "curve",
+      "size_usd": 100000,
+      "ok": true,
+      "exhausted": false,
+      "venues": "v4>brz_usdt0>curve>usdc_brla",
+      "amount_in": 100000.0,
+      "amount_out": 9023.619157,
+      "gross_bps": -9097.64,
+      "gas": 3537216,
+      "gas_usd": 0.09973,
+      "net_bps": -9097.65,
+      "legs": [
+        {
+          "venue": "v4",
+          "in": 100000000000,
+          "out": 100083325907,
+          "gas": 53952,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "brz_usdt0",
+          "in": 100083325907,
+          "out": 143811136039823295543179,
+          "gas": 2960354,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "curve",
+          "in": 143811136039823295543179,
+          "out": 45518545802816525518305,
+          "gas": 160000,
+          "exhausted": false,
+          "ok": true
+        },
+        {
+          "venue": "usdc_brla",
+          "in": 45518545802816525518305,
+          "out": 9023619157,
+          "gas": 281910,
+          "exhausted": false,
+          "ok": true
+        }
+      ]
+    }
+  ],
+  "v3_multihop_check": [
+    {
+      "direction": "fwd",
+      "size_usd": 1000,
+      "out": 994.065491,
+      "quoter_gas": 827662,
+      "gas_total": 908662,
+      "gas_usd": 0.025620161761230578,
+      "gross_bps": -59.34509,
+      "net_bps": -59.6012916176123
+    },
+    {
+      "direction": "fwd",
+      "size_usd": 10000,
+      "out": 7613.422938,
+      "quoter_gas": 5493078,
+      "gas_total": 5574078,
+      "gas_usd": 0.15716380791726361,
+      "gross_bps": -2386.5770620000003,
+      "net_bps": -2386.734225807917
+    },
+    {
+      "direction": "fwd",
+      "size_usd": 100000,
+      "out": 7613.422938,
+      "quoter_gas": 7160784,
+      "gas_total": 7241784,
+      "gas_usd": 0.20418558002853798,
+      "gross_bps": -9238.6577062,
+      "net_bps": -9238.678124758004
+    },
+    {
+      "direction": "rev",
+      "size_usd": 1000,
+      "out": 667.352356,
+      "quoter_gas": 4814530,
+      "gas_total": 4895530,
+      "gas_usd": 0.13803182097078687,
+      "gross_bps": -3326.4764400000004,
+      "net_bps": -3327.8567582097085
+    },
+    {
+      "direction": "rev",
+      "size_usd": 10000,
+      "out": 667.352356,
+      "quoter_gas": 4996443,
+      "gas_total": 5077443,
+      "gas_usd": 0.14316094542682303,
+      "gross_bps": -9332.647643999999,
+      "net_bps": -9332.790804945427
+    },
+    {
+      "direction": "rev",
+      "size_usd": 100000,
+      "out": 667.352356,
+      "quoter_gas": 8133704,
+      "gas_total": 8214704,
+      "gas_usd": 0.23161752697991975,
+      "gross_bps": -9933.2647644,
+      "net_bps": -9933.287926152698
+    }
+  ]
+}

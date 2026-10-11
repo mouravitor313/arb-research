@@ -11,6 +11,8 @@ and (excluded) China, for a **$10k–$100k** trader who must exit to **USD/USDC 
 | `watchlist.json` | Machine-readable list of tracked/excluded assets with confidence + verification status. |
 | `tracking_config.json` | Concrete venues/pairs the tracker polls. Edit this to add pairs/pools. |
 | `arb_tracker.py` | Live tracker: CEX prices/spread/slippage (CCXT) + on-chain DEX prices (GeckoTerminal). |
+| `dashboard.py` | **PoC realtime dashboard (Streamlit, PT-BR)** — reads `arb_tracker.db` and tells the story + shows live data. |
+| `run_dashboard.ps1` | Helper: launches the tracker loop + the dashboard together. |
 
 ## Setup
 
@@ -29,6 +31,27 @@ python arb_tracker.py --once                       # one poll
 python arb_tracker.py --interval 30                # poll every 30s
 python arb_tracker.py --once --depth-notional 50000 --threshold-bps 10
 ```
+
+## Dashboard (PoC)
+
+A realtime **Streamlit** dashboard (PT-BR) for presenting the idea to the team. It reads
+`arb_tracker.db` **read-only** — the tracker stays the sole writer. Run the tracker in loop mode
+so the DB keeps filling, then open the dashboard:
+
+```powershell
+# one command — starts tracker loop (new window) + dashboard (this window):
+.\run_dashboard.ps1                 # default 60s poll
+.\run_dashboard.ps1 -Interval 30
+
+# or manually, in two terminals:
+python arb_tracker.py --interval 60     # terminal A (writes arb_tracker.db)
+streamlit run dashboard.py              # terminal B → http://localhost:8501
+```
+
+It shows: KPIs (terminal USD/BRL, best net spread, executable-pool counts), the thesis (v1→v2
+reframe), the BRL terminal card, a **DEX depth** bar chart (log-scale, colored by executability),
+a **gross-vs-net spreads** table, and live time-series. Panels auto-refresh every 10s. If the DB is
+empty it falls back to the saved CSVs, then to static research figures, so the demo always renders.
 
 ## What it does
 

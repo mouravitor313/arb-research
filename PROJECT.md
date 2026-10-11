@@ -1,7 +1,24 @@
 # PROJECT.md — arb (stablecoin arbitrage research + tracker)
 
 > Context-persistence file for cross-session continuity. Read this first when resuming.
-> Last updated: 2026-09-18 (v2 pass complete)
+> Last updated: 2026-10-10 (v3 item B — Polygon atomic cycle measured)
+
+## v3 alignment (2026-10-10) — see `RECAP.md` FIRST
+
+Goal narrowed: on-chain DEX arb with entry/exit in **BRLA/BRL1** and/or **OKX only** (VIP 9). OKX already
+lists `USDT-BRL`, `USDC-BRL`, `BRL1-BRL`, `BRL1-USDT` → OKX replaces Foxbit as BRL terminal. Pending items and future
+attention points in `PONTOS_DE_ATENCAO.md`. This repo = research + indexing only (execution lives in `xend-arb`).
+
+### v3 item B — Polygon atomic cycle MEASURED (2026-10-10) — see `RECAP.md §9`
+Cycle `USDC→BRLA→BRZ→USDT0→USDC` (+ reverse), read-only quotes (QuoterV2 / V4Quoter / Curve `get_dy`,
+multicall, pinned block). **Result: 0% of samples net-positive** at $1k/$10k/$100k, both directions,
+both bridges — 14-day archive backfill (2,016 samples @ ~10 min, 30/09→10/10) **and** live @ 12 s.
+Best $1k ever seen: **−3.2 bps** (p50 −21.5). A searcher (EOAs `0x4337…`) already runs this exact
+multi-pool cycle atomically (~66% of BRL-pool swaps) → any edge is captured intra-block (level 3).
+Files: `cycle_common.py`, `cycle_discover.py` (→ `cycle_discovery.json`), `cycle_quote.py`,
+`cycle_probe.py`, `cycle_collector.py` (+ `run_cycle_collector.ps1`), `cycle_backfill.py`,
+`cycle_analyze.py`. DB tables: `cycle_quotes`, `cycle_ticks`, `cycle_pool_swaps`, `cycle_quotes_hist`,
+`cycle_ticks_hist`. RPC: `POLYGON_RPC_URL` env or public (publicnode live; drpc = archive).
 
 ## v2 reframe (2026-09-18) — DEX-first, BRL terminal — READ THIS
 
@@ -69,7 +86,11 @@ plus a live price tracker to monitor tokens/DEXes/CEXes and detect spreads.
 | `watchlist.json` | Machine-readable list of tracked/excluded assets with confidence + verification status. |
 | `tracking_config.json` | Concrete venues/pairs the tracker polls. Edit to add pairs/pools. |
 | `arb_tracker.py` | Live tracker: CEX prices/spread/slippage (CCXT) + on-chain DEX prices (GeckoTerminal). |
-| `requirements.txt` | Python deps: `ccxt`, `requests` (installed & verified). |
+| `dashboard.py` | **PoC realtime dashboard (Streamlit, PT-BR)** for the team pitch. Reads `arb_tracker.db` read-only; KPIs + tese + terminal + DEX-depth chart + gross/net spreads table + time-series; auto-refresh 10s; CSV→static fallback. `streamlit run dashboard.py`. |
+| `run_dashboard.ps1` | Helper: launches `arb_tracker.py --interval` (new window) + `streamlit run dashboard.py`. |
+| `requirements.txt` | Python deps: `ccxt`, `requests`, `streamlit`, `pandas`, `plotly`, `web3` (installed & verified). |
+| `cycle_*.py` | **v3 item B** — read-only Polygon cycle study (discover → probe → collector/backfill → analyze). See v3 section above. |
+| `run_cycle_collector.ps1` | Starts `cycle_collector.py` hidden/detached (`-Stop` to stop). Log `cycle_collector.log`. |
 | `README.md` | Setup, usage, and how to extend. |
 | `PROJECT.md` | This file — cross-session context/state. |
 
@@ -108,7 +129,8 @@ plus a live price tracker to monitor tokens/DEXes/CEXes and detect spreads.
    price is shown as raw USD, not vs live USD/MXN & USD/COP).
 2. **Fee-aware net spreads:** add per-exchange taker fees to config so the tracker reports net
    (not gross) spread. Current gross flags don't clear ~10–20 bps round-trip taker fees.
-3. **Persist + alert:** log poll rows to CSV/SQLite and push alerts (hook point: `run_once()`).
+3. ✅ ~~Persist + alert: log poll rows to CSV/SQLite~~ — done (fc96b32). Alerts still open (hook: `run_once()`).
+   ✅ **Realtime dashboard PoC** for the team pitch — `dashboard.py` (Streamlit, PT-BR), verified 2026-09-18.
 4. **Verification research pass** on the queue above (BRL CEX listings, MiCA-authorized EUR issuers,
    live pool depths).
 

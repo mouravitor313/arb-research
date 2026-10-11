@@ -1,0 +1,508 @@
+{
+  "ts": "2026-10-10T19:26:51+00:00",
+  "block": 95303440,
+  "chain_id": 137,
+  "tokens": {
+    "USDC": {
+      "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "USDC.e": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "USDT0": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "symbol": "USDT0",
+      "decimals": 6
+    },
+    "BRLA": {
+      "address": "0xE6A537a407488807F0bbeb0038B79004f19DDDFb",
+      "symbol": "BRLA",
+      "decimals": 18
+    },
+    "BRZ": {
+      "address": "0x4eD141110F6EeeAbA9A1df36d8c26f684d2475Dc",
+      "symbol": "BRZ",
+      "decimals": 18
+    }
+  },
+  "pools": {
+    "USDC/BRLA": {
+      "address": "0x0E7754127dEDd4097be750825Dbb4669bc32c956",
+      "code_bytes": 22142,
+      "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "fee": 500,
+      "tickSpacing": 10,
+      "liquidity": 9030577222590969153,
+      "token0": {
+        "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "symbol": "USDC",
+        "decimals": 6
+      },
+      "token1": {
+        "address": "0xE6A537a407488807F0bbeb0038B79004f19DDDFb",
+        "symbol": "BRLA",
+        "decimals": 18
+      },
+      "is_uniswap_v3_interface": true,
+      "factory_is_uniswap_v3": true,
+      "factory_getPool_matches": true,
+      "slot0": {
+        "sqrtPriceX96": 177694376480181252204036658679415243,
+        "tick": 292479,
+        "price_t0_in_t1": 5.030234137305296
+      },
+      "reserves": {
+        "USDC": 114440.173344,
+        "BRLA": 186065.55985099246
+      }
+    },
+    "BRZ/USDT0": {
+      "address": "0x4Af62a93775C093Af3e32949EF23C9a323d20817",
+      "code_bytes": 22142,
+      "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "fee": 500,
+      "tickSpacing": 10,
+      "liquidity": 6414744506498474705,
+      "token0": {
+        "address": "0x4eD141110F6EeeAbA9A1df36d8c26f684d2475Dc",
+        "symbol": "BRZ",
+        "decimals": 18
+      },
+      "token1": {
+        "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "symbol": "USDT0",
+        "decimals": 6
+      },
+      "is_uniswap_v3_interface": true,
+      "factory_is_uniswap_v3": true,
+      "factory_getPool_matches": true,
+      "slot0": {
+        "sqrtPriceX96": 35165999926923768334949,
+        "tick": -292570,
+        "price_t0_in_t1": 0.19700932101974655
+      },
+      "reserves": {
+        "BRZ": 145850.1138504325,
+        "USDT0": 44180.970539
+      }
+    },
+    "BRZ/BRLA": {
+      "address": "0x6E05B2e9C6cCCa3308A73F597b4C92EA4e6cFb86",
+      "code_bytes": 22142,
+      "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "fee": 500,
+      "tickSpacing": 10,
+      "liquidity": 1078021221851083210202587,
+      "token0": {
+        "address": "0x4eD141110F6EeeAbA9A1df36d8c26f684d2475Dc",
+        "symbol": "BRZ",
+        "decimals": 18
+      },
+      "token1": {
+        "address": "0xE6A537a407488807F0bbeb0038B79004f19DDDFb",
+        "symbol": "BRLA",
+        "decimals": 18
+      },
+      "is_uniswap_v3_interface": true,
+      "factory_is_uniswap_v3": true,
+      "factory_getPool_matches": true,
+      "slot0": {
+        "sqrtPriceX96": 78846079159261240069015352595,
+        "tick": -97,
+        "price_t0_in_t1": 0.9903781172993095
+      },
+      "reserves": {
+        "BRZ": 39471.57722932637,
+        "BRLA": 3922.878196664809
+      }
+    },
+    "TESOURO_stable": {
+      "address": "0xC89F31F74573Cc19fFFc06108601c1ac71BA9735",
+      "code_bytes": 24049,
+      "name()": "DFB BRL  Pool v1",
+      "symbol()": "DFB_BRL_v1",
+      "coins_index_type": "uint256",
+      "coins": [
+        {
+          "address": "0xd574b191B5a00262Ff19953d3CE25543AB7C8098",
+          "symbol": "TESOURO",
+          "decimals": 6,
+          "pool_balance": 31861.124836
+        },
+        {
+          "address": "0x4eD141110F6EeeAbA9A1df36d8c26f684d2475Dc",
+          "symbol": "BRZ",
+          "decimals": 18,
+          "pool_balance": 387302.99163592776
+        },
+        {
+          "address": "0xccb641025220251BC1ca6ba2B70c60b64DB676bF",
+          "symbol": "stBRZ",
+          "decimals": 18,
+          "pool_balance": 223307.34929171603
+        },
+        {
+          "address": "0xE6A537a407488807F0bbeb0038B79004f19DDDFb",
+          "symbol": "BRLA",
+          "decimals": 18,
+          "pool_balance": 51651.90912035881
+        }
+      ],
+      "N_COINS()": 4,
+      "A()": 2000,
+      "fee()": 3000000,
+      "offpeg_fee_multiplier()": 80000000000,
+      "get_virtual_price()": 1073621891314283660,
+      "factory()": null,
+      "getPoolId()": null,
+      "getVault()": null,
+      "lp_token()": null,
+      "stored_rates()": [
+        1272764470000000000000000000000,
+        1000000000000000000,
+        1000000000000000000,
+        1000000000000000000
+      ],
+      "version()": "v7.0.0",
+      "get_dy_signature": "get_dy(int128,int128,uint256)",
+      "get_dy_0to1_1unit": 1.2861602635738565
+    }
+  },
+  "closing_leg": {
+    "USDT0/USDC": {
+      "100": {
+        "pool": "0x31083a78E11B18e450fd139F9ABEa98CD53181B7",
+        "liquidity": 2022500839259680,
+        "reserves": {
+          "USDC": 46357.581443,
+          "USDT0": 934718.328503
+        },
+        "price_t0_in_t1": 1.000887799973971
+      },
+      "500": {
+        "pool": "0xEE95696f77693aF4F9B93850A9f48B4AD8E7a30A",
+        "liquidity": 10352355681213,
+        "reserves": {
+          "USDC": 1267.531908,
+          "USDT0": 10372.73447
+        },
+        "price_t0_in_t1": 1.000906540256387
+      },
+      "3000": {
+        "pool": "0x1Cb770fC7C7367c6aD5E88D32072b7f4bf881304",
+        "liquidity": 62911051585,
+        "reserves": {
+          "USDC": 193.249352,
+          "USDT0": 501.030286
+        },
+        "price_t0_in_t1": 1.002048517632326
+      },
+      "10000": {
+        "pool": "0x03BC0fd2840516a863CbC5220e17d3764123ba24",
+        "liquidity": 1321568,
+        "reserves": {
+          "USDC": 2.7805,
+          "USDT0": 0.456194
+        },
+        "price_t0_in_t1": 1.0081840096415484
+      }
+    },
+    "USDT0/USDC.e": {
+      "100": {
+        "pool": "0xDaC8A8E6DBf8c690ec6815e0fF03491B2770255D",
+        "liquidity": 1294857532670700,
+        "reserves": {
+          "USDC": 137773.888267,
+          "USDT0": 945324.636929
+        },
+        "price_t0_in_t1": 1.000908750052521
+      },
+      "500": {
+        "pool": "0x3F5228d0e7D75467366be7De2c31D0d098bA2C23",
+        "liquidity": 59308012883225,
+        "reserves": {
+          "USDC": 6446.82155,
+          "USDT0": 86503.808648
+        },
+        "price_t0_in_t1": 1.0009838899336196
+      },
+      "3000": {
+        "pool": "0x24555B1E26407b8b56621da41F175c5E2B80f1b8",
+        "liquidity": 3346432928046,
+        "reserves": {
+          "USDC": 10489.537945,
+          "USDT0": 699.002193
+        },
+        "price_t0_in_t1": 1.000065796025317
+      },
+      "10000": {
+        "pool": "0x7109C674e52b14FCFb8A04ffe254f454f9C61C18",
+        "liquidity": 113484769,
+        "reserves": {
+          "USDC": 29.508034,
+          "USDT0": 32.709466
+        },
+        "price_t0_in_t1": 1.0092696460404889
+      }
+    },
+    "USDC/USDC.e": {
+      "100": {
+        "pool": "0xD36ec33c8bed5a9F7B6630855f1533455b98a418",
+        "liquidity": 1155539981196719,
+        "reserves": {
+          "USDC": 111421.782365
+        },
+        "price_t0_in_t1": 0.9999575711052119
+      },
+      "500": {
+        "pool": "0xd9abECB39a5885d1E531eD3599aDfed620E2fC8a",
+        "liquidity": 56274249438708,
+        "reserves": {
+          "USDC": 10455.451322
+        },
+        "price_t0_in_t1": 1.0000272562820929
+      },
+      "3000": {
+        "pool": "0x36F1f5D1fafB4B34bc42A39f06e5685d59A86166",
+        "liquidity": 1107538678,
+        "reserves": {
+          "USDC": 11.143411
+        },
+        "price_t0_in_t1": 1.002006653994974
+      },
+      "10000": {
+        "pool": "0x780aF82446b5D494DB41F7cb732d07fEa8d431e6",
+        "liquidity": 15344,
+        "reserves": {
+          "USDC": 0.000467
+        },
+        "price_t0_in_t1": 0.9918814358255541
+      }
+    },
+    "BRZ/BRLA": {
+      "100": {
+        "pool": "0xB29c03dc6E0D3A9C3dc443d5B4fc84841d2785C8",
+        "liquidity": 691596391134084660142,
+        "reserves": {
+          "BRZ": 11.781845177685396,
+          "BRLA": 2.102736337054352
+        },
+        "price_t0_in_t1": 0.9858591054321395
+      },
+      "500": {
+        "pool": "0x6E05B2e9C6cCCa3308A73F597b4C92EA4e6cFb86",
+        "liquidity": 1078021221851083210202587,
+        "reserves": {
+          "BRZ": 39471.57722932637,
+          "BRLA": 3922.878196664809
+        },
+        "price_t0_in_t1": 0.9903781172993095
+      },
+      "3000": {
+        "pool": "0xCf34484d10ddBb75e474Ce12d98588d7d2AF3bc3",
+        "liquidity": 341355228303951399539783,
+        "reserves": {
+          "BRZ": 4110.818670264558,
+          "BRLA": 40.59338389138748
+        },
+        "price_t0_in_t1": 0.9940189161628882
+      }
+    },
+    "USDC/BRLA": {
+      "100": {
+        "pool": "0x6bfA6e9f89383e506229Ab55b87FDfE05c20F54F",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 0.014897,
+          "BRLA": 0.003049152185217909
+        },
+        "price_t0_in_t1": 5.6233000232384605
+      },
+      "500": {
+        "pool": "0x0E7754127dEDd4097be750825Dbb4669bc32c956",
+        "liquidity": 9030577222590969153,
+        "reserves": {
+          "USDC": 114439.146073,
+          "BRLA": 186070.72985099247
+        },
+        "price_t0_in_t1": 5.0302367040459055
+      },
+      "3000": {
+        "pool": "0x2D9d73C95ecd9AEF79Cc25Fd0CCbb6C29E576B84",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 0.011795,
+          "BRLA": 11.872611468572819
+        },
+        "price_t0_in_t1": 5.38446120122309
+      },
+      "10000": {
+        "pool": "0x0bAA67aCED1A13c4a0c66F49aa4f22e61DdC34f7",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 9.6e-05,
+          "BRLA": 0.8825297176781179
+        },
+        "price_t0_in_t1": 5.247814450683392
+      }
+    },
+    "USDC.e/BRLA": {
+      "500": {
+        "pool": "0x569CA41261c9E60b0eda6E8E247f82658bd8cC14",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 0.000343,
+          "BRLA": 0.000221150810942051
+        },
+        "price_t0_in_t1": 5.152674575900409
+      },
+      "3000": {
+        "pool": "0x63610c63Dc3c83f38dD30dE247C7D29B8A13518B",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 0.003579,
+          "BRLA": 1.7044137824989058
+        },
+        "price_t0_in_t1": 3.402567868363881e+26
+      },
+      "10000": {
+        "pool": "0x04EA60CA6236eE16ac9B5b4c792695276e8a8B36",
+        "liquidity": 1135752712039324,
+        "reserves": {
+          "USDC": 40.083774,
+          "BRLA": 1193.3225958635167
+        },
+        "price_t0_in_t1": 5.014887758430516
+      }
+    },
+    "BRZ/USDT0": {
+      "100": {
+        "pool": "0x793BB6e864A22203ce84C8C6c00b5F76AcC8B253",
+        "liquidity": 0,
+        "reserves": {
+          "BRZ": 2e-15,
+          "USDT0": 0.003237
+        },
+        "price_t0_in_t1": 0.19388010403041783
+      },
+      "500": {
+        "pool": "0x4Af62a93775C093Af3e32949EF23C9a323d20817",
+        "liquidity": 6414744506498474705,
+        "reserves": {
+          "BRZ": 145850.1138504325,
+          "USDT0": 44180.970539
+        },
+        "price_t0_in_t1": 0.19700932101974655
+      },
+      "3000": {
+        "pool": "0x8614Aaf27e2eAa350d6898423f6b3200110f15C7",
+        "liquidity": 0,
+        "reserves": {
+          "BRZ": 0.03953306855726427,
+          "USDT0": 0.01737
+        },
+        "price_t0_in_t1": 0.1811048908794149
+      },
+      "10000": {
+        "pool": "0xAa3525AC58951a363d74D85b0B786e944dedd014",
+        "liquidity": 0,
+        "reserves": {
+          "BRZ": 5.743596427814e-06,
+          "USDT0": 0.00117
+        },
+        "price_t0_in_t1": 0.19022940837749738
+      }
+    },
+    "BRZ/USDC": {
+      "100": {
+        "pool": "0x6E649EE0b316756aF607547cf8713D33591F0d05",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 1.2e-05,
+          "BRZ": 1.1e-17
+        },
+        "price_t0_in_t1": 5.831120629390241
+      },
+      "500": {
+        "pool": "0xE4C7A12d4BbC5156E486640a68f744D5Cb0683B1",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 0.000163,
+          "BRZ": 1.6801517337223517
+        },
+        "price_t0_in_t1": 5.260367563850794
+      },
+      "3000": {
+        "pool": "0xa0d3ea3297F39f3E42BbE04965d9EE0A9Ae45c72",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 5.5e-05,
+          "BRZ": 0.000343771749532974
+        },
+        "price_t0_in_t1": 5.59668788027214
+      }
+    },
+    "USDT0/BRLA": {
+      "100": {
+        "pool": "0x1479Fa5fE327564c52E939D30f635E6Cc0cb6953",
+        "liquidity": 0,
+        "reserves": {
+          "USDT0": 2e-06,
+          "BRLA": 4e-18
+        },
+        "price_t0_in_t1": 5.549350520417109
+      },
+      "500": {
+        "pool": "0x26970F28Fd257c11B937625251eBC804c6A59264",
+        "liquidity": 28049475893665290,
+        "reserves": {
+          "USDT0": 262.052555,
+          "BRLA": 124.62795387753334
+        },
+        "price_t0_in_t1": 5.416841421861339
+      },
+      "3000": {
+        "pool": "0xB038a99F0007173557883F6C660ece09C531dEf5",
+        "liquidity": 265017931163202,
+        "reserves": {
+          "USDT0": 1.090884,
+          "BRLA": 2.4432078494200433
+        },
+        "price_t0_in_t1": 5.449536906138318
+      },
+      "10000": {
+        "pool": "0xD4aE3c9D1c9eB0B428d63eF71aF1f26Ef9e7b0D2",
+        "liquidity": 0,
+        "reserves": {
+          "USDT0": 0.0,
+          "BRLA": 3e-18
+        },
+        "price_t0_in_t1": 0.196062620337878
+      }
+    },
+    "BRZ/USDC.e": {
+      "100": {
+        "pool": "0xD36db588ba71C225bed36Ca118555D0cc5aCDB9c",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 0.000144,
+          "BRZ": 1.2e-16
+        },
+        "price_t0_in_t1": 4.898243600152551
+      },
+      "10000": {
+        "pool": "0xD51D1C1A6e59139C8d74984F93F20ED389e16750",
+        "liquidity": 0,
+        "reserves": {
+          "USDC": 5e-06,
+          "BRZ": 4e-18
+        },
+        "price_t0_in_t1": 5.818304410989293
+      }
+    }
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "ts": "2026-10-11T14:31:53+00:00",
+  "chains": {
+    "polygon": {
+      "BTC": {
+        "token": "WBTC",
+        "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+        "decimals": 8,
+        "tiers": {
+          "100": {
+            "pool": "0x3F6CFB3e592F218F426F3457828779349FEa6389",
+            "reserve_asset": 9.63e-06,
+            "reserve_usdc": 0.047306,
+            "roundtrip_10k_bps": null,
+            "price_usdc": null
+          },
+          "500": {
+            "pool": "0x32FAE204835e08b9374493d6B4628FD1F87DD045",
+            "reserve_asset": 0.44554933,
+            "reserve_usdc": 47799.881565,
+            "roundtrip_10k_bps": -271.09006400000027,
+            "price_usdc": 84037.03142211834
+          },
+          "3000": {
+            "pool": "0xe6Ba22265AeFe9dC392F544437ACCe2AEdF8ef36",
+            "reserve_asset": 1.8518762,
+            "reserve_usdc": 161649.407015,
+            "roundtrip_10k_bps": -163.4639910000002,
+            "price_usdc": 83492.93704023049
+          },
+          "10000": {
+            "pool": "0x644e0Dca0bef70Ba31600e69992E502F9Be69332",
+            "reserve_asset": 0.00047262,
+            "reserve_usdc": 0.006911,
+            "roundtrip_10k_bps": null,
+            "price_usdc": 21316961.906589072
+          }
+        },
+        "best_fee": 3000
+      },
+      "ETH": {
+        "token": "WETH",
+        "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "decimals": 18,
+        "tiers": {
+          "100": {
+            "pool": "0x80CdADE01Ff626B7CcE4772E3C2d56db14f384fA",
+            "reserve_asset": 0.016313815349679493,
+            "reserve_usdc": 44.99397,
+            "roundtrip_10k_bps": -9975.646391,
+            "price_usdc": 629385.9922961042
+          },
+          "500": {
+            "pool": "0xA4D8c89f0c20efbe54cBa9e7e7a7E509056228D9",
+            "reserve_asset": 103.60315628121766,
+            "reserve_usdc": 156379.635899,
+            "roundtrip_10k_bps": -93.45502399999984,
+            "price_usdc": 2515.2964837991353
+          },
+          "3000": {
+            "pool": "0x19C5505638383337D2972Ce68B493aD78E315147",
+            "reserve_asset": 9.81799419478514,
+            "reserve_usdc": 13941.315409,
+            "roundtrip_10k_bps": -1801.3809729999996,
+            "price_usdc": 2759.39800988248
+          },
+          "10000": {
+            "pool": "0x12bD7Ae45ACF2504BED144Eabc6FF5bBEbd91563",
+            "reserve_asset": 0.3319171237590929,
+            "reserve_usdc": 178.893466,
+            "roundtrip_10k_bps": -9993.222541,
+            "price_usdc": 35551.597987256595
+          }
+        },
+        "best_fee": 500
+      }
+    },
+    "arbitrum": {
+      "BTC": {
+        "token": "WBTC",
+        "address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+        "decimals": 8,
+        "tiers": {
+          "100": {
+            "pool": "0xBD65e976BD6b0b59232144c7966e1065024b874c",
+            "reserve_asset": 5.774e-05,
+            "reserve_usdc": 0.006352,
+            "roundtrip_10k_bps": null,
+            "price_usdc": null
+          },
+          "500": {
+            "pool": "0x0E4831319A50228B9e450861297aB92dee15B44F",
+            "reserve_asset": 52.12936248,
+            "reserve_usdc": 3683133.731882,
+            "roundtrip_10k_bps": -12.867053999999767,
+            "price_usdc": 82970.25549528596
+          },
+          "3000": {
+            "pool": "0x6985cb98CE393FCE8d6272127F39013f61e36166",
+            "reserve_asset": 0.85818605,
+            "reserve_usdc": 97808.118304,
+            "roundtrip_10k_bps": -237.45800599999978,
+            "price_usdc": 83796.10430235177
+          },
+          "10000": {
+            "pool": "0x719826896832C9DeAA868272f2dD55CF1e5Ca3e7",
+            "reserve_asset": 0.05184543,
+            "reserve_usdc": 1292.886773,
+            "roundtrip_10k_bps": -8728.890641,
+            "price_usdc": 194129.41015914147
+          }
+        },
+        "best_fee": 500
+      },
+      "ETH": {
+        "token": "WETH",
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "decimals": 18,
+        "tiers": {
+          "100": {
+            "pool": "0x6f38e884725a116C9C7fBF208e79FE8828a2595F",
+            "reserve_asset": 44.31983365237524,
+            "reserve_usdc": 44210.396363,
+            "roundtrip_10k_bps": -424.5616070000002,
+            "price_usdc": 2559.9208729320912
+          },
+          "500": {
+            "pool": "0xC6962004f452bE9203591991D15f6b388e09E8D0",
+            "reserve_asset": 8331.089429549193,
+            "reserve_usdc": 13915686.187845,
+            "roundtrip_10k_bps": -11.245073000000216,
+            "price_usdc": 2505.4714482982454
+          },
+          "3000": {
+            "pool": "0xc473e2aEE3441BF9240Be85eb122aBB059A3B57c",
+            "reserve_asset": 969.1958744269756,
+            "reserve_usdc": 2930513.544948,
+            "roundtrip_10k_bps": -68.77601400000044,
+            "price_usdc": 2511.6412353037663
+          },
+          "10000": {
+            "pool": "0x42FC852A750BA93D5bf772ecdc857e87a86403a9",
+            "reserve_asset": 26.51430048650148,
+            "reserve_usdc": 65710.423274,
+            "roundtrip_10k_bps": -446.3354190000002,
+            "price_usdc": 2549.8053501081804
+          }
+        },
+        "best_fee": 500
+      }
+    },
+    "base": {
+      "BTC": {
+        "token": "cbBTC",
+        "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "decimals": 8,
+        "tiers": {
+          "100": {
+            "pool": "0xE9e25E35aa99A2A60155010802b81A25C45bA185",
+            "reserve_asset": 0.00466819,
+            "reserve_usdc": 117.513791,
+            "roundtrip_10k_bps": -9890.494537,
+            "price_usdc": 6151423.439383874
+          },
+          "500": {
+            "pool": "0xfBB6Eed8e7aa03B138556eeDaF5D271A5E1e43ef",
+            "reserve_asset": 43.99091283,
+            "reserve_usdc": 5975543.835205,
+            "roundtrip_10k_bps": -12.514931999999535,
+            "price_usdc": 83094.31944796788
+          },
+          "3000": {
+            "pool": "0xeC558e484cC9f2210714E345298fdc53B253c27D",
+            "reserve_asset": 19.21037263,
+            "reserve_usdc": 1252882.253156,
+            "roundtrip_10k_bps": -71.25862300000007,
+            "price_usdc": 83229.5114535876
+          },
+          "10000": {
+            "pool": "0x3e7586D52A9D07F8611B8ecf6CCc8a689c34a659",
+            "reserve_asset": 0.02085827,
+            "reserve_usdc": 2792.05453,
+            "roundtrip_10k_bps": -8505.490267,
+            "price_usdc": 514616.656906104
+          }
+        },
+        "best_fee": 500
+      },
+      "ETH": {
+        "token": "WETH",
+        "address": "0x4200000000000000000000000000000000000006",
+        "decimals": 18,
+        "tiers": {
+          "100": {
+            "pool": "0xb4CB800910B228ED3d0834cF79D697127BBB00e5",
+            "reserve_asset": 116.36017712549688,
+            "reserve_usdc": 207856.189094,
+            "roundtrip_10k_bps": -46.4236149999997,
+            "price_usdc": 2510.657119429831
+          },
+          "500": {
+            "pool": "0xd0b53D9277642d899DF5C87A3966A349A798F224",
+            "reserve_asset": 2513.924293131682,
+            "reserve_usdc": 3250553.156453,
+            "roundtrip_10k_bps": -12.692407000000072,
+            "price_usdc": 2505.575897967737
+          },
+          "3000": {
+            "pool": "0x6c561B446416E1A00E8E93E221854d6eA4171372",
+            "reserve_asset": 34262.453179628465,
+            "reserve_usdc": 62853215.587676,
+            "roundtrip_10k_bps": -60.02385599999993,
+            "price_usdc": 2510.761451654468
+          },
+          "10000": {
+            "pool": "0x0b1C2DCbBfA744ebD3fC17fF1A96A1E1Eb4B2d69",
+            "reserve_asset": 126.78290105865472,
+            "reserve_usdc": 597428.939057,
+            "roundtrip_10k_bps": -266.5864149999997,
+            "price_usdc": 2527.4292191142963
+          }
+        },
+        "best_fee": 500
+      }
+    }
+  }
+}

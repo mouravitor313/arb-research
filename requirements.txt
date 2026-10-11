@@ -1,2 +1,6 @@
 ccxt>=4.4.0
 requests>=2.31.0
+streamlit>=1.33.0
+pandas>=2.0.0
+plotly>=5.20.0
+web3>=7.0.0
