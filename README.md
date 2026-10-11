@@ -78,6 +78,26 @@ verificationQueue` lists what to prove. To activate DEX tracking, replace the `T
 in `tracking_config.json → dexPools` with real token/pool addresses (GeckoTerminal networks:
 `eth`, `solana`, `base`, `arbitrum`, `celo`).
 
+## v3 measurement scripts (read-only, 2026-10-10/11)
+
+All of them only do `eth_call`s and public OKX REST calls (no keys, no tx). Results are in `RECAP.md §9–10`.
+
+```powershell
+# Polygon atomic cycle USDC→BRLA→BRZ→USDT0→USDC (item B)
+python cycle_discover.py          # validate pools on-chain -> cycle_discovery.json
+python cycle_probe.py             # one-shot quotes, both directions, $1k/$10k/$100k
+.un_cycle_collector.ps1         # live loop (12 s) -> cycle_quotes/cycle_ticks/cycle_pool_swaps
+python cycle_backfill.py --days 14 --step 300   # archive backfill -> cycle_*_hist
+python cycle_analyze.py [--hist]
+
+# Item 1: OKX BRL pairs vs OKX USD pairs vs DEX (Ethereum/Arbitrum/Base), USDC/USDT basis
+python xvenue_discover.py         # BTC/ETH pools per chain -> xvenue_discovery.json
+.un_xvenue_collector.ps1        # live loop (10 s) -> xvenue_opps/xvenue_ticks
+python xvenue_backfill.py --days 14             # cbBTC (Base) vs OKX BTC basis -> xvenue_hist
+python xvenue_analyze.py [--size 10000]
+```
+RPC overrides: `POLYGON_RPC_URL`, `ETHEREUM_RPC_URL`, `ARBITRUM_RPC_URL`, `BASE_RPC_URL`.
+
 ## Extending
 
 - **Add a pair:** append to `cexSpreads` (`symbol` must be the CCXT unified symbol, e.g. `USDE/USDT`).

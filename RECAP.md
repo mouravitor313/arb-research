@@ -226,3 +226,65 @@ B **não é oportunidade** no formato "quote periódico + router multi-hop" (ní
 de capturar algo seria **backrun no mesmo bloco** (nível 3) contra um searcher já estabelecido, e com
 a ponte BRLA↔BRZ rasa o tamanho por evento é pequeno (centenas de dólares). Prioridade rebaixada;
 foco volta para **A** (maker na OKX + ciclo Avenia) e **C** (instâncias Base/Gnosis).
+
+---
+
+## 10. Item 1 — BTC/ETH/SOL vs OKX + diferença USDC/USDT (MEDIDO 2026-10-11)
+
+> Leitura apenas: livros públicos da OKX (400 níveis, VWAP no tamanho) + QuoterV2/V4Quoter on-chain.
+> Taxas VIP 9 (BRL taker 2 bps / maker −1,5; não-BRL taker 11). Modelo de inventário pré-posicionado
+> (como o `xend-arb`): transferências/resgates **não** incluídos. Scripts `xvenue_*.py`, tabelas
+> `xvenue_opps`, `xvenue_ticks`, `xvenue_hist`. Ao vivo desde 11/10 11:35 BRT (10 s); backfill 14 d.
+
+**Contexto do usuário (2026-10-11):** BRZ congelado (saque Transfero), então rotas com BRZ ficam em
+segundo plano. Há conta BitGo onboardada e contato na DFB (ver `PONTOS_DE_ATENCAO.md §3.4`).
+
+### 10.1 Pares BRL na OKX (API pública, 11/10)
+BTC, ETH, SOL, XRP, USDT, USDC, **USDG**, BRL1, PEPE, PI, TRUMP (+ `BRL1-USDT`). `BTC-BRL`: ~R$1,7M/dia,
+livro de 400 níveis com ~R$1,1M ask / R$1,5M bid → $10k cabe; $100k com impacto. `ETH-BRL` é raso
+(falha a $100k). Pools DEX usados: Arbitrum WBTC/USDC e WETH/USDC 0,05% (~$4M / ~$14M), Base
+cbBTC/USDC e WETH/USDC 0,05% (~$6M / ~$3M), Ethereum WBTC/USDT 0,05% (~$16M). Polygon (Uni v3) é raso
+para BTC/ETH (ida-e-volta de $10k custa 90–270 bps), por isso ficou fora.
+
+### 10.2 Resultados ($10k, líquido)
+| Estratégia | p50 | p95 | % > 0 | Leitura |
+|---|---|---|---|---|
+| Triângulo OKX `BRL→X→A→BRL` (BTC/ETH/SOL; X = USDT/USDC), taker | −14 a −27 | ~−14 | 0% | Alinhado; o custo é só a taxa (2+11+2) |
+| idem, perna A-BRL como maker (limite superior) | −9 a −13 | — | 0% | Fechado mesmo com rebate |
+| USDC/USDT: OKX via BRL + Polygon v4 | −5 | −4 | 0% | O USDC tem ~9 bps de prêmio em todo lugar (OKX 1,00092; v4 1,00089) |
+| USDC/USDT: OKX direto ou interno | −11 a −16 | — | 0% | Taxa não-BRL mata |
+| cbBTC (Base) ↔ BTC-BRL, os dois sentidos | −11 a −13 | ~−9 | 0% | cbBTC no par |
+| cbBTC backfill 14 d (27/09→11/10): base cbBTC/BTC | p50 −0,1 · p5/p95 −6/+6 | | <1% | Confirma: sem oportunidade |
+| ETH (Arbitrum/Base) ↔ ETH-BRL | −10 a −16 | ~−8 | 0% | Fechado |
+| **WBTC (Ethereum) compra no DEX → vende BTC-BRL** | **+4,1** | +7,9 | **89%** | Desconto do WBTC (amostra curta, ~1 h) |
+| **WBTC (Arbitrum) compra no DEX → vende BTC-BRL** | **+2,8** | +6,3 | **82%** | idem; a $100k: −15 |
+| WBTC vendendo no `BTC-USDC` (não-BRL) em vez de BRL | −0,8 a −2,3 | +1,5 a +2,1 | 17–28% | A rota BRL vale ~5–7 bps só de taxa |
+| WBTC sentido inverso (OKX→DEX) | −20 a −29 | | 0% | — |
+
+### 10.3 O caso WBTC — não é arbitragem pura
+- **O WBTC negocia ~10–15 bps abaixo do BTC** em todo lugar: Ethereum WBTC/USDT mid −10 bps,
+  Arbitrum −12, Ethereum WBTC→cbBTC −15 bps, Binance WBTC/BTC −15, Kraken −10/−12. Nos últimos 60 dias
+  ficou entre +5 e −25 bps (Binance/Kraken, diário), quase sempre negativo. **Motivo: o resgate é
+  restrito e caro.** Só merchants aprovados pela WBTC DAO queimam; custódia BitGo + BiT Global.
+  Fee do custodiante relatada em 5–20 bps, mais a fee do merchant. Prazo: horas a ~1 dia útil.
+- **Ter conta na BitGo não basta.** Para queimar é preciso ser merchant (KYC + voto DAO + contrato
+  com BiT Global) **ou** usar um merchant: BitGo Prime, Galaxy, FalconX, Cobo, Wintermute etc.
+- **Resgate só no Ethereum.** O WBTC da Arbitrum é bridged: ponte canônica (~7 dias, só gás) ou
+  Across (~9 bps, segundos, limite ~0,96 WBTC por fill). → **Comprar direto no Ethereum** (WBTC/USDT
+  0,05%, ~$16M; gás ~$0,08/swap hoje).
+- **Conta do ciclo:** comprar WBTC no Ethereum (~−5 bps vs BTC) → vender BTC já em inventário na OKX
+  (`BTC-BRL`) → recompor USDT via `USDT-BRL` → resgatar o WBTC na BitGo depois. Medido: **+4 bps p50 /
+  +8 p95 antes do resgate**. **Ponto de equilíbrio: resgate all-in ≤ ~4 bps.** Com o custodiante a
+  5–20 bps mais o merchant, **hoje não fecha**. Só fecha com fee negociada muito baixa, ou entrando
+  mais barato (ex.: comprar WBTC/BTC na Binance a ~−14 bps, mas isso sai do escopo só-OKX).
+- Fontes da pesquisa: wbtc.network/merchants, github WrappedBTC/DAO MerchantGuide, Steakhouse
+  "wrap battle" (2025-03), BitGo blog (2024-08), Across suggested-fees API (11/10), Binance/Kraken
+  APIs públicas (11/10). Não verificado: tabela de fees 2026, mínimos, SLA, depósito de WBTC na OKX.
+
+### 10.4 Conclusões
+1. **Nada de arbitragem limpa no item 1.** OKX interna, cbBTC, ETH e USDC/USDT estão alinhados; o que
+   sobra é a taxa.
+2. **O único sinal é o WBTC, e ele é um negócio de resgate.** Vale **pedir cotação à BitGo Prime**
+   (fee em bps, mínimo, prazo). Se o all-in ficar abaixo de ~4 bps, vira uma instância "WBTC
+   (Ethereum) ↔ OKX BTC-BRL" no formato do `xend-arb`, com o resgate fazendo o papel da Avenia.
+3. **Regra geral confirmada:** na OKX, sempre fechar pelos pares BRL (vale 5–7 bps por operação).

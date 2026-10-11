@@ -20,6 +20,15 @@ Files: `cycle_common.py`, `cycle_discover.py` (→ `cycle_discovery.json`), `cyc
 `cycle_analyze.py`. DB tables: `cycle_quotes`, `cycle_ticks`, `cycle_pool_swaps`, `cycle_quotes_hist`,
 `cycle_ticks_hist`. RPC: `POLYGON_RPC_URL` env or public (publicnode live; drpc = archive).
 
+### v3 item 1 — BTC/ETH/SOL vs OKX + USDC/USDT basis MEASURED (2026-10-11) — see `RECAP.md §10`
+BRZ is frozen (Transfero redemption issue), so BRZ routes are deprioritized. Live collector `xvenue_collector.py`
+(OKX public books + Arbitrum/Base/Ethereum/Polygon quotes, 10 s; `run_xvenue_collector.ps1`) + Base
+cbBTC 14-day backfill (`xvenue_backfill.py`); analysis `xvenue_analyze.py`. **No clean arb:** OKX
+triangles, cbBTC, ETH, USDC/USDT are all aligned (net ≈ −fees). **Only signal: the WBTC discount**
+(~10–15 bps under BTC everywhere). Buying WBTC on Ethereum and selling BTC-BRL nets ~+4 bps p50 before
+redemption, so it needs an all-in BitGo/merchant redemption cost ≤ ~4 bps (reported 5–20 bps + merchant fee).
+OKX BRL pairs save 5–7 bps vs USD pairs. Tables: `xvenue_opps`, `xvenue_ticks`, `xvenue_hist`.
+
 ## v2 reframe (2026-09-18) — DEX-first, BRL terminal — READ THIS
 
 `STRATEGY.md` changed the terminal from USD/USDC-on-a-major-CEX to **BRL**, routing to **DEX-first**,
@@ -90,6 +99,8 @@ plus a live price tracker to monitor tokens/DEXes/CEXes and detect spreads.
 | `run_dashboard.ps1` | Helper: launches `arb_tracker.py --interval` (new window) + `streamlit run dashboard.py`. |
 | `requirements.txt` | Python deps: `ccxt`, `requests`, `streamlit`, `pandas`, `plotly`, `web3` (installed & verified). |
 | `cycle_*.py` | **v3 item B** — read-only Polygon cycle study (discover → probe → collector/backfill → analyze). See v3 section above. |
+| `chains.py`, `xvenue_*.py` | **v3 item 1** — read-only OKX books + multi-chain DEX quotes (discover → collector → backfill → analyze). |
+| `run_xvenue_collector.ps1` | Starts `xvenue_collector.py` hidden/detached (`-Stop`). Log `xvenue_collector.log`. |
 | `run_cycle_collector.ps1` | Starts `cycle_collector.py` hidden/detached (`-Stop` to stop). Log `cycle_collector.log`. |
 | `README.md` | Setup, usage, and how to extend. |
 | `PROJECT.md` | This file — cross-session context/state. |
@@ -121,7 +132,15 @@ plus a live price tracker to monitor tokens/DEXes/CEXes and detect spreads.
    USDC/USDT/USDe/DAI-USDS/FDUSD across DEXes/CEXes (headline stat was refuted).
 5. BRL market: confirm current CEX listings + depth for BRLA, BRZ.
 
-## Next steps (options, not yet started)
+## Next steps — v3 (2026-10-11)
+
+1. **A** — OKX leg as maker + automate the Avenia loop (xend-arb); measure maker fill rate from `arb_opportunities`.
+2. **C** — BRLA instances on Base/Gnosis (executable quotes at $1k/$10k; Avenia chains).
+3. **WBTC** — BitGo Prime redemption quote (break-even all-in ≤ ~4 bps; `RECAP.md §10.3`).
+4. **DFB** — BRZ/TESOURO liquidation and TESOURO mint/redeem terms (`PONTOS_DE_ATENCAO.md §3.4`).
+5. Re-run `cycle_analyze.py` / `xvenue_analyze.py` after a few days of live data; then stop the collectors.
+
+## Next steps — v1/v2 (historical)
 
 1. ✅ ~~Fill DEX addresses (USDe, USDY, MXNe, cCOP)~~ — done 2026-09-18. Next on-chain step:
    **track deeper venues** — set `poolAddress` directly for USDY on Aerodrome/Solana (ETH pools are
@@ -144,7 +163,13 @@ python arb_tracker.py --interval 30
 
 ## Notes / gotchas
 
-- Environment: Windows 11, Python 3.14, PowerShell. Not a git repo.
+- Environment: Windows 11, Python 3.14, PowerShell. Git repo (branch `main`); commit only when the user asks.
+- **Read-only rule:** this repo never signs/sends tx or touches private keys; never read `xend-arb/.env`.
+- Background collectors (detached, survive the terminal): `cycle_collector.py` and `xvenue_collector.py`;
+  stop with `.un_cycle_collector.ps1 -Stop` / `.un_xvenue_collector.ps1 -Stop`. They grow `arb_tracker.db`
+  (~100 MB/day for xvenue) — stop them when the measurement window is enough.
+- Public RPCs: publicnode = live only (403 under load); drpc / mainnet.base.org = archive (Polygon/Base);
+  Arbitrum has no public archive. Prefer `*_RPC_URL` env vars for multi-day runs.
 - CCXT unified symbols are case-sensitive (e.g. USDe → `USDE/USDT`). Exchanges silently skip pairs
   they don't list.
 - GeckoTerminal is free/no-key but rate-limited (~30 req/min) — keep `--interval` reasonable.

@@ -43,9 +43,11 @@ INSTS = ["BTC-BRL", "BTC-USDT", "BTC-USDC", "ETH-BRL", "ETH-USDT", "ETH-USDC", "
          "SOL-USDT", "SOL-USDC", "USDT-BRL", "USDC-BRL", "USDC-USDT", "POL-USDT"]
 FEE_BRL, FEE_NB, MAKER_BRL = 2e-4, 11e-4, -1.5e-4
 SIZES = (1_000, 10_000, 100_000)
-DEX = {  # (chain, asset) -> (token symbol, fee tier) — validated by xvenue_discover.py
-    ("arbitrum", "BTC"): ("WBTC", 500), ("arbitrum", "ETH"): ("WETH", 500),
-    ("base", "BTC"): ("cbBTC", 500), ("base", "ETH"): ("WETH", 500),
+DEX = {  # (chain, asset, token) -> (fee tier, quote stable) — validated by xvenue_discover.py
+    ("arbitrum", "BTC", "WBTC"): (500, "USDC"), ("arbitrum", "ETH", "WETH"): (500, "USDC"),
+    ("base", "BTC", "cbBTC"): (500, "USDC"), ("base", "ETH", "WETH"): (500, "USDC"),
+    # Ethereum: WBTC trades ~10 bps under BTC (redeemable at par via BitGo); USDT 0.05% is the deep pool
+    ("ethereum", "BTC", "WBTC"): (500, "USDT"),
 }
 SWAP_GAS = 150_000  # one Uni v3/v4 swap incl. tx overhead (approx.)
 
@@ -210,30 +212,31 @@ def okx_triangles(bk, ts, rows):
 def dex_jobs(bk):
     """Build on-chain quote jobs per chain (needs OKX ref prices for the asset->USDC size)."""
     jobs = {c: [] for c in CHAINS}
-    for (c, a), (sym, ft) in DEX.items():
+    for (c, a, sym), (ft, qs) in DEX.items():
         cfg = CHAINS[c]
-        usdc, ud = cfg["tokens"]["USDC"]
+        usdc, ud = cfg["tokens"][qs]
         tok, td = cfg["tokens"][sym]
-        ref = mid(bk[f"{a}-USDC"])
+        ref = mid(bk[f"{a}-{qs}"])
         for s in SIZES:
             t, cd = _v3_q(cfg["quoter_v2"], usdc, tok, ft, s * 10**ud)
-            jobs[c].append(((a, "buy", s), t, cd, dec_v3))
+            jobs[c].append(((sym, "buy", s), t, cd, dec_v3))
             t, cd = _v3_q(cfg["quoter_v2"], tok, usdc, ft, s / ref * 10**td)
-            jobs[c].append(((a, "sell", s), t, cd, dec_v3))
+            jobs[c].append(((sym, "sell", s), t, cd, dec_v3))
     return jobs
 
 
 def dex_strats(bk, q, gas_usd, ts, rows):
-    usdc_brl = bk["USDC-BRL"]
-    for (c, a), (sym, _) in DEX.items():
+    for (c, a, sym), (_, qsym) in DEX.items():
         td = CHAINS[c]["tokens"][sym][1]
-        ref = mid(bk[f"{a}-USDC"])
-        abrl, ausd = bk[f"{a}-BRL"], bk[f"{a}-USDC"]
+        usdc_brl = bk[f"{qsym}-BRL"]  # close the stable leg on its own BRL pair
+        ref = mid(bk[f"{a}-{qsym}"])
+        abrl, ausd = bk[f"{a}-BRL"], bk[f"{a}-{qsym}"]
         g_usd = gas_usd.get(c)
         if g_usd is None:
             continue
+        venue = c
         for s in SIZES:
-            qb, qs = q.get(c, {}).get((a, "buy", s)), q.get(c, {}).get((a, "sell", s))
+            qb, qs = q.get(c, {}).get((sym, "buy", s)), q.get(c, {}).get((sym, "sell", s))
 
             def brl_rows():
                 out = []
@@ -283,7 +286,7 @@ def dex_strats(bk, q, gas_usd, ts, rows):
                     out.append(("dex_usd", "okx_buy>dex_sell", v2))
                 return out
             for strat, route, (g, n) in brl_rows():
-                rows.append((ts, strat, a, c, route, s, g, n, None, g_usd, int(n is not None)))
+                rows.append((ts, strat, a, venue, route, s, g, n, None, g_usd, int(n is not None)))
 
 
 def basis_jobs(bk):
@@ -354,7 +357,7 @@ class Collector:
         jobs = dex_jobs(bk)
         bjobs, plan = basis_jobs(bk)
         jobs["polygon"] = jobs.get("polygon", []) + bjobs
-        with ThreadPoolExecutor(3) as ex:
+        with ThreadPoolExecutor(len(jobs)) as ex:
             res = dict(zip(jobs, ex.map(lambda c: self.chains.run(c, jobs[c]), jobs)))
         q = {c: r[0] for c, r in res.items()}
         native = {c: mid(bk[CHAINS[c]["native_okx"]]) for c in CHAINS}

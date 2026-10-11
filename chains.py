@@ -9,6 +9,21 @@ from __future__ import annotations
 import os
 
 CHAINS = {
+    "ethereum": {
+        "chain_id": 1,
+        "rpcs": ["https://ethereum-rpc.publicnode.com", "https://eth.drpc.org"],
+        "env": "ETHEREUM_RPC_URL",
+        "v3_factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "quoter_v2": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+        "native_okx": "ETH-USDT",
+        "tokens": {
+            "USDC": ("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", 6),
+            "USDT": ("0xdAC17F958D2ee523a2206206994597C13D831ec7", 6),
+            "WBTC": ("0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", 8),
+            "cbBTC": ("0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf", 8),
+            "WETH": ("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", 18),
+        },
+    },
     "polygon": {
         "chain_id": 137,
         "rpcs": ["https://polygon-bor-rpc.publicnode.com", "https://polygon.drpc.org"],

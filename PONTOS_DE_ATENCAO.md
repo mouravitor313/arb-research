@@ -53,6 +53,16 @@
 - [ ] O coletor `cycle_collector.py` segue rodando (pid em `cycle_collector.pid`; parar com
   `.\run_cycle_collector.ps1 -Stop`). Reanalisar após alguns dias com `python cycle_analyze.py`.
 
+### Item 1 (BTC/ETH/SOL, USDC/USDT) — medido 2026-10-11
+- [ ] **Na OKX, fechar sempre pelos pares BRL:** `BTC-BRL ÷ USDC-BRL` bate com o `BTC-USDC` (~0,5 bps),
+  mas a taxa é 2+2 contra 11 bps. Isso vale 5–7 bps por operação em qualquer instância nova.
+- [ ] **WBTC negocia 10–15 bps abaixo do BTC** (e o cbBTC fica no par). O desconto pode abrir mais
+  em crise (FTX/2022: −150 a −200 bps) e há risco de custódia (BiT Global / Justin Sun). Se virar
+  instância, limitar a exposição em WBTC não resgatado.
+- [ ] Triângulos internos da OKX e a diferença USDC/USDT estão **fechados** (custo ≈ taxa). Monitorar
+  só como secundário. O coletor `xvenue_collector.py` segue rodando (`.\run_xvenue_collector.ps1 -Stop`).
+- [ ] `ETH-BRL` é raso (não absorve $100k); `BTC-BRL` aguenta $10k bem e $100k com impacto.
+
 ### Dados / medição
 - [ ] **GeckoTerminal = último negócio, não cotação executável.** Desvios "persistentes" em pools de
   pouco volume (Base +54 bps, Gnosis Curve −20 bps) podem ser só preço velho. Validar sempre com
@@ -90,6 +100,12 @@
   **TESOURO**, como funciona mint/resgate (prazo, taxa, mínimo, NAV; o pool usa rate ~1,2728) e se
   dá para arbitrar NAV × preço no Curve? (c) eles operam/rebalanceiam o pool Curve (A=2000 segura
   BRZ≈BRLA perto de 1:1, enquanto o mercado dá BRZ ~0,96% abaixo)? (d) planos de pools em Base/Gnosis.
+- [ ] **3.5 BitGo / WBTC (item 1, `RECAP.md §10.3`):** a conta BitGo **não** dá direito a queimar
+  WBTC; só merchants aprovados pela DAO podem. Pedir à **BitGo Prime** (que é merchant): fee de
+  resgate em bps (custodiante + merchant), mínimo, prazo, e se aceitam WBTC vindo de Arbitrum ou
+  só do Ethereum. **Ponto de equilíbrio medido: all-in ≤ ~4 bps.** Também confirmar com uma chamada
+  autenticada se a OKX aceita depósito de WBTC (`GET /api/v5/asset/currencies?ccy=WBTC`); a OKX não
+  tem mercado de WBTC.
 - [ ] **3.3 Endereços das wallets dos bots do `xend-arb`** (brz e brla) para correlacionar com
   `cycle_pool_swaps.tx_from`. Ficam no `.env` de lá, que não deve ser lido.
 

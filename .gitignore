@@ -3,3 +3,4 @@ cycle_*.log
 cycle_collector.pid
 xvenue_*.log
 xvenue_collector.pid
+.env
