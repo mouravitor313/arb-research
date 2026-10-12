@@ -144,6 +144,92 @@ de $500. Gnosis Oku a $200: +33 bps o tempo todo. Polygon a $200: positiva em 19
 - Mínimos de 5 e 10 bps por trade mudam pouco o R$/dia inferior (Gnosis 186–193, Base 76–79, Polygon
   188–194). Detalhe em `backtest_200.json`.
 
+### 5.2 Tamanho ótimo do ticket ($20–$500) e swap ótimo, 12/10
+Script `optimal_size.py` → `optimal_size.json`. Usa os mesmos dados e a mesma regra do §5.1: a cada amostra o bot
+dispara tickets enquanto o ticket *marginal* líquido for maior que o mínimo, e o impacto do próprio bot se acumula.
+O que muda em relação ao §5.1:
+- **Curva abaixo de $500.** Nos pools CL uso um ramo exato de range único: taxa marginal em 0 = `dex_mid × (1−fee)`,
+  ajustado ao ponto exato de $500. No Curve uso a extrapolação do `backtest.py`.
+- **Validação.** `optimal_size_resim.py` re-simulou exatamente 100 blocos por chain em 20/50/100/150/200/300/500,
+  só com RPC público archive (0 Alchemy; tabela `small_resim`). |Erro| p95 = **0,00 bps** em Oku e Base, **0,007**
+  na Polygon e **0,39** no Curve a $20 (0,20 a $200). A extrapolação linear antiga também fica ≤0,04 bps nos CL.
+  **Conclusão: abaixo de $500 a curva é praticamente linear e não precisa de mais re-simulação.**
+- **Conferência.** A $200 e mínimo de 0 bps, o script reproduz o `backtest_200.json` (Polygon R$1,32 e 87 tr/dia;
+  Oku R$3,32 e 181 R$/dia).
+
+**Tabela ticket × pool (mínimo de 10 bps por trade; backfill de 30 min, 60 d; Polygon 45 d).**
+Colunas: R$ por trade (bps), trades/dia e R$/dia em três regimes (inferior = 1× por episódio, teto por fluxo
+orgânico, superior), mais o regime inferior calibrado contra o bot real.
+
+| Pool | Ticket | R$/trade (bps) | Inferior: R$/dia (trades) | Teto fluxo: R$/dia (trades) | Superior: R$/dia (trades) | Calibrado: R$/dia (trades) |
+|---|---|---|---|---|---|---|
+| Gnosis Oku | $20 | 0,44 (42) | 188 (271) | 313 (717) | 2.393 (5.480) | 94 (233) |
+| | $50 | 1,09 (42) | 189 (109) | 313 (287) | 2.402 (2.199) | 95 (94) |
+| | $100 | 2,19 (42) | 189 (55) | 313 (143) | 2.404 (1.100) | 95 (47) |
+| | $200 | 4,37 (42) | 193 (29) | 313 (72) | 2.404 (550) | 97 (25) |
+| | **$500** | **10,92 (42)** | **196 (12)** | 313 (29) | 2.393 (219) | **98 (10)** |
+| | ótimo/amostra | 73 por swap | 192 | 251 | 2.489 | 96 |
+| Gnosis Curve | $20 | 0,40 (39) | 44 (59) | 50 (123) | 522 (1.294) | 22 (51) |
+| | $200 | 4,01 (39) | 45 (6) | 49 (12) | 521 (130) | 22 (5) |
+| | $500 | 9,96 (39) | 48 (3) | 49 (5) | 519 (52) | 24 (2) |
+| Base | $20 | 0,41 (39) | 75 (113) | 201 (495) | 849 (2.091) | 37 (97) |
+| | $100 | 2,04 (40) | 78 (25) | 202 (99) | 905 (444) | 39 (21) |
+| | $200 | 4,07 (39) | 79 (13) | 201 (49) | 906 (223) | 39 (11) |
+| | $500 | 10,21 (40) | 83 (6) | 202 (20) | 903 (88) | 42 (5) |
+| *Polygon* | $20 | 0,34 (33) | 175 (496) | 470 (1.392) | = teto | 88 (426) |
+| | $100 | 1,52 (30) | 183 (108) | 533 (351) | = teto | 92 (93) |
+| | $200 | 3,00 (29) | 188 (56) | 543 (181) | = teto | 94 (48) |
+| | $500 | 7,45 (29) | 196 (24) | 547 (74) | = teto | 98 (21) |
+
+Com mínimo de 0 bps (o bot real), a Polygon a $200 dá R$1,32 e 87 trades/dia no regime inferior, contra R$1,20 e
+~75 reais. Os fatores de calibração são: R$/trade × 0,91, trades/dia × 0,86 e **R$/dia × 0,50**, este último
+aplicado na coluna "calibrado". Na Gnosis o fator de 0,5 é conservador, porque não há arbitrador dedicado (§5).
+Tickets intermediários ($150, $300) e mínimos de 0 e 5 bps estão no JSON.
+
+**Respostas às cinco perguntas:**
+1. **Ticket que maximiza R$/dia:** na prática, nenhum. No modelo de rajada, o R$/dia é **quase plano no ticket**
+   (Oku 188–196, Base 75–83, Polygon 175–196 com mínimo de 10 bps). Um ticket menor só divide o mesmo lucro em
+   mais trades. O R$/trade cresce de forma linear com o ticket, e o bps por trade não muda. O mínimo de **10 bps**
+   rende igual ou mais que o de 0 bps em todos os pools (a $500: Oku 196 contra 181; Polygon 196 contra 181), com
+   metade dos trades. É também uma folga contra o erro da referência OKX (|erro| p95 de 3,1 bps).
+2. **Tamanho ótimo por amostra (X\*), com mínimo de 10 bps:** Oku mediana de ~$2,0k (p25 $1,9k, p75 $4,9k, p95
+   $9,8k); Curve ~$1k (p95 $2k); Base ~$1,9k (p25 $1k, p95 $4,7k; compras de BRLA acima de ~$2k costumam esgotar o
+   range); Polygon ~$1,9k (p95 $9,8k). Com mínimo de 0 bps, a rajada de tickets fixos captura **98–100% do lucro
+   ótimo na Gnosis** e 92–98% na Base. Na Polygon captura 86% a $20 e ≥97% a partir de $100. Com mínimo de 10 bps
+   a captura cai para ~89–97% (77% na Polygon a $20), porque a regra para antes do ótimo, mas o R$/dia do regime
+   inferior sobe.
+3. **Um swap contra vários tickets no mesmo gap:** o swap CL exact-input é aditivo no caminho. Assim, N tickets de k
+   rendem no DEX exatamente o mesmo que um swap de N·k, e a diferença é só (N−1) × gás. Na Gnosis isso vale ≤0,8% do
+   lucro, mesmo a $20. Na Base vale 8% a $20 e 1,5% a $100. Na Polygon, 15% a $20, 3% a $100 e 1,4% a $200 (mínimo
+   de 0 bps). O custo real de vários tickets não é o gás. É o **tempo**: são N transações em N blocos, e quem chega
+   primeiro leva o gap. Os dados de 30 min não medem esse efeito, mas ele favorece tickets maiores ou um swap
+   dimensionado pelo X\*.
+4. **Quando o gás domina:** o gás é sempre minoria do lucro bruto. Com mínimo de 0 bps, a fatia do gás é:
+
+   | Pool | $20 | $50 | $100 | $200 |
+   |---|---|---|---|---|
+   | Polygon | 13% | 6% | 3% | 1,5% |
+   | Base | 7,5% | 3% | 1,6% | 0,8% |
+   | Gnosis | 0,8% | 0,3% | 0,2% | 0,1% |
+
+   O ponto em que o gás passa de 10% do lucro fica perto de **$25–30 na Polygon** e **$15 na Base**. Na Gnosis o gás
+   não domina em nenhum tamanho da grade.
+5. **Regimes e calibração:** ver a tabela. Na Gnosis Oku, o regime inferior calibrado dá **~R$95–98/dia** em
+   qualquer ticket e o teto por fluxo ~R$313/dia. Com o Curve, chega a **~R$120/dia calibrado**. O §5.1 calculava
+   R$110–140 somando Oku e Curve com 0 bps e desconto de 2×.
+
+**Checagem no live de 15 s (PARCIAL: 10,5 h, 00:32–11:00 UTC de 12/10; será refeita com as 24 h).** O 1º ticket
+líquido (best dos dois sentidos, com gás) ficou assim:
+- **Gnosis Oku:** +32 a +34 bps em **100% do tempo** (um único episódio de 10,5 h), em qualquer ticket de $20 a $500.
+- **Gnosis Curve:** +15 a +25 bps, também em 100% do tempo.
+- **Base:** só **+0,5 a +1,7 bps** (p50) de $20 a $200, **nunca > 5 bps**, e negativa a $500 (−3,0). Nesta janela, a
+  Base com ticket pequeno não paga o risco.
+- **Polygon:** p50 de −6,5 bps, > 5 bps em ~8% do tempo e > 10 bps em ~3,5%.
+
+O regime "1 ticket por tick de 15 s" (`paced_1_per_tick` no JSON) supõe que ninguém devolve o preço do pool dentro
+do episódio. Por isso ele vai empurrando o pool até a borda da grade do live ($10k). Serve só como checagem e não
+entra nas estimativas.
+
 ## 6. Conclusão
 **Gnosis é oportunidade, mas depende do lado dólar. Base é uma oportunidade pequena. Celo não é. $100k não cabe em lugar nenhum.**
 
@@ -171,6 +257,17 @@ de $500. Gnosis Oku a $200: +33 bps o tempo todo. Polygon a $200: positiva em 19
 
 **Recomendação:** abrir **primeiro a Gnosis**, em teste com $2–5k de inventário, depois de responder aos
 itens 7.1–7.3. A Base fica como segunda, condicionada ao adaptador Slipstream.
+
+**Ticket da instância Gnosis (§5.2):** **$500 fixo com mínimo de 10 bps por trade**, ou, se o bot suportar, um swap
+único dimensionado pelo ótimo da amostra (X\* de ~$2k na mediana). O motivo:
+- O R$/dia é praticamente igual de $20 a $500, e o gás na Gnosis é desprezível.
+- Com $500, o bot faz 2,5× menos transações que com $200, fica menos exposto a quem chega primeiro e ganha
+  **R$10,9 por trade (42 bps)**. Na Polygon, com $200, são R$1,32 (13 bps) no modelo e R$1,20 no real.
+- Estimativa calibrada: **~R$98/dia na Oku + ~R$24 no Curve ≈ R$120/dia** (regime inferior × 0,5). O teto por
+  fluxo orgânico é ~R$313 + ~R$49/dia.
+
+**Polygon e Base:** não vale baixar o ticket do bot da Polygon. Abaixo de ~$50 o gás come 6–15% do lucro e o R$/dia
+não sobe. A Base com ticket pequeno ficou só +0,5 a +1,7 bps no live, o que reforça que ela é secundária.
 
 ## 7. Perguntas para o usuário e terceiros
 **Respondidas em 11/10:** (1) a Avenia resgata BRLA em Gnosis e Base igual à Polygon; (3) a OKX não tem
@@ -202,7 +299,8 @@ USDC na Gnosis nem na Celo, mas tem na Base, Arbitrum, Ethereum e Polygon.
 ## 8. Requisições Alchemy usadas
 **10** (só `eth_getLogs` do `flow.py` em Base e Polygon, porque os RPCs públicos negaram ranges grandes
 de logs). Probe, backfill (4 × 673 amostras) e logs da Gnosis e da Celo usaram RPC público. Registro em
-`data.db:rpc_usage`.
+`data.db:rpc_usage`. O re-sim do §5.2 (`optimal_size_resim.py`, 100 blocos × 3 chains) e o coletor ao vivo
+usaram **só RPC público**: **0** chamadas pagas a mais. O total continua em **10**.
 
 ## 9. Arquivos criados e o que ficou rodando
 Tudo em `topics/t3_brla_l2/`:
@@ -216,7 +314,13 @@ Tudo em `topics/t3_brla_l2/`:
 - `hl_probe.py` → `hl_probe.json`: Hyperliquid, descartado.
 - `analyze.py` → `analysis.json`: tabelas acima.
 - `backtest.py` → `backtest_200.json`: backtest de ticket fixo (bot-style, padrão $200), offline.
-- `data.db`: tabelas `dex_hist`, `okx_candles`, `swaps`, `probe`, `rpc_usage`.
+- `collector.py` + `run_collector.ps1` (`-Stop`) → `data.db:live`: coletor ao vivo de 15 s, 24 h, RPC público.
+- `optimal_size_resim.py` → `data.db:small_resim` (logs `resim_<chain>.log`): re-sim exato de $20–$500 em 100
+  blocos por chain, para validar o modelo.
+- `optimal_size.py` → `optimal_size.json`: estudo de ticket ($20–$500) × mínimo (0/5/10 bps) × pool, com swap
+  ótimo, captura, gás, calibração e checagem no live (§5.2).
+- `data.db`: tabelas `dex_hist`, `okx_candles`, `swaps`, `probe`, `rpc_usage`, `live`, `small_resim`.
 
-**Nada ficou rodando.** Os quatro backfills terminaram (`done`). Nenhum arquivo central foi editado. O
-`arb_tracker.db` foi aberto só em modo leitura (`xvenue_ticks`, para calibrar o spread).
+**Rodando (12/10, ~08h30 local):** o coletor ao vivo (pid 33072, `--hours 24`) para sozinho por volta de
+00:33 UTC de 13/10 (≈21h33 local de 12/10). Os backfills e o re-sim terminaram (`done`). Nenhum arquivo central
+foi editado. O `arb_tracker.db` foi aberto só em modo leitura (`xvenue_ticks`, para calibrar o spread).
