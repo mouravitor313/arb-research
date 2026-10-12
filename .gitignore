@@ -1,6 +1,14 @@
 __pycache__/
-cycle_*.log
-cycle_collector.pid
-xvenue_*.log
-xvenue_collector.pid
+*.py[cod]
+.venv/
+venv/
 .env
+
+# Logs & PIDs
+*.log
+*.pid
+
+# Databases & local data
+*.db
+*.sqlite
+*.sqlite3
