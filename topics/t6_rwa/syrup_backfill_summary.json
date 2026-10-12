@@ -1,0 +1,30 @@
+{
+ "days": 14.0,
+ "step_min": 60,
+ "paid_requests": 335,
+ "summary": {
+  "syrupUSDC": {
+   "n": 336,
+   "p05": -10.41,
+   "p50": -9.05,
+   "p95": -0.95,
+   "min": -10.7,
+   "max": 0.06,
+   "pct_below_-8bps": 55.4,
+   "pct_above_+8bps": 0.0,
+   "mean": -7.12
+  },
+  "syrupUSDT": {
+   "n": 336,
+   "p05": -10.73,
+   "p50": -10.15,
+   "p95": -9.69,
+   "min": -11.31,
+   "max": -9.51,
+   "pct_below_-8bps": 100.0,
+   "pct_above_+8bps": 0.0,
+   "mean": -10.19
+  },
+  "USDY_nav_apr_pct": 3.72
+ }
+}

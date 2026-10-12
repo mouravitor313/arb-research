@@ -50,7 +50,7 @@
 - [ ] **Há um searcher atômico no ciclo BRL da Polygon** (EOAs vanity `0x4337…`, ~66% dos swaps
   nos pools BRL, txs multi-pool). Qualquer ideia atômica nesses pools compete com ele no mesmo bloco
   (nível 3). Vale checar se ele também opera Gnosis/Base antes de medir o item D.
-- [ ] O coletor `cycle_collector.py` segue rodando (pid em `cycle_collector.pid`; parar com
+- [x] 2026-10-11 — Coletor `cycle_collector.py` **parado** a pedido do usuário (ciclo B fechado). Antes rodava (pid em `cycle_collector.pid`; parar com
   `.\run_cycle_collector.ps1 -Stop`). Reanalisar após alguns dias com `python cycle_analyze.py`.
 
 ### Item 1 (BTC/ETH/SOL, USDC/USDT) — medido 2026-10-11

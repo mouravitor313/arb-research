@@ -1,0 +1,99 @@
+{
+ "ts": "2026-10-11T22:56:00Z",
+ "xrpl": {
+  "XRP/RLUSD": {
+   "amm_account": "rhWTXC2m2gGGA9WozUaoMm6kLAVPb1tcS3",
+   "xrp": 1782043.285866,
+   "stable": 2506200.981527766,
+   "px": 1.406363695767275,
+   "tvl_usd": 5012401.963055532,
+   "trading_fee_pct": 0.196,
+   "clob_asks_usd_1pct": 59003,
+   "clob_asks_usd_5pct": 59003,
+   "clob_asks_n": 100,
+   "clob_bids_usd_1pct": 97860,
+   "clob_bids_usd_5pct": 97860,
+   "clob_bids_n": 99
+  },
+  "XRP/USDC": {
+   "amm_account": "rM7cHVPfhe9yxQNk2kDNBEQqoQmMcQGPWE",
+   "xrp": 99659.080491,
+   "stable": 140279.2844699177,
+   "px": 1.407591599067443,
+   "tvl_usd": 280558.5689398354,
+   "trading_fee_pct": 0.097,
+   "clob_asks_usd_1pct": 53043,
+   "clob_asks_usd_5pct": 53053,
+   "clob_asks_n": 76,
+   "clob_bids_usd_1pct": 43702,
+   "clob_bids_usd_5pct": 43733,
+   "clob_bids_n": 91
+  }
+ },
+ "okx": {
+  "SOL-BRL": {
+   "spread_bps": 7.2,
+   "ask_quote_1pct": 110434,
+   "bid_quote_1pct": 118969,
+   "ask_quote_5pct": 111408,
+   "bid_quote_5pct": 122971,
+   "vol24h_quote": 168090
+  },
+  "XRP-BRL": {
+   "spread_bps": 4.2,
+   "ask_quote_1pct": 106976,
+   "bid_quote_1pct": 119218,
+   "ask_quote_5pct": 107139,
+   "bid_quote_5pct": 119374,
+   "vol24h_quote": 65265
+  },
+  "USDT-BRL": {
+   "spread_bps": 0.2,
+   "ask_quote_1pct": 6387410,
+   "bid_quote_1pct": 7256526,
+   "ask_quote_5pct": 6477911,
+   "bid_quote_5pct": 7462685,
+   "vol24h_quote": 11554603
+  },
+  "USDC-BRL": {
+   "spread_bps": 1.4,
+   "ask_quote_1pct": 1964206,
+   "bid_quote_1pct": 2858803,
+   "ask_quote_5pct": 1967455,
+   "bid_quote_5pct": 2931803,
+   "vol24h_quote": 6430352
+  },
+  "PEPE-BRL": {
+   "spread_bps": 23.7,
+   "ask_quote_1pct": 60691,
+   "bid_quote_1pct": 58112,
+   "ask_quote_5pct": 60719,
+   "bid_quote_5pct": 60648,
+   "vol24h_quote": 535
+  },
+  "PI-BRL": {
+   "spread_bps": 21.7,
+   "ask_quote_1pct": 37734,
+   "bid_quote_1pct": 37667,
+   "ask_quote_5pct": 56705,
+   "bid_quote_5pct": 56440,
+   "vol24h_quote": 2199
+  },
+  "TRUMP-BRL": {
+   "spread_bps": 30.8,
+   "ask_quote_1pct": 113378,
+   "bid_quote_1pct": 112844,
+   "ask_quote_5pct": 114285,
+   "bid_quote_5pct": 113688,
+   "vol24h_quote": 8801
+  },
+  "RLUSD-USDT": {
+   "spread_bps": 1.0,
+   "ask_quote_1pct": 11076567,
+   "bid_quote_1pct": 10234727,
+   "ask_quote_5pct": 11077301,
+   "bid_quote_5pct": 10235923,
+   "vol24h_quote": 372134
+  }
+ }
+}

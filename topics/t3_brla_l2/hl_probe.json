@@ -1,0 +1,19 @@
+{
+ "okx_mid": 5.0287,
+ "pairs": [
+  {
+   "coin": "@298",
+   "tokens": [
+    "BRLA",
+    "USDC"
+   ],
+   "best_bid_usdc_per_brla": 0.001001,
+   "best_ask": 0.001608,
+   "bid_depth_usd": 1563.56879955,
+   "ask_depth_usd": 1563.5781219300002,
+   "mid_brla_per_usd": 766.5772326561901,
+   "dev_vs_okx_bps": 1514404.3841473742,
+   "spread_bps": 6063.936063936067
+  }
+ ]
+}

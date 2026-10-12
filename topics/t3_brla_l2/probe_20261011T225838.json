@@ -1,0 +1,574 @@
+{
+ "ts": "2026-10-11T22:58:38+00:00",
+ "okx": {
+  "USDC-BRL": {
+   "bid": 5.0284,
+   "ask": 5.0291,
+   "bid_depth_usd_20": 293237.15959,
+   "ask_depth_usd_20": 237517.16909
+  },
+  "USDT-BRL": {
+   "bid": 5.0242,
+   "ask": 5.0243,
+   "bid_depth_usd_20": 638461.52429,
+   "ask_depth_usd_20": 466145.33148
+  }
+ },
+ "pools": {
+  "base_aero_005": {
+   "chain": "base",
+   "block": 52485083,
+   "okx_ref": "USDC-BRL",
+   "dex_mid_brla_per_usd": 5.023487721050181,
+   "okx_mid": 5.0287500000000005,
+   "dex_vs_okx_mid_bps": -10.464387670533482,
+   "gas_usd": 0.004432784,
+   "fee_pips": 500,
+   "rows": [
+    {
+     "size": 250,
+     "usd2brla_net_bps": -21.395638762838498,
+     "brla2usd_net_bps": -0.47637648781002273,
+     "dex_brla_out": 1254.8589134018243,
+     "dex_usd_out": 250.059936,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 500,
+     "usd2brla_net_bps": -24.368139032667507,
+     "brla2usd_net_bps": -3.457692963485595,
+     "dex_brla_out": 2508.9481374045135,
+     "dex_usd_out": 499.966332,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 1000,
+     "usd2brla_net_bps": -30.44049370650511,
+     "brla2usd_net_bps": -9.547610971476235,
+     "dex_brla_out": 5014.820348089881,
+     "dex_usd_out": 999.319074,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 2000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -21.831279242471137,
+     "dex_brla_out": 9412.68300724048,
+     "dex_usd_out": 1996.188296,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 5000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -58.49786853379429,
+     "dex_brla_out": 9412.68300724048,
+     "dex_usd_out": 4972.186605,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 10000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -118.93707356559386,
+     "dex_brla_out": 9412.68300724048,
+     "dex_usd_out": 9884.017937,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 20000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -237.51727075007258,
+     "dex_brla_out": 9412.68300724048,
+     "dex_usd_out": 19530.957832,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 50000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": null,
+     "dex_brla_out": 9412.68300724048,
+     "dex_usd_out": 42953.368626,
+     "exhausted": [
+      true,
+      true
+     ]
+    },
+    {
+     "size": 100000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": null,
+     "dex_brla_out": 9412.68300724048,
+     "dex_usd_out": 42953.368626,
+     "exhausted": [
+      true,
+      true
+     ]
+    }
+   ]
+  },
+  "gnosis_oku_005": {
+   "chain": "gnosis",
+   "block": 48708840,
+   "okx_ref": "USDC-BRL",
+   "dex_mid_brla_per_usd": 5.051652543055607,
+   "okx_mid": 5.0287500000000005,
+   "dex_vs_okx_mid_bps": 45.543212638541334,
+   "gas_usd": 1.44e-12,
+   "fee_pips": 500,
+   "rows": [
+    {
+     "size": 250,
+     "usd2brla_net_bps": 36.51002536454208,
+     "brla2usd_net_bps": -54.29250533359686,
+     "dex_brla_out": 1262.1164497513057,
+     "dex_usd_out": 248.709736,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 500,
+     "usd2brla_net_bps": 35.19609093433194,
+     "brla2usd_net_bps": -55.58829591252325,
+     "dex_brla_out": 2523.902527114308,
+     "dex_usd_out": 497.354665,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 1000,
+     "usd2brla_net_bps": 32.5692536127342,
+     "brla2usd_net_bps": -58.178877340007354,
+     "dex_brla_out": 5046.484083410511,
+     "dex_usd_out": 994.450202,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 2000,
+     "usd2brla_net_bps": 27.319701347736203,
+     "brla2usd_net_bps": -63.41504326873931,
+     "dex_brla_out": 10087.688429630492,
+     "dex_usd_out": 1987.864701,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 5000,
+     "usd2brla_net_bps": 11.562856289427849,
+     "brla2usd_net_bps": -79.03557693186676,
+     "dex_brla_out": 25179.705771893623,
+     "dex_usd_out": 4961.910139,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 10000,
+     "usd2brla_net_bps": -14.66350420276722,
+     "brla2usd_net_bps": -104.86617257940173,
+     "dex_brla_out": 50228.242795794904,
+     "dex_usd_out": 9898.088758,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 20000,
+     "usd2brla_net_bps": -101.1785770367773,
+     "brla2usd_net_bps": -155.996849010911,
+     "dex_brla_out": 99588.02697127605,
+     "dex_usd_out": 19694.047937,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 50000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -306.2661291862936,
+     "dex_brla_out": 112789.53469858061,
+     "dex_usd_out": 48484.713848,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 100000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": null,
+     "dex_brla_out": 112789.53469858061,
+     "dex_usd_out": 80651.377109,
+     "exhausted": [
+      true,
+      true
+     ]
+    }
+   ]
+  },
+  "gnosis_curve": {
+   "chain": "gnosis",
+   "block": 48708840,
+   "okx_ref": "USDC-BRL",
+   "dex_mid_brla_per_usd": 5.049098727417624,
+   "okx_mid": 5.0287500000000005,
+   "dex_vs_okx_mid_bps": 40.46478233681094,
+   "gas_usd": 1.44e-12,
+   "fee_pips": null,
+   "rows": [
+    {
+     "size": 250,
+     "usd2brla_net_bps": 22.762073162521155,
+     "brla2usd_net_bps": -57.86854102489873,
+     "dex_brla_out": 1260.388074385408,
+     "dex_usd_out": 248.620311,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 500,
+     "usd2brla_net_bps": 17.640823390505897,
+     "brla2usd_net_bps": -62.63829481984753,
+     "dex_brla_out": 2519.4884745312575,
+     "dex_usd_out": 497.00207,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 1000,
+     "usd2brla_net_bps": 7.093536169452807,
+     "brla2usd_net_bps": -71.90277657286445,
+     "dex_brla_out": 5033.672982001221,
+     "dex_usd_out": 993.077442,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 2000,
+     "usd2brla_net_bps": -15.337445818550934,
+     "brla2usd_net_bps": -89.48981828172337,
+     "dex_brla_out": 10044.786003868,
+     "dex_usd_out": 1982.648236,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 5000,
+     "usd2brla_net_bps": -96.35192836594906,
+     "brla2usd_net_bps": -135.88183214421502,
+     "dex_brla_out": 24908.36753522576,
+     "dex_usd_out": 4933.478216,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 10000,
+     "usd2brla_net_bps": -309.2765969441565,
+     "brla2usd_net_bps": -200.18079294971122,
+     "dex_brla_out": 48746.70720567164,
+     "dex_usd_out": 9802.744643,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 20000,
+     "usd2brla_net_bps": -1593.08659861859,
+     "brla2usd_net_bps": -321.36809075349646,
+     "dex_brla_out": 84583.16204421697,
+     "dex_usd_out": 19363.196527,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 50000,
+     "usd2brla_net_bps": -6124.124976853746,
+     "brla2usd_net_bps": -2704.8750949174687,
+     "dex_brla_out": 97534.339523057,
+     "dex_usd_out": 36487.337528,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 100000,
+     "usd2brla_net_bps": -8043.219414934993,
+     "brla2usd_net_bps": -6278.5838335254175,
+     "dex_brla_out": 98564.70458127989,
+     "dex_usd_out": 37226.13259,
+     "exhausted": [
+      false,
+      false
+     ]
+    }
+   ]
+  },
+  "celo_uni_001": {
+   "chain": "celo",
+   "block": 79858763,
+   "okx_ref": "USDT-BRL",
+   "dex_mid_brla_per_usd": 5.019015089482686,
+   "okx_mid": 5.02425,
+   "dex_vs_okx_mid_bps": -10.419287490300855,
+   "gas_usd": 0.0032322239999999997,
+   "fee_pips": 100,
+   "rows": [
+    {
+     "size": 250,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -16.545659942291994,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 249.642003,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 500,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -40.112552985176265,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 498.102181,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 1000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -87.00932592465219,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 991.510467,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 2000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -179.53702616458665,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 1964.508275,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 5000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -443.1401254314279,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 4779.436611,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 10000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -761.9651762345586,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 9239.977987,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 20000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": null,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 11861.179051,
+     "exhausted": [
+      true,
+      true
+     ]
+    },
+    {
+     "size": 50000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": null,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 11861.179051,
+     "exhausted": [
+      true,
+      true
+     ]
+    },
+    {
+     "size": 100000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": null,
+     "dex_brla_out": 1059.5397902073155,
+     "dex_usd_out": 11861.179051,
+     "exhausted": [
+      true,
+      true
+     ]
+    }
+   ]
+  },
+  "polygon_uni_005": {
+   "chain": "polygon",
+   "block": 95369501,
+   "okx_ref": "USDC-BRL",
+   "dex_mid_brla_per_usd": 5.027409433739466,
+   "okx_mid": 5.0287500000000005,
+   "dex_vs_okx_mid_bps": -2.665804147222728,
+   "gas_usd": 0.003159927526143888,
+   "fee_pips": 500,
+   "rows": [
+    {
+     "size": 250,
+     "usd2brla_net_bps": -11.08014184858505,
+     "brla2usd_net_bps": -5.749906446803126,
+     "dex_brla_out": 1256.1493639025202,
+     "dex_usd_out": 249.926789,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 500,
+     "usd2brla_net_bps": -11.61000917749788,
+     "brla2usd_net_bps": -6.280087886275636,
+     "dex_brla_out": 2512.14960880298,
+     "dex_usd_out": 499.823901,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 1000,
+     "usd2brla_net_bps": -12.764327727976314,
+     "brla2usd_net_bps": -7.4350286503143534,
+     "dex_brla_out": 5023.702849179341,
+     "dex_usd_out": 999.529116,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 2000,
+     "usd2brla_net_bps": -15.119223056578056,
+     "brla2usd_net_bps": -9.852311643882546,
+     "dex_brla_out": 10045.021371896393,
+     "dex_usd_out": 1998.58351,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 5000,
+     "usd2brla_net_bps": -22.3012373166204,
+     "brla2usd_net_bps": -17.06731251019021,
+     "dex_brla_out": 25094.574632018455,
+     "dex_usd_out": 4992.90702,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 10000,
+     "usd2brla_net_bps": -34.97273063186198,
+     "brla2usd_net_bps": -28.838573842642244,
+     "dex_brla_out": 50126.12866387513,
+     "dex_usd_out": 9974.143044,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 20000,
+     "usd2brla_net_bps": -64.24560744687705,
+     "brla2usd_net_bps": -52.36893074635207,
+     "dex_brla_out": 99959.49620341201,
+     "dex_usd_out": 19901.375192,
+     "exhausted": [
+      false,
+      false
+     ]
+    },
+    {
+     "size": 50000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -124.71896739785623,
+     "dex_brla_out": 188725.40864268053,
+     "dex_usd_out": 49392.787891,
+     "exhausted": [
+      true,
+      false
+     ]
+    },
+    {
+     "size": 100000,
+     "usd2brla_net_bps": null,
+     "brla2usd_net_bps": -212.88284062468907,
+     "dex_brla_out": 188725.40864268053,
+     "dex_usd_out": 97905.979415,
+     "exhausted": [
+      true,
+      false
+     ]
+    }
+   ]
+  }
+ }
+}

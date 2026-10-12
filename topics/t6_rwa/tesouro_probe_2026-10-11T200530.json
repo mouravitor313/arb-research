@@ -1,0 +1,90 @@
+{
+ "ts": "2026-10-11T20:05:30",
+ "block": 95369768,
+ "nav_brl": 1.265419,
+ "nav_usd": 0.253805,
+ "fx": 4.98579,
+ "dfb_oracle": 1.27432722,
+ "dfb_vs_nav_bps": 70.39739406473177,
+ "pool_bal": [
+  30859.335837,
+  384395.63872793614,
+  223271.47720209177,
+  42923.29361509258
+ ],
+ "okx_usdc_brl": {
+  "ask": 5.0291,
+  "bid": 5.0284
+ },
+ "rows": [
+  {
+   "size_usd": 1000,
+   "size_brl": 4985.79,
+   "curve_sell_bps": 63.0,
+   "curve_buy_bps": -99.7,
+   "poly_buy_bps": -19.5,
+   "poly_buy_route": [
+    "curve-stable-ng",
+    "uniswap-v4",
+    "uniswapv3"
+   ],
+   "poly_buy_tokens": 3932.398398,
+   "poly_sell_bps": -21.0,
+   "poly_sell_route": [
+    "curve-stable-ng",
+    "uniswap-v4",
+    "uniswapv3"
+   ],
+   "sol_sell_bps": -643.9,
+   "sol_sell_route": [
+    "Whirlpool"
+   ],
+   "loop_poly_bps": -45.2
+  },
+  {
+   "size_usd": 10000,
+   "size_brl": 49857.9,
+   "curve_sell_bps": -1616.7,
+   "curve_buy_bps": -2331.2,
+   "poly_buy_bps": -178.5,
+   "poly_buy_route": [
+    "curve-stable-ng",
+    "uniswap-v4",
+    "uniswapv3"
+   ],
+   "poly_buy_tokens": 38697.231308,
+   "poly_sell_bps": -78.5,
+   "poly_sell_route": [
+    "curve-stable-ng",
+    "uniswap-v4",
+    "uniswapv3"
+   ],
+   "sol_sell_bps": -644.9,
+   "sol_sell_route": [
+    "Whirlpool"
+   ],
+   "loop_poly_bps": -1714.2
+  },
+  {
+   "size_usd": 100000,
+   "size_brl": 498579.0,
+   "curve_sell_bps": -9139.9,
+   "curve_buy_bps": -9217.6,
+   "poly_buy_bps": -8577.1,
+   "poly_buy_route": [
+    "curve-stable-ng",
+    "uniswap-v4",
+    "uniswapv3"
+   ],
+   "poly_buy_tokens": 56061.378523,
+   "poly_sell_bps": -3441.5,
+   "poly_sell_route": [
+    "curve-stable-ng",
+    "metric-propamm/uniswap-v4",
+    "uniswap-v4",
+    "uniswapv3"
+   ],
+   "loop_poly_bps": -9152.5
+  }
+ ]
+}

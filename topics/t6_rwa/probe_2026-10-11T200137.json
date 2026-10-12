@@ -1,0 +1,776 @@
+{
+ "ts": "2026-10-11T20:01:37",
+ "navs": {
+  "syrupUSDC_exit": 1.187556,
+  "syrupUSDC": 1.187556,
+  "syrupUSDT_exit": 1.147545,
+  "USDY": 1.1492416,
+  "sfrxUSD": 1.214962926761602,
+  "sUSDS": 1.112489788053993,
+  "sDAI": 1.181620698512119,
+  "scrvUSD": 1.1095549044048003,
+  "cUSDO": 1.06338308442737,
+  "USTB": 11.242345
+ },
+ "rows": [
+  {
+   "token": "syrupUSDC",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.187556,
+   "buy_bps": -0.41,
+   "buy_gas": 0.086,
+   "buy_route": [
+    "uniswap-v4"
+   ],
+   "sell_bps": -10.89,
+   "sell_gas": 0.133,
+   "sell_route": [
+    "fluid-dex-t1"
+   ]
+  },
+  {
+   "token": "syrupUSDC",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.187556,
+   "buy_bps": 0.33,
+   "buy_gas": 0.083,
+   "buy_route": [
+    "uniswap-v4"
+   ],
+   "sell_bps": -10.04,
+   "sell_gas": 0.128,
+   "sell_route": [
+    "fluid-dex-t1"
+   ]
+  },
+  {
+   "token": "syrupUSDC",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.187556,
+   "buy_bps": 0.09,
+   "buy_gas": 0.188,
+   "buy_route": [
+    "maple-syrup",
+    "uniswap-v4"
+   ],
+   "sell_bps": -13.54,
+   "sell_gas": 0.128,
+   "sell_route": [
+    "fluid-dex-t1"
+   ]
+  },
+  {
+   "token": "syrupUSDC",
+   "chain": "base",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.187556,
+   "buy_bps": 9.32,
+   "buy_gas": 0.011,
+   "buy_route": [
+    "fluid-dex-t1",
+    "uniswap-v4"
+   ],
+   "sell_bps": -24.79,
+   "sell_gas": 0.005,
+   "sell_route": [
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "syrupUSDC",
+   "chain": "base",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.187556,
+   "buy_bps": 5.05,
+   "buy_gas": 0.011,
+   "buy_route": [
+    "fluid-dex-t1",
+    "uniswap-v4"
+   ],
+   "sell_bps": -25.72,
+   "sell_gas": 0.005,
+   "sell_route": [
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "syrupUSDC",
+   "chain": "base",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.187556,
+   "buy_bps": -5.24,
+   "buy_gas": 0.005,
+   "buy_route": [
+    "uniswap-v4"
+   ],
+   "sell_bps": -35.41,
+   "sell_gas": 0.005,
+   "sell_route": [
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "syrupUSDC",
+   "chain": "solana",
+   "venue": "jup",
+   "size": 1000,
+   "nav": 1.187556,
+   "buy_bps": 0.24,
+   "buy_gas": 0.002,
+   "buy_route": [
+    "Manifest"
+   ],
+   "sell_bps": -0.46,
+   "sell_gas": 0.002,
+   "sell_route": [
+    "Manifest"
+   ]
+  },
+  {
+   "token": "syrupUSDC",
+   "chain": "solana",
+   "venue": "jup",
+   "size": 10000,
+   "nav": 1.187556,
+   "buy_bps": 0.17,
+   "buy_gas": 0.002,
+   "buy_route": [
+    "AlphaQ",
+    "Manifest",
+    "Whirlpool"
+   ],
+   "sell_bps": -0.58,
+   "sell_gas": 0.002,
+   "sell_route": [
+    "AlphaQ",
+    "Manifest"
+   ]
+  },
+  {
+   "token": "syrupUSDC",
+   "chain": "solana",
+   "venue": "jup",
+   "size": 100000,
+   "nav": 1.187556,
+   "buy_bps": 0.05,
+   "buy_gas": 0.002,
+   "buy_route": [
+    "AlphaQ",
+    "Manifest",
+    "Whirlpool"
+   ],
+   "sell_bps": -1.98,
+   "sell_gas": 0.002,
+   "sell_route": [
+    "AlphaQ",
+    "Manifest",
+    "Whirlpool"
+   ]
+  },
+  {
+   "token": "syrupUSDT",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.147545,
+   "buy_bps": -0.3,
+   "buy_gas": 0.085,
+   "buy_route": [
+    "uniswap-v4"
+   ],
+   "sell_bps": -20.72,
+   "sell_gas": 0.085,
+   "sell_route": [
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "syrupUSDT",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.147545,
+   "buy_bps": 0.43,
+   "buy_gas": 0.085,
+   "buy_route": [
+    "uniswap-v4"
+   ],
+   "sell_bps": -19.99,
+   "sell_gas": 0.082,
+   "sell_route": [
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "syrupUSDT",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.147545,
+   "buy_bps": 0.18,
+   "buy_gas": 0.169,
+   "buy_route": [
+    "maple-syrup",
+    "uniswap-v4"
+   ],
+   "sell_bps": -20.27,
+   "sell_gas": 0.082,
+   "sell_route": [
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "solana",
+   "venue": "jup",
+   "size": 1000,
+   "nav": 1.1492416,
+   "buy_bps": -21.38,
+   "buy_gas": 0.002,
+   "buy_route": [
+    "Whirlpool"
+   ],
+   "sell_bps": -10.73,
+   "sell_gas": 0.002,
+   "sell_route": [
+    "Whirlpool"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "solana",
+   "venue": "jup",
+   "size": 10000,
+   "nav": 1.1492416,
+   "buy_bps": -21.69,
+   "buy_gas": 0.002,
+   "buy_route": [
+    "Whirlpool"
+   ],
+   "sell_bps": -11.04,
+   "sell_gas": 0.002,
+   "sell_route": [
+    "Whirlpool"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "solana",
+   "venue": "jup",
+   "size": 100000,
+   "nav": 1.1492416,
+   "buy_bps": -24.94,
+   "buy_gas": 0.002,
+   "buy_route": [
+    "Whirlpool"
+   ],
+   "sell_bps": -14.31,
+   "sell_gas": 0.002,
+   "sell_route": [
+    "Whirlpool"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.1492416,
+   "buy_bps": -7439.46,
+   "buy_gas": 0.12,
+   "buy_route": [
+    "uniswap-v4"
+   ],
+   "sell_bps": -173.54,
+   "sell_gas": 0.082,
+   "sell_route": [
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.1492416,
+   "buy_bps": -8341.79,
+   "buy_gas": 0.238,
+   "buy_route": [
+    "ekubo-v3",
+    "kyberswap-limit-order-v2/uniswap-v4",
+    "uniswap-v4"
+   ],
+   "sell_bps": -174.17,
+   "sell_gas": 0.082,
+   "sell_route": [
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.1492416,
+   "buy_bps": -9489.15,
+   "buy_gas": 0.48,
+   "buy_route": [
+    "kyberswap-limit-order-v2",
+    "uniswap-v4"
+   ],
+   "sell_bps": -5257.71,
+   "sell_gas": 1.236,
+   "sell_route": [
+    "curve",
+    "kyberswap-limit-order-v2",
+    "metric-propamm",
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "arbitrum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.1492416,
+   "buy_bps": -9394.16,
+   "buy_gas": 0.064,
+   "buy_route": [
+    "camelot-v3",
+    "kyberswap-limit-order-v2",
+    "maverick-v2",
+    "uniswap-v4"
+   ],
+   "sell_bps": -9401.43,
+   "sell_gas": 0.043,
+   "sell_route": [
+    "camelot-v3",
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "arbitrum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.1492416,
+   "buy_bps": -9671.21,
+   "buy_gas": 0.172,
+   "buy_route": [
+    "kyberswap-limit-order-v2",
+    "kyberswap-limit-order-v2/uniswap-v4",
+    "uniswap-v4",
+    "uniswap-v4-fairflow",
+    "uniswapv3"
+   ],
+   "sell_bps": -9764.39,
+   "sell_gas": 0.043,
+   "sell_route": [
+    "camelot-v3",
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "USDY",
+   "chain": "arbitrum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.1492416,
+   "buy_bps": -9935.28,
+   "buy_gas": 0.245,
+   "buy_route": [
+    "camelot-v3",
+    "kyberswap-limit-order-v2",
+    "kyberswap-limit-order-v2/uniswap-v4",
+    "uniswap-v4",
+    "uniswap-v4-fairflow",
+    "uniswapv3"
+   ],
+   "sell_bps": -9954.58,
+   "sell_gas": 0.132,
+   "sell_route": [
+    "camelot-v3",
+    "kyberswap-limit-order-v2",
+    "kyberswap-limit-order-v2/uniswap-v4",
+    "pmm-5/pancake-v3",
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "sfrxUSD",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.214962926761602,
+   "buy_bps": 1.17,
+   "buy_gas": 0.154,
+   "buy_route": [
+    "curve-stable-ng",
+    "ekubo-v3",
+    "erc4626"
+   ],
+   "sell_bps": -5.39,
+   "sell_gas": 0.115,
+   "sell_route": [
+    "curve-stable-ng",
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "sfrxUSD",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.214962926761602,
+   "buy_bps": 1.83,
+   "buy_gas": 0.129,
+   "buy_route": [
+    "curve-stable-ng",
+    "curve-stable-plain",
+    "erc4626"
+   ],
+   "sell_bps": -6.14,
+   "sell_gas": 0.239,
+   "sell_route": [
+    "curve-stable-ng",
+    "curve-stable-plain",
+    "ekubo-v3",
+    "uniswap-v4"
+   ]
+  },
+  {
+   "token": "sfrxUSD",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.214962926761602,
+   "buy_bps": 0.05,
+   "buy_gas": 0.279,
+   "buy_route": [
+    "curve-stable-ng",
+    "curve-stable-plain",
+    "erc4626",
+    "lite-psm",
+    "uniswap-v4"
+   ],
+   "sell_bps": -6.63,
+   "sell_gas": 0.145,
+   "sell_route": [
+    "curve-stable-ng",
+    "curve-stable-plain"
+   ]
+  },
+  {
+   "token": "sUSDS",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.112489788053993,
+   "buy_bps": -1.05,
+   "buy_gas": 0.105,
+   "buy_route": [
+    "balancer-v3-weighted",
+    "dai-usds",
+    "lite-psm"
+   ],
+   "sell_bps": -1.04,
+   "sell_gas": 0.104,
+   "sell_route": [
+    "balancer-v3-weighted",
+    "dai-usds",
+    "lite-psm"
+   ]
+  },
+  {
+   "token": "sUSDS",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.112489788053993,
+   "buy_bps": -0.11,
+   "buy_gas": 0.105,
+   "buy_route": [
+    "balancer-v3-weighted",
+    "dai-usds",
+    "lite-psm"
+   ],
+   "sell_bps": -0.1,
+   "sell_gas": 0.104,
+   "sell_route": [
+    "balancer-v3-weighted",
+    "dai-usds",
+    "lite-psm"
+   ]
+  },
+  {
+   "token": "sUSDS",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.112489788053993,
+   "buy_bps": -0.01,
+   "buy_gas": 0.105,
+   "buy_route": [
+    "balancer-v3-weighted",
+    "dai-usds",
+    "lite-psm"
+   ],
+   "sell_bps": -0.01,
+   "sell_gas": 0.106,
+   "sell_route": [
+    "dai-usds",
+    "erc4626",
+    "lite-psm"
+   ]
+  },
+  {
+   "token": "sDAI",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.181620698512119,
+   "buy_bps": -1.04,
+   "buy_gas": 0.104,
+   "buy_route": [
+    "erc4626",
+    "lite-psm"
+   ],
+   "sell_bps": -0.21,
+   "sell_gas": 0.195,
+   "sell_route": [
+    "erc4626",
+    "metric-propamm/uniswapv3",
+    "uniswapv3"
+   ]
+  },
+  {
+   "token": "sDAI",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.181620698512119,
+   "buy_bps": -0.1,
+   "buy_gas": 0.104,
+   "buy_route": [
+    "erc4626",
+    "lite-psm"
+   ],
+   "sell_bps": -0.05,
+   "sell_gas": 0.403,
+   "sell_route": [
+    "erc4626",
+    "kipseli-prop",
+    "lite-psm",
+    "metric-propamm/uniswapv3",
+    "sushiswap-v3",
+    "uniswap",
+    "uniswapv3"
+   ]
+  },
+  {
+   "token": "sDAI",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.181620698512119,
+   "buy_bps": -0.01,
+   "buy_gas": 0.099,
+   "buy_route": [
+    "erc4626",
+    "lite-psm"
+   ],
+   "sell_bps": -0.01,
+   "sell_gas": 0.102,
+   "sell_route": [
+    "erc4626",
+    "lite-psm"
+   ]
+  },
+  {
+   "token": "scrvUSD",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.1095549044048003,
+   "buy_bps": 4.63,
+   "buy_gas": 0.114,
+   "buy_route": [
+    "ekubo-v3",
+    "erc4626"
+   ],
+   "sell_bps": -8.76,
+   "sell_gas": 0.114,
+   "sell_route": [
+    "ekubo-v3",
+    "erc4626"
+   ]
+  },
+  {
+   "token": "scrvUSD",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.1095549044048003,
+   "buy_bps": 5.64,
+   "buy_gas": 0.09,
+   "buy_route": [
+    "curve-stable-plain",
+    "erc4626"
+   ],
+   "sell_bps": -7.89,
+   "sell_gas": 0.354,
+   "sell_route": [
+    "curve-stable-plain",
+    "erc4626",
+    "fermi"
+   ]
+  },
+  {
+   "token": "scrvUSD",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.1095549044048003,
+   "buy_bps": 5.52,
+   "buy_gas": 0.147,
+   "buy_route": [
+    "curve-stable-plain",
+    "ekubo-v3",
+    "erc4626"
+   ],
+   "sell_bps": -7.65,
+   "sell_gas": 0.209,
+   "sell_route": [
+    "curve-stable-plain",
+    "erc4626",
+    "fluid-dex-t1"
+   ]
+  },
+  {
+   "token": "cUSDO",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.06338308442737,
+   "buy_bps": 16.15,
+   "buy_gas": 0.073,
+   "buy_route": [
+    "curve-stable-ng"
+   ],
+   "sell_bps": -23.8,
+   "sell_gas": 0.13,
+   "sell_route": [
+    "curve-stable-ng",
+    "erc4626"
+   ]
+  },
+  {
+   "token": "cUSDO",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.06338308442737,
+   "buy_bps": 11.45,
+   "buy_gas": 0.131,
+   "buy_route": [
+    "curve-stable-ng",
+    "erc4626"
+   ],
+   "sell_bps": -35.13,
+   "sell_gas": 0.13,
+   "sell_route": [
+    "curve-stable-ng",
+    "erc4626"
+   ]
+  },
+  {
+   "token": "cUSDO",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.06338308442737,
+   "buy_bps": -598.5,
+   "buy_gas": 0.231,
+   "buy_route": [
+    "balancer-v3-stable",
+    "curve-stable-ng",
+    "erc4626"
+   ],
+   "sell_bps": -6984.18,
+   "sell_gas": 0.609,
+   "sell_route": [
+    "balancer-v3-stable",
+    "balancer-v3-weighted",
+    "curve-stable-ng",
+    "ekubo-v3",
+    "erc4626",
+    "uniswap-v4",
+    "uniswapv3"
+   ]
+  },
+  {
+   "token": "bUSD0",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 1000,
+   "nav": 1.0,
+   "buy_bps": 289.05,
+   "buy_gas": 0.11,
+   "buy_route": [
+    "curve-stable-ng",
+    "uniswapv3"
+   ],
+   "sell_bps": -285.58,
+   "sell_gas": 0.104,
+   "sell_route": [
+    "uniswapv3"
+   ]
+  },
+  {
+   "token": "bUSD0",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 10000,
+   "nav": 1.0,
+   "buy_bps": 288.5,
+   "buy_gas": 0.104,
+   "buy_route": [
+    "curve-stable-ng",
+    "uniswapv3"
+   ],
+   "sell_bps": -285.42,
+   "sell_gas": 0.104,
+   "sell_route": [
+    "uniswapv3"
+   ]
+  },
+  {
+   "token": "bUSD0",
+   "chain": "ethereum",
+   "venue": "kyber",
+   "size": 100000,
+   "nav": 1.0,
+   "buy_bps": 279.76,
+   "buy_gas": 0.167,
+   "buy_route": [
+    "curve-stable-ng",
+    "uniswapv3"
+   ],
+   "sell_bps": -292.71,
+   "sell_gas": 0.133,
+   "sell_route": [
+    "curve-stable-ng",
+    "uniswapv3"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,602 @@
+[
+ {
+  "name": "WETH / USDG",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0xbac3aa3b91584a53a579b3c999a56756e954e59247e497bad1d25a4334bde551",
+  "tvl": 23925052.18,
+  "vol24": 21918023.8652043,
+  "base": "robinhood_0x0000000000000000000000000000000000000000",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDC / USDG",
+  "net": "near_nep141:eth-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.omft.near__",
+  "dex": "near-intents",
+  "addr": "nep141:eth-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.omft.near___nep141:hood-0x5fc5360d0400a0fd4f2af552add042d716f1d168.omft.near",
+  "tvl": 21558309.3378,
+  "vol24": 109659.430090505,
+  "base": "near_eth-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.omft.near",
+  "quote": "near_hood-0x5fc5360d0400a0fd4f2af552add042d716f1d168.omft.near"
+ },
+ {
+  "name": "USDG / WETH 0.01%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0x52e65b17fb6e5ba00ed806f37afcd2daa50271ca",
+  "tvl": 20253428.0826,
+  "vol24": 79625528.8896056,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ },
+ {
+  "name": "USDG / USDC",
+  "net": "eth",
+  "dex": "curve",
+  "addr": "0xc061caa073f3d95f80f8e5428d32d2d76f5e1622",
+  "tvl": 20021163.9345,
+  "vol24": 11688831.9588058,
+  "base": "eth_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+ },
+ {
+  "name": "USDG / USDC",
+  "net": "solana",
+  "dex": "orca",
+  "addr": "9RqDTfwCx2SgxsvKpspQHc38HUo3B6hRd3oR9JR966Ps",
+  "tvl": 18072415.4813,
+  "vol24": 513770.874064021,
+  "base": "solana_2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+  "quote": "solana_EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+ },
+ {
+  "name": "USDG / USDT",
+  "net": "near_nep141:eth-0xdac17f958d2ee523a2206206994597c13d831ec7.omft.near__",
+  "dex": "near-intents",
+  "addr": "nep141:eth-0xdac17f958d2ee523a2206206994597c13d831ec7.omft.near___nep141:hood-0x5fc5360d0400a0fd4f2af552add042d716f1d168.omft.near",
+  "tvl": 9316873.3193,
+  "vol24": 96635.4278427933,
+  "base": "near_hood-0x5fc5360d0400a0fd4f2af552add042d716f1d168.omft.near",
+  "quote": "near_eth-0xdac17f958d2ee523a2206206994597c13d831ec7.omft.near"
+ },
+ {
+  "name": "USDG / USD\u20ae0 0.01%",
+  "net": "x-layer",
+  "dex": "uniswap-v3-x-layer",
+  "addr": "0x0cbe0dbe1400e57f371a38bd3b9bc80f7c3676da",
+  "tvl": 6914864.8401,
+  "vol24": 1758132.88522849,
+  "base": "x-layer_0x4ae46a509f6b1d9056937ba4500cb143933d2dc8",
+  "quote": "x-layer_0x779ded0c9e1022225f8e0630b35a9b54be713736"
+ },
+ {
+  "name": "CRCL / USDG 0.3%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0x654e4143e82a5824445ade0824351c2a9acd95a8",
+  "tvl": 6889866.7522,
+  "vol24": 128557.743843113,
+  "base": "robinhood_0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "U / USDG 0.01%",
+  "net": "robinhood",
+  "dex": "pancakeswap-v3-robinhood",
+  "addr": "0x090f2f033c16fe92e28f0204435590548aedc3f0",
+  "tvl": 5953642.9419,
+  "vol24": 340666.589909014,
+  "base": "robinhood_0xce24439f2d9c6a2289f741120fe202248b666666",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / WETH 0.05%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0x69bfaf19c9f377bb306a89aed9f6b07e2c1a8d9a",
+  "tvl": 5083973.3008,
+  "vol24": 4613973.10897482,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ },
+ {
+  "name": "USDG / USDC",
+  "net": "arbitrum",
+  "dex": "fluid-arbitrum",
+  "addr": "0xd0810e5cf08dcde266ecebef40cad806c7768d72",
+  "tvl": 5020052.1723,
+  "vol24": 119521.458959899,
+  "base": "arbitrum_0x004b506865409877c9fa29bfb1eba929984b9bbc",
+  "quote": "arbitrum_0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+ },
+ {
+  "name": "USDG / SOL",
+  "net": "solana",
+  "dex": "orca",
+  "addr": "5KqohoeGjTjyHAFJJywK4J7fkFuK82PfMyuseGgLKZu2",
+  "tvl": 4432721.551,
+  "vol24": 902097.548061134,
+  "base": "solana_2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+  "quote": "solana_So11111111111111111111111111111111111111112"
+ },
+ {
+  "name": "PONS / USDG",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0x486435a1f76cd58193f854c6e6213cd05fd58d637865d02065ff558b387fa6ea",
+  "tvl": 3486383.6547,
+  "vol24": 1756335.41451025,
+  "base": "robinhood_0x39dbed3a2bd333467115de45665cc57f813c4571",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "WETH / USDG 0.05%",
+  "net": "robinhood",
+  "dex": "sushiswap-v3-robinhood",
+  "addr": "0x9b050cb1f265094b0977160a2bd7da8c9e529c3c",
+  "tvl": 3259872.7233,
+  "vol24": 1333428.63919338,
+  "base": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / USX",
+  "net": "solana",
+  "dex": "orca",
+  "addr": "J6h5bf3iohBXtsRNRFAqFc5FeBCh3yAjxXGuiE1sTc5Q",
+  "tvl": 2983516.4917,
+  "vol24": 115809.19198218,
+  "base": "solana_2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+  "quote": "solana_6FrrzDk5mQARGc1TDYoyVnSyRdds1t4PbtohCD6p3tgG"
+ },
+ {
+  "name": "USDG / USDC",
+  "net": "eth",
+  "dex": "uniswap-v4-ethereum",
+  "addr": "0xeda62d2906d0edf26d40c793d581609552a44a87f618a98ff76ebe8dde4b7edb",
+  "tvl": 2950991.8792,
+  "vol24": 6087045.48124358,
+  "base": "eth_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+ },
+ {
+  "name": "U / USDG 0.008%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0xf399bd1544377680d48c62fd85c2105b869e55906c4189cc5ab3b4e83446928c",
+  "tvl": 2933374.6468,
+  "vol24": 479997.530920647,
+  "base": "robinhood_0xce24439f2d9c6a2289f741120fe202248b666666",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / ONYC",
+  "net": "solana",
+  "dex": "raydium-clmm",
+  "addr": "A9RdNEf4T9x1eNPnEHFX1ABHS7J4e9kxBm43S3o5r9Kw",
+  "tvl": 2740981.1886,
+  "vol24": 189623.19321926,
+  "base": "solana_2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+  "quote": "solana_5Y8NV33Vv7WbnLfq3zBcKSdYPrk7g2KoiQoe7M2tcxp5"
+ },
+ {
+  "name": "xBTC / USDG 0.05%",
+  "net": "x-layer",
+  "dex": "uniswap-v3-x-layer",
+  "addr": "0x520f8c07a529ffb5230e76bcb8ea553d664e5b76",
+  "tvl": 2538008.3992,
+  "vol24": 191922.987494735,
+  "base": "x-layer_0xb7c00000bcdeef966b20b3d884b98e64d2b06b4f",
+  "quote": "x-layer_0x4ae46a509f6b1d9056937ba4500cb143933d2dc8"
+ },
+ {
+  "name": "xETH / USDG 0.05%",
+  "net": "x-layer",
+  "dex": "uniswap-v3-x-layer",
+  "addr": "0x6e18cebfb9c5bbcf127b97a6dab026e941fff6d5",
+  "tvl": 2499007.4028,
+  "vol24": 358626.560300223,
+  "base": "x-layer_0xe7b000003a45145decf8a28fc755ad5ec5ea025a",
+  "quote": "x-layer_0x4ae46a509f6b1d9056937ba4500cb143933d2dc8"
+ },
+ {
+  "name": "USO / USDG 0.3%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0x02175608f1b5e6b5ed221ccfdc7be197d111d915",
+  "tvl": 2436434.8717,
+  "vol24": 320027.356022938,
+  "base": "robinhood_0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "NVDA / USDG 0.05%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0xd4eb21209c4d6093f80b5b84f5c45cc093ea14a3",
+  "tvl": 2224580.5877,
+  "vol24": 652461.281582886,
+  "base": "robinhood_0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "xSOL / USDG 0.05%",
+  "net": "x-layer",
+  "dex": "uniswap-v3-x-layer",
+  "addr": "0x1284d2df2bf7dac317d219d055bd16f8259e06df",
+  "tvl": 2149826.6199,
+  "vol24": 237379.469991512,
+  "base": "x-layer_0x505000008de8748dbd4422ff4687a4fc9beba15b",
+  "quote": "x-layer_0x4ae46a509f6b1d9056937ba4500cb143933d2dc8"
+ },
+ {
+  "name": "SPY / USDG",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0x8674c1c5544f3c9563565b5d4bd5916701d90b3559b072acf7cef5b4fc5b8dcd",
+  "tvl": 1739480.1684,
+  "vol24": 363081.763060133,
+  "base": "robinhood_0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / WETH 0.3%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0xa9188730fe85be88ad499d7d52b099e800fb0334",
+  "tvl": 1667552.1561,
+  "vol24": 293112.1550846,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ },
+ {
+  "name": "PONS / USDG 0.3%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0x4be9657ec9002e528f4f17a5c43edc525a07f888f7b180c2afbf75e096c4f38a",
+  "tvl": 1649047.9503,
+  "vol24": 1123431.64066793,
+  "base": "robinhood_0x39dbed3a2bd333467115de45665cc57f813c4571",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / WOKB 0.05%",
+  "net": "x-layer",
+  "dex": "uniswap-v3-x-layer",
+  "addr": "0x5d7e3ad08b0c52e460787677b0632cd024df437c",
+  "tvl": 1593734.7115,
+  "vol24": 384842.545887193,
+  "base": "x-layer_0x4ae46a509f6b1d9056937ba4500cb143933d2dc8",
+  "quote": "x-layer_0xe538905cf8410324e03a5a23c1c177a474d59b2b"
+ },
+ {
+  "name": "USDG / USDe",
+  "net": "solana",
+  "dex": "orca",
+  "addr": "5p58XYzEUuvceAb4momaQ943rTPLgigdBXtJNdnZTDJ9",
+  "tvl": 1557023.7,
+  "vol24": 3816801.08234565,
+  "base": "solana_2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+  "quote": "solana_DEkqHyPN7GMRJ5cArtQFAWefqbZb33Hyf6s5iCwjEonT"
+ },
+ {
+  "name": "USDe / USDG",
+  "net": "solana",
+  "dex": "meteora",
+  "addr": "2QE3DepmF4kye9Y9Yh6AXEYUarRsoUFGzdoJhAa9BBQ6",
+  "tvl": 1523151.7237,
+  "vol24": 1394088.12343276,
+  "base": "solana_DEkqHyPN7GMRJ5cArtQFAWefqbZb33Hyf6s5iCwjEonT",
+  "quote": "solana_2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH"
+ },
+ {
+  "name": "USDG / USD\u20ae0 0.01%",
+  "net": "ink",
+  "dex": "velodrome-finance-slipstream-ink",
+  "addr": "0x31826a86cd62c6fa12a0a8441ec4c8bcfee8a453",
+  "tvl": 1385629.7418,
+  "vol24": 31568.2570295206,
+  "base": "ink_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "ink_0x0200c29006150606b650577bbe7b6248f58470c1"
+ },
+ {
+  "name": "PONS / USDG 0.3%",
+  "net": "robinhood",
+  "dex": "ramses-v3-robinhood",
+  "addr": "0xf2a0be59ab76b96f957bd5e5b967f2b75e8db269",
+  "tvl": 1371688.365,
+  "vol24": 5254572.68356966,
+  "base": "robinhood_0x39dbed3a2bd333467115de45665cc57f813c4571",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "SPCX / USDG 0.05%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0xc61284332117c3fb23a2a56cceffd07f7af60029",
+  "tvl": 1314819.1566,
+  "vol24": 359562.085241515,
+  "base": "robinhood_0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / USDC",
+  "net": "ink",
+  "dex": "uniswap-v4-ink",
+  "addr": "0xf58608d5185583091b9724b7fd77a5b64b64ff84d9b69367b7edebf3bf07eb06",
+  "tvl": 1102116.6106,
+  "vol24": 4951.6694390718,
+  "base": "ink_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "ink_0x2d270e6886d130d724215a266106e6832161eaed"
+ },
+ {
+  "name": "ORBIO / USDG 0.8%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0xea9f200e13055b82f175f44f592c4c13dd8c9d9320a66487d3c5cd90d68550ef",
+  "tvl": 883013.029,
+  "vol24": 637292.776206894,
+  "base": "robinhood_0xaa07a0e9209e16ac99708c3ec70159c6ef3128a3",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "NVDA / USDG 0.01%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0x6444a8e0b267406a15db74ca00c4a24bdfa81ed3180f5b6d0851f8ed6f4f29c5",
+  "tvl": 816358.1053,
+  "vol24": 675471.701052746,
+  "base": "robinhood_0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "WETH / USDG 0.01%",
+  "net": "robinhood",
+  "dex": "ramses-v3-robinhood",
+  "addr": "0xfae65eaa11943f45e83d5b45dc7a7c801c51bfb0",
+  "tvl": 791325.8878,
+  "vol24": 2449219.99465865,
+  "base": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / USDC 0.007%",
+  "net": "eth",
+  "dex": "ekubo-v3-ethereum",
+  "addr": "0x00000000000014aa86c5d3c41765bb24e11bd701-0x2412d98ba8200050ba63355f9473f7f3f31c273f1b2ed56a013ad49b90b9260d",
+  "tvl": 681990.7356,
+  "vol24": 927498.623019691,
+  "base": "eth_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+ },
+ {
+  "name": "AI / USDG",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0x592e3fb7ea947506b36481025abc15baada8e1839a50fded46ecf08b3182fa96",
+  "tvl": 574844.4578,
+  "vol24": 1819518.36862224,
+  "base": "robinhood_0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / wSPYx 0.3%",
+  "net": "ink",
+  "dex": "reservoir-v3-ink",
+  "addr": "0x383d9dd7f923dd967b23a419a9b912af8d96ca3b",
+  "tvl": 507722.2675,
+  "vol24": 1800.2910386313,
+  "base": "ink_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "ink_0xe7e553cd128f0011777323a0b44a7b96ea1cb540"
+ },
+ {
+  "name": "USDG / USDC",
+  "net": "arbitrum",
+  "dex": "uniswap-v4-arbitrum",
+  "addr": "0x52b42d5f1e4a0d4bce86667bb069cf257e512d98ce617f549f6e4fbb0bee41e6",
+  "tvl": 466264.3094,
+  "vol24": 272485.303675366,
+  "base": "arbitrum_0x004b506865409877c9fa29bfb1eba929984b9bbc",
+  "quote": "arbitrum_0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+ },
+ {
+  "name": "USDG / WETH",
+  "net": "robinhood",
+  "dex": "uniswap-v2-robinhood",
+  "addr": "0x8803c117ccae7b5146297876c2a25df135141c4d",
+  "tvl": 431394.2399,
+  "vol24": 49584.404568335,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ },
+ {
+  "name": "USDG / VIRTUAL 0.3%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0xa95732060867f07aa9b8ae9a4b7b8d737bc3374f1dfbb952759c5ed676e8737c",
+  "tvl": 403602.4976,
+  "vol24": 76029.7267180539,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0xc6911796042b15d7fa4f6cde69e245ddcd3d9c31"
+ },
+ {
+  "name": "USDG / USD\u20ae0",
+  "net": "x-layer",
+  "dex": "curve-x-layer",
+  "addr": "0x31f066aa0a687d4f383f96a514984af727eb8e38",
+  "tvl": 300308.8942,
+  "vol24": 3040.5772216775,
+  "base": "x-layer_0x4ae46a509f6b1d9056937ba4500cb143933d2dc8",
+  "quote": "x-layer_0x779ded0c9e1022225f8e0630b35a9b54be713736"
+ },
+ {
+  "name": "WETH / USDG 0.05%",
+  "net": "robinhood",
+  "dex": "up-v3",
+  "addr": "0x16679e2ac1a798865ecf1c1639e67693ddb1c220",
+  "tvl": 287619.6037,
+  "vol24": 3472819.92647716,
+  "base": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+  "quote": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168"
+ },
+ {
+  "name": "USDG / WETH 0.02%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0x84bd4e2d8be11aeb0afc1195b38f587b61e90068548f1063fdbe448fb8cad0b6",
+  "tvl": 271909.5066,
+  "vol24": 270428.758025431,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ },
+ {
+  "name": "USDG / USDC 0.004%",
+  "net": "eth",
+  "dex": "maverick-v2-eth",
+  "addr": "0xf49250c3b5ea73d29b9b02c9e38ccc006a0b58c2",
+  "tvl": 258402.327,
+  "vol24": 3541389.43285638,
+  "base": "eth_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+ },
+ {
+  "name": "USDG / USDT 0.01%",
+  "net": "eth",
+  "dex": "uniswap-v4-ethereum",
+  "addr": "0x397fb17f2f23d2618574ab0cff0320b424d9ab0b31d036096b2ee9c02e649e22",
+  "tvl": 217797.134,
+  "vol24": 229721.985422959,
+  "base": "eth_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "eth_0xdac17f958d2ee523a2206206994597c13d831ec7"
+ },
+ {
+  "name": "USDG / USDC 0.007%",
+  "net": "eth",
+  "dex": "uniswap-v4-ethereum",
+  "addr": "0xb90d11907f96a9d5fd8979ef271d3bb9b90052d9299d1f95faa5168c55bcb716",
+  "tvl": 193349.0005,
+  "vol24": 366326.538809989,
+  "base": "eth_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+ },
+ {
+  "name": "USDG / WETH 1%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0x5f009e071f07e92b6c624e83f52f17bbda34680d",
+  "tvl": 184627.5742,
+  "vol24": 5821.7640063355,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ },
+ {
+  "name": "USDG / VIRTUAL",
+  "net": "robinhood",
+  "dex": "uniswap-v2-robinhood",
+  "addr": "0xee8d21c0e5aaa31269867db4e3c66a90c3d5951d",
+  "tvl": 183565.2238,
+  "vol24": 8469.697047685,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0xc6911796042b15d7fa4f6cde69e245ddcd3d9c31"
+ },
+ {
+  "name": "USDG / WETH 0.05%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0xfcfae8fa0bd6da961bcf5d990f27690932deac4f093e99bf3e871691c6586593",
+  "tvl": 182984.1321,
+  "vol24": 113217.648475306,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ },
+ {
+  "name": "USDG / USDC",
+  "net": "solana",
+  "dex": "zerofi",
+  "addr": "7nMHv438MtcpATUgHeMEDgTxJFyAaDZSopHZBDdsgXq8",
+  "tvl": 153642.4246,
+  "vol24": 170654.446299778,
+  "base": "solana_2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+  "quote": "solana_EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+ },
+ {
+  "name": "USDG / JUGGERNAUT 1%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0x68518a0a7081c15381b2d34b70fbf10210c5c7d1706b6fcb65ac953041cbffc1",
+  "tvl": 135035.886,
+  "vol24": 65176.1527751946,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0xd7321801caae694090694ff55a9323139f043b88"
+ },
+ {
+  "name": "USDG / USD\u20ae0 0.002%",
+  "net": "x-layer",
+  "dex": "uniswap-v4-x-layer",
+  "addr": "0xba1c34e6f807fb1a1059fe1a66777cbd12c244eb4428fd3bd265cfc9cee3bd9e",
+  "tvl": 84079.4117,
+  "vol24": 575130.610262037,
+  "base": "x-layer_0x4ae46a509f6b1d9056937ba4500cb143933d2dc8",
+  "quote": "x-layer_0x779ded0c9e1022225f8e0630b35a9b54be713736"
+ },
+ {
+  "name": "USDG / VEX 0.3%",
+  "net": "robinhood",
+  "dex": "uniswap-v3-robinhood",
+  "addr": "0x4fa27693a052863bb5e9d3e63ba02857442a1ecf",
+  "tvl": 58997.6458,
+  "vol24": 3572.789859905,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x8ff92566f2e81bdd68edfaa8cde73942a723796b"
+ },
+ {
+  "name": "USDGLO / USDC 0.05%",
+  "net": "base",
+  "dex": "uniswap-v3-base",
+  "addr": "0x6db8d9d795c053ad0fd24723320e47b2a21c3dc1",
+  "tvl": 33636.7426,
+  "vol24": 6349.2497227068,
+  "base": "base_0x4f604735c1cf31399c6e711d5962b2b3e0225ad3",
+  "quote": "base_0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+ },
+ {
+  "name": "USDG / USD\u20ae0",
+  "net": "x-layer",
+  "dex": "uniswap-v4-x-layer",
+  "addr": "0xbd985f978a1c9dcc8322ce37df82fd625646c4a1d7455303f6b1ac3c41cf4ec7",
+  "tvl": 32768.9027,
+  "vol24": 379713.963359017,
+  "base": "x-layer_0x4ae46a509f6b1d9056937ba4500cb143933d2dc8",
+  "quote": "x-layer_0x779ded0c9e1022225f8e0630b35a9b54be713736"
+ },
+ {
+  "name": "USDG / WETH 0.045%",
+  "net": "robinhood",
+  "dex": "uniswap-v4-robinhood",
+  "addr": "0x6ba18d461bfe3df70a80b50a4700e330e49efdaf597901b931f210554a5035d2",
+  "tvl": 28246.6639,
+  "vol24": 7546.3624727362,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ },
+ {
+  "name": "USDG / USDC 0.008%",
+  "net": "eth",
+  "dex": "uniswap-v4-ethereum",
+  "addr": "0x7da1afe9de05528e6559b5845188b98d013843e630b20cd511b974a425267427",
+  "tvl": 25776.5585,
+  "vol24": 24148.3288162731,
+  "base": "eth_0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+  "quote": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+ },
+ {
+  "name": "USDG / WETH 0.05%",
+  "net": "robinhood",
+  "dex": "swaphood-finance-v3",
+  "addr": "0x6356d82a3d7b9223764339b5f50e7ed01641fb30",
+  "tvl": 10013.7673,
+  "vol24": 56776.9560291117,
+  "base": "robinhood_0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "quote": "robinhood_0x0bd7d308f8e1639fab988df18a8011f41eacad73"
+ }
+]

@@ -1,0 +1,303 @@
+{
+ "generated": "2026-10-11",
+ "note": "validado on-chain (token0/1, fee, tickSpacing, saldos); simulador CL conferido vs QuoterV2 (Polygon, 0 bps) e vs swaps reais (Base/Gnosis, 0 bps)",
+ "pools": [
+  {
+   "key": "base_aero_005",
+   "chain": "base",
+   "address": "0x1c33aa5cc206ed3d9e29fb136796a8815e48af58",
+   "kind": "cl",
+   "note": "Aerodrome Slipstream (CL factory 0xade6…716a) ts=10",
+   "usd_token": [
+    "USDC",
+    "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+   ],
+   "brla": "0xfcb34c47f850f452c15ea1b84d51231c38a61783",
+   "okx_ref": "USDC-BRL",
+   "fee_pips": 500,
+   "balances_at_probe": {
+    "USDC": 43132,
+    "BRLA": 10267
+   },
+   "gt_tvl_usd": 45153.7767,
+   "gt_vol24_usd": 8255.8093356535,
+   "flow_14d": {
+    "days": 13.954560185185185,
+    "swaps": 897,
+    "swaps_per_day": 64.28006243810516,
+    "gross_usd_per_day": 9894.734640048968,
+    "net_usd_in_per_day": 961.4338004893528,
+    "usd_into_pool_per_day": 5428.084220269161,
+    "usd_out_of_pool_per_day": 4466.650419779808,
+    "senders": 7,
+    "top_senders": [
+     [
+      "0xcbbb8035cac7d4b3ca7abb74cf7bdf900215ce0d",
+      84.50842335776252,
+      851
+     ],
+     [
+      "0xc5d25c596d0bcdf534d642eac3241f6e5bebf71c",
+      9.479492351724197,
+      9
+     ],
+     [
+      "0x278e1634a130b0eafb0e4615c55b59aedb1fcaf3",
+      2.852479009339692,
+      1
+     ],
+     [
+      "0x8f10b468b06c6fd214b65f87778827f7d113f996",
+      2.6521351895634586,
+      17
+     ],
+     [
+      "0x16e41af5e034113802d06064fbeb020cc3d47b19",
+      0.3622757702769334,
+      13
+     ]
+    ]
+   },
+   "probe_dev_vs_okx_bps": -10.464387670533482
+  },
+  {
+   "key": "gnosis_oku_005",
+   "chain": "gnosis",
+   "address": "0x576bf065cbc15cb2d61affb156118fcff01a8238",
+   "kind": "cl",
+   "note": "Oku = Uniswap v3 oficial na Gnosis",
+   "usd_token": [
+    "USDC.e",
+    "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0"
+   ],
+   "brla": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "okx_ref": "USDC-BRL",
+   "fee_pips": 500,
+   "balances_at_probe": {
+    "USDC.e": 81338,
+    "BRLA": 116243
+   },
+   "gt_tvl_usd": 104377.0668,
+   "gt_vol24_usd": 8749.6210400845,
+   "flow_14d": {
+    "days": 13.881655092592593,
+    "swaps": 630,
+    "swaps_per_day": 45.38363731109953,
+    "gross_usd_per_day": 14334.602125951265,
+    "net_usd_in_per_day": 1929.680909756498,
+    "usd_into_pool_per_day": 8132.141517853882,
+    "usd_out_of_pool_per_day": 6202.4606080973845,
+    "senders": 31,
+    "top_senders": [
+     [
+      "0xb5253c895361678ff5d0ffdda81dd02f1f7a81d6",
+      48.636080608121695,
+      36
+     ],
+     [
+      "0xc6d25285d5c5b62b7ca26d6092751a145d50e9be",
+      18.369701229732634,
+      128
+     ],
+     [
+      "0xb45373129b4220160b92bd2320869f44d48ecd01",
+      5.297839986908862,
+      26
+     ],
+     [
+      "0x111116053f09d34a7eae8102887004445176ca11",
+      4.8842656466276395,
+      17
+     ],
+     [
+      "0x8428c5f6b85441041caf0bb85e968b2864f5f2b3",
+      4.527704125469445,
+      26
+     ]
+    ]
+   },
+   "probe_dev_vs_okx_bps": 45.543212638541334
+  },
+  {
+   "key": "gnosis_curve",
+   "chain": "gnosis",
+   "address": "0xfb8b95fb2296a0ad4b6b1419fdaa5aa5f13e4009",
+   "kind": "curve",
+   "note": "Curve twocrypto-ng (get_dy uint256; coins BRLA, USDC.e; fee dinâmica)",
+   "usd_token": [
+    "USDC.e",
+    "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0"
+   ],
+   "brla": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "okx_ref": "USDC-BRL",
+   "fee_pips": null,
+   "balances_at_probe": {
+    "USDC.e": 37384,
+    "BRLA": 99091
+   },
+   "gt_tvl_usd": 56811.7446,
+   "gt_vol24_usd": 775.3759494856,
+   "flow_14d": {
+    "days": 13.574884259259258,
+    "swaps": 484,
+    "swaps_per_day": 35.65407930972742,
+    "gross_usd_per_day": 2461.2415629408206,
+    "net_usd_in_per_day": 852.3544145216435,
+    "usd_into_pool_per_day": 1656.7979887312322,
+    "usd_out_of_pool_per_day": 804.4435742095885,
+    "senders": 19,
+    "top_senders": [
+     [
+      "0x87a4d17f9a6af400e0bd7be9de8057dbac571a91",
+      23.540193641735677,
+      53
+     ],
+     [
+      "0x9d893985ba8199b707efda9869ec8bc4d07ce094",
+      16.953777984452515,
+      10
+     ],
+     [
+      "0x0dcded3545d565ba3b19e683431381007245d983",
+      13.557941257167277,
+      31
+     ],
+     [
+      "0x405df6c87646b77e7fe6c77d928751352acacdbe",
+      9.190237976947897,
+      15
+     ],
+     [
+      "0xb955b34f8c1abc0764bd394ec13b9108db1da694",
+      8.26374434470881,
+      16
+     ]
+    ]
+   },
+   "probe_dev_vs_okx_bps": 40.46478233681094
+  },
+  {
+   "key": "celo_uni_001",
+   "chain": "celo",
+   "address": "0x14e577e42d45fd2200a9b0e31d87fe826467111a",
+   "kind": "cl",
+   "note": "Uniswap v3 Celo 0,01%",
+   "usd_token": [
+    "USD₮",
+    "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e"
+   ],
+   "brla": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "okx_ref": "USDT-BRL",
+   "fee_pips": 100,
+   "balances_at_probe": {
+    "USDT": 22851,
+    "BRLA": 40404
+   },
+   "gt_tvl_usd": 28121.8228,
+   "gt_vol24_usd": 0.0,
+   "flow_14d": {
+    "days": 6.839189814814815,
+    "swaps": 4,
+    "swaps_per_day": 0.5848645977532806,
+    "gross_usd_per_day": 381.32320093686644,
+    "net_usd_in_per_day": 203.51215358652644,
+    "usd_into_pool_per_day": 292.41767726169644,
+    "usd_out_of_pool_per_day": 88.90552367516999,
+    "senders": 2,
+    "top_senders": [
+     [
+      "0xe2023f3fa515cf070e07fd9d51c1d236e07843f4",
+      99.99328301715843,
+      3
+     ],
+     [
+      "0x5615cdab10dc425a742d643d949a7f474c01abc4",
+      0.006716982841570765,
+      1
+     ]
+    ]
+   },
+   "probe_dev_vs_okx_bps": -10.419287490300855
+  },
+  {
+   "key": "polygon_uni_005",
+   "chain": "polygon",
+   "address": "0x0e7754127dedd4097be750825dbb4669bc32c956",
+   "kind": "cl",
+   "note": "pool do bot brla (referência)",
+   "usd_token": [
+    "USDC",
+    "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+   ],
+   "brla": "0xE6A537a407488807F0bbeb0038B79004f19DDDFb",
+   "okx_ref": "USDC-BRL",
+   "fee_pips": 500,
+   "balances_at_probe": {
+    "USDC": 111869,
+    "BRLA": 192038
+   },
+   "gt_tvl_usd": 150173.8869,
+   "gt_vol24_usd": 38445.2668002029,
+   "flow_14d": {
+    "days": 13.976921296296297,
+    "swaps": 7691,
+    "swaps_per_day": 550.2642418139691,
+    "gross_usd_per_day": 211291.91364657413,
+    "net_usd_in_per_day": 8945.957381983197,
+    "usd_into_pool_per_day": 110118.93551427867,
+    "usd_out_of_pool_per_day": 101172.97813229547,
+    "senders": 64,
+    "top_senders": [
+     [
+      "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+      25.795740065620464,
+      3290
+     ],
+     [
+      "0x8f10b468b06c6fd214b65f87778827f7d113f996",
+      13.780969726902592,
+      738
+     ],
+     [
+      "0x03f115b015b210f812829ea076a7643ac80c2c97",
+      12.62792753236883,
+      447
+     ],
+     [
+      "0xe592427a0aece92de3edee1f18e0157c05861564",
+      12.525818697000563,
+      884
+     ],
+     [
+      "0x394767c060fc000f7ae5fbe907c442fbc5f6d1b9",
+      9.68942901872403,
+      512
+     ]
+    ]
+   },
+   "probe_dev_vs_okx_bps": -2.665804147222728
+  }
+ ],
+ "discarded": [
+  {
+   "pool": "hyperliquid spot @298 BRLA/USDC",
+   "why": "livro sem sentido (0,001 USDC/BRLA, spread 60%) - token não oficial ou sem mercado"
+  },
+  {
+   "pool": "hyperevm Ramses BRLA/WHYPE 2%",
+   "why": "fee 2% e par volátil"
+  },
+  {
+   "pool": "robinhood chain BRLA/WETH v4",
+   "why": "sem volume, par volátil"
+  },
+  {
+   "pool": "gnosis Oku BRZ/BRLA 0,01% ($11k)",
+   "why": "BRZ congelado"
+  },
+  {
+   "pool": "polygon v4 USDC/BRLA 0,04% ($2k) e demais < $5k",
+   "why": "raso"
+  }
+ ]
+}

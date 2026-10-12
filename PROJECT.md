@@ -139,6 +139,17 @@ plus a live price tracker to monitor tokens/DEXes/CEXes and detect spreads.
 3. **WBTC** — BitGo Prime redemption quote (break-even all-in ≤ ~4 bps; `RECAP.md §10.3`).
 4. **DFB** — BRZ/TESOURO liquidation and TESOURO mint/redeem terms (`PONTOS_DE_ATENCAO.md §3.4`).
 5. Re-run `cycle_analyze.py` / `xvenue_analyze.py` after a few days of live data; then stop the collectors.
+   (2026-10-11 re-run with 8 h / 2,868 ticks: WBTC Ethereum→`BTC-BRL` $10k p50 **+3.0** / p95 +7.9 bps,
+   >0 in 78% — the first-hour +4.1 shrank a bit; break-even redemption now ≤ ~3 bps.)
+
+### Parallel topic sessions (2026-10-11) — `sessions/`
+Research topics 2–6 run as separate long Claude Code sessions: `sessions/00_PROTOCOLO.md` (shared rules:
+read-only, write only to `topics/<slug>/`, Alchemy budget ~5k paid req/session) + one brief per topic:
+`t2_usdg` (USDG/Paxos vs OKX `USDG-BRL`), `t3_brla_l2` (BRLA Base/Gnosis instances), `t4_gnosis_atomic`
+(atomic cycles Gnosis/Base + searcher `0x4337…`), `t5_sol_xrp` (SOL/XRP on-chain vs OKX BRL),
+`t6_rwa` (tokenized bonds/RWA NAV vs market). Results land in `topics/<slug>/REPORT.md`; consolidate
+into `RECAP.md`/`PONTOS_DE_ATENCAO.md` in a separate session. Paid RPC: Alchemy key in env `RPC_API_KEY`
+(`chains.alchemy_url`, `rpc_list(chain, paid=True)`).
 
 ## Next steps — v1/v2 (historical)
 

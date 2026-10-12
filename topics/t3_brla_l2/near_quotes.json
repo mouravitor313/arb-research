@@ -1,0 +1,86 @@
+[
+ {
+  "route": "base->gnosis",
+  "usd": 2000,
+  "out": 1999.595983,
+  "cost_bps": 2.0200850000003356,
+  "secs": 39
+ },
+ {
+  "route": "base->gnosis",
+  "usd": 10000,
+  "out": 9997.980067,
+  "cost_bps": 2.0199329999995825,
+  "secs": 39
+ },
+ {
+  "route": "base->gnosis",
+  "usd": 50000,
+  "out": 49989.900483,
+  "cost_bps": 2.0199034000004756,
+  "secs": 39
+ },
+ {
+  "route": "arb->gnosis",
+  "usd": 2000,
+  "out": 1999.595983,
+  "cost_bps": 2.0200850000003356,
+  "secs": 29
+ },
+ {
+  "route": "arb->gnosis",
+  "usd": 10000,
+  "out": 9997.980067,
+  "cost_bps": 2.0199329999995825,
+  "secs": 29
+ },
+ {
+  "route": "arb->gnosis",
+  "usd": 50000,
+  "out": 49989.900483,
+  "cost_bps": 2.0199034000004756,
+  "secs": 29
+ },
+ {
+  "route": "eth->gnosis",
+  "usd": 2000,
+  "out": 1999.595983,
+  "cost_bps": 2.0200850000003356,
+  "secs": 49
+ },
+ {
+  "route": "eth->gnosis",
+  "usd": 10000,
+  "out": 9997.980067,
+  "cost_bps": 2.0199329999995825,
+  "secs": 49
+ },
+ {
+  "route": "eth->gnosis",
+  "usd": 50000,
+  "out": 49989.900483,
+  "cost_bps": 2.0199034000004756,
+  "secs": 49
+ },
+ {
+  "route": "gnosis->base",
+  "usd": 2000,
+  "out": 1999.59362,
+  "cost_bps": 2.0318999999994958,
+  "secs": 37
+ },
+ {
+  "route": "gnosis->base",
+  "usd": 10000,
+  "out": 9997.977704,
+  "cost_bps": 2.022295999999187,
+  "secs": 37
+ },
+ {
+  "route": "gnosis->base",
+  "usd": 50000,
+  "out": 49989.89812,
+  "cost_bps": 2.0203760000003967,
+  "secs": 37
+ }
+]

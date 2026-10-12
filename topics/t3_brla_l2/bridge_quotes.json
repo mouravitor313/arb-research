@@ -1,0 +1,182 @@
+[
+ {
+  "route": "base->gnosis",
+  "usd": 2000,
+  "tool": "near",
+  "to_amount": 1994.397513,
+  "gas_usd": 0.0033,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.02893500000055,
+  "secs": 39
+ },
+ {
+  "route": "base->gnosis",
+  "usd": 10000,
+  "tool": "near",
+  "to_amount": 9971.987717,
+  "gas_usd": 0.0033,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.015583000000024,
+  "secs": 39
+ },
+ {
+  "route": "base->gnosis",
+  "usd": 50000,
+  "tool": "near",
+  "to_amount": 49859.938739,
+  "gas_usd": 0.0033,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.01291220000051,
+  "secs": 39
+ },
+ {
+  "route": "arbitrum->gnosis",
+  "usd": 2000,
+  "tool": "near",
+  "to_amount": 1994.397513,
+  "gas_usd": 0.0111,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.06793500000055,
+  "secs": 29
+ },
+ {
+  "route": "arbitrum->gnosis",
+  "usd": 10000,
+  "tool": "near",
+  "to_amount": 9971.987717,
+  "gas_usd": 0.0111,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.023383000000024,
+  "secs": 29
+ },
+ {
+  "route": "arbitrum->gnosis",
+  "usd": 50000,
+  "tool": "near",
+  "to_amount": 49859.938739,
+  "gas_usd": 0.0111,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.01447220000051,
+  "secs": 29
+ },
+ {
+  "route": "polygon->gnosis",
+  "usd": 2000,
+  "tool": "near",
+  "to_amount": 1994.397513,
+  "gas_usd": 0.0091,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.05793500000055,
+  "secs": 39
+ },
+ {
+  "route": "polygon->gnosis",
+  "usd": 10000,
+  "tool": "near",
+  "to_amount": 9971.987717,
+  "gas_usd": 0.0091,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.02138300000002,
+  "secs": 39
+ },
+ {
+  "route": "polygon->gnosis",
+  "usd": 50000,
+  "tool": "near",
+  "to_amount": 49859.938739,
+  "gas_usd": 0.0091,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.01407220000051,
+  "secs": 39
+ },
+ {
+  "route": "ethereum->gnosis",
+  "usd": 2000,
+  "tool": "near",
+  "to_amount": 1994.397513,
+  "gas_usd": 0.0503,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.26393500000055,
+  "secs": 49
+ },
+ {
+  "route": "ethereum->gnosis",
+  "usd": 10000,
+  "tool": "near",
+  "to_amount": 9971.987717,
+  "gas_usd": 0.0503,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.062583000000025,
+  "secs": 49
+ },
+ {
+  "route": "ethereum->gnosis",
+  "usd": 50000,
+  "tool": "near",
+  "to_amount": 49853.15568,
+  "gas_usd": 0.1703,
+  "extra_fees_usd": 0,
+  "cost_bps": 29.4029239999993,
+  "secs": 51
+ },
+ {
+  "route": "gnosis->base",
+  "usd": 2000,
+  "tool": "near",
+  "to_amount": 1994.39515,
+  "gas_usd": 0.0002,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.025249999999712,
+  "secs": 37
+ },
+ {
+  "route": "gnosis->base",
+  "usd": 10000,
+  "tool": "near",
+  "to_amount": 9971.985354,
+  "gas_usd": 0.0002,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.01484599999963,
+  "secs": 37
+ },
+ {
+  "route": "gnosis->base",
+  "usd": 50000,
+  "tool": "near",
+  "to_amount": 49859.936376,
+  "gas_usd": 0.0002,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.012764800000433,
+  "secs": 37
+ },
+ {
+  "route": "gnosis->arbitrum",
+  "usd": 2000,
+  "tool": "near",
+  "to_amount": 1994.39225,
+  "gas_usd": 0.0002,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.039749999999483,
+  "secs": 34
+ },
+ {
+  "route": "gnosis->arbitrum",
+  "usd": 10000,
+  "tool": "near",
+  "to_amount": 9971.982454,
+  "gas_usd": 0.0002,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.01774599999913,
+  "secs": 34
+ },
+ {
+  "route": "gnosis->arbitrum",
+  "usd": 50000,
+  "tool": "near",
+  "to_amount": 49859.933476,
+  "gas_usd": 0.0002,
+  "extra_fees_usd": 0,
+  "cost_bps": 28.013344800000336,
+  "secs": 34
+ }
+]

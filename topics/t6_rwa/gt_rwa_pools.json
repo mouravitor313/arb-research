@@ -1,0 +1,1743 @@
+{
+ "ts": "2026-10-11T20:02:58",
+ "min_tvl": 50000,
+ "pools": {
+  "USDY": [
+   {
+    "network": "solana",
+    "name": "USDY / USDC",
+    "address": "5BJZfjVGbJnjJj8muyDehH88Q2KyNotJySy29DXrcnm2",
+    "tvl_usd": 1118023954.4355,
+    "vol24_usd": 2001.5733421537,
+    "tx24": {
+     "buys": 1,
+     "sells": 1,
+     "buyers": 1,
+     "sellers": 1
+    },
+    "dex": "raydium-clmm",
+    "base": "BWWNNbv7hLswPZj8G3gDYvUZwyyaHzDb9FXLjqZTDAcZ",
+    "base_sym": "USDY",
+    "quote": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.11325678754680475765992382206980028540949465",
+    "quote_price_usd": "1.001295746732875300530003762239333072039404979"
+   },
+   {
+    "network": "solana",
+    "name": "USDY / USDC",
+    "address": "AGXrswVDRoUf62UX9voTXv6TCGw6fBUEwDpyUd9YdZfD",
+    "tvl_usd": 2915974.4013,
+    "vol24_usd": 4215.1409618405,
+    "tx24": {
+     "buys": 227,
+     "sells": 169,
+     "buyers": 26,
+     "sellers": 82
+    },
+    "dex": "orca",
+    "base": "A1KLoBrKBde8Ty9qtNQUtq3C2ortoC3u7twggz7sEto6",
+    "base_sym": "USDY",
+    "quote": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.1488315084005030210929266059559407856157895",
+    "quote_price_usd": "0.99750904306058703671511448877171435561914943"
+   },
+   {
+    "network": "sui-network",
+    "name": "USDC / USDY 0.01%",
+    "address": "0xdcd762ad374686fa890fc4f3b9bbfe2a244e713d7bffbfbd1b9221cb290da2ed",
+    "tvl_usd": 2057218.9707,
+    "vol24_usd": 8505.0297018822,
+    "tx24": {
+     "buys": 162,
+     "sells": 167,
+     "buyers": 34,
+     "sellers": 20
+    },
+    "dex": "cetus",
+    "base": "0xdba34672e30cb065b1f93e3ab55318768fd6fef66c15942c9f7cb846e2f900e7::usdc::USDC",
+    "base_sym": "USDC",
+    "quote": "0x960b531667636f39e85867775f52f6b1f220a058c4de786905bdf761e06a56bb::usdy::USDY",
+    "quote_sym": "USDY",
+    "base_price_usd": "1.00266029120344",
+    "quote_price_usd": "1.15163987321088"
+   },
+   {
+    "network": "sei-evm",
+    "name": "USDY / USDC 0.01%",
+    "address": "0xc1b96fa8421807c5bac89ba699c75737c81feea5",
+    "tvl_usd": 1012655.4594,
+    "vol24_usd": 199891.569419358,
+    "tx24": {
+     "buys": 293,
+     "sells": 268,
+     "buyers": 179,
+     "sellers": 163
+    },
+    "dex": "dragonswap-v2",
+    "base": "0x54cd901491aef397084453f4372b93c33260e2a6",
+    "base_sym": "USDY",
+    "quote": "0xe15fc38f6d8c56af07bbcbe3baf5708a2bf42392",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.14566951448556",
+    "quote_price_usd": "0.997731129344203"
+   }
+  ],
+  "rUSDY": [],
+  "OUSG": [],
+  "USTB": [
+   {
+    "network": "tron",
+    "name": "USTB / USDT 0.3%",
+    "address": "TUkCzCjMtY8HbnQDugVpWLqZUaz6kNvC5P",
+    "tvl_usd": 57981761090.5131,
+    "vol24_usd": 92.1763818258,
+    "tx24": {
+     "buys": 3,
+     "sells": 0,
+     "buyers": 3,
+     "sellers": 0
+    },
+    "dex": "sunswap-v3",
+    "base": "TUSUGNWAv1kLyiDyxsneuZkU28y9CUfKoG",
+    "base_sym": "USTB",
+    "quote": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+    "quote_sym": "USDT",
+    "base_price_usd": "1.00160156950103",
+    "quote_price_usd": "0.999499850758782"
+   }
+  ],
+  "USCC": [],
+  "USYC": [
+   {
+    "network": "base",
+    "name": "USYC / WETH",
+    "address": "0xb65c4096823ef49706a6f82777f691550050af441a12bb5d63fd12d1674318b2",
+    "tvl_usd": 185920.3996,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "uniswap-v4-base",
+    "base": "0x57fcf5ff6fbec166b8edadaefee188e2096605d5",
+    "base_sym": "USYC",
+    "quote": "0x4200000000000000000000000000000000000006",
+    "quote_sym": "WETH",
+    "base_price_usd": "0.0001834615907",
+    "quote_price_usd": "2472.35"
+   }
+  ],
+  "mTBILL": [
+   {
+    "network": "etherlink",
+    "name": "mTBILL / USDC",
+    "address": "0x942644106b073e30d72c2c5d7529d5c296ea91ab",
+    "tvl_usd": 1403091.2759,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "curve-etherlink",
+    "base": "0xdd629e5241cbc5919847783e6c96b2de4754e438",
+    "base_sym": "mTBILL",
+    "quote": "0x796ea11fa2dd751ed01b53c372ffdb4aaa8f00f9",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.06712388812304",
+    "quote_price_usd": "0.99432336890906"
+   }
+  ],
+  "TBILL": [],
+  "USDO": [],
+  "cUSDO": [
+   {
+    "network": "bsc",
+    "name": "cUSDO / USDC",
+    "address": "0x54d5935cd89ea8df2022bbf2fe2f398490b47f67",
+    "tvl_usd": 180582.9106,
+    "vol24_usd": 0.4067116575,
+    "tx24": {
+     "buys": 0,
+     "sells": 1,
+     "buyers": 0,
+     "sellers": 1
+    },
+    "dex": "pancakeswap_stableswap",
+    "base": "0x64748ea3e31d0b7916f0ff91b017b9f404ded8ef",
+    "base_sym": "cUSDO",
+    "quote": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.05766590324878",
+    "quote_price_usd": "0.999818890098752"
+   },
+   {
+    "network": "eth",
+    "name": "cUSDO / USDC",
+    "address": "0x90455bd11ce8a67c57d467e634dc142b8e4105aa",
+    "tvl_usd": 103729.1151,
+    "vol24_usd": 0.3516835967,
+    "tx24": {
+     "buys": 0,
+     "sells": 1,
+     "buyers": 0,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0xad55aebc9b8c03fc43cd9f62260391c13c23e7c0",
+    "base_sym": "cUSDO",
+    "quote": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.06141164449969",
+    "quote_price_usd": "1.0004511677586"
+   },
+   {
+    "network": "bsc",
+    "name": "cUSDO / USDT",
+    "address": "0x4d7b3f461519bac5436e50b9b9b9a9dc061de6a4",
+    "tvl_usd": 97484.2174,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "pancakeswap_stableswap",
+    "base": "0x64748ea3e31d0b7916f0ff91b017b9f404ded8ef",
+    "base_sym": "cUSDO",
+    "quote": "0x55d398326f99059ff775485246999027b3197955",
+    "quote_sym": "USDT",
+    "base_price_usd": "1.05349090944417",
+    "quote_price_usd": "0.995123114749833"
+   }
+  ],
+  "USD0++": [
+   {
+    "network": "eth",
+    "name": "USD0++ / USD0 0.01%",
+    "address": "0xabfca96716cf2911bbb50a4cdbcbaffa2ef8ecda",
+    "tvl_usd": 3384173.2247,
+    "vol24_usd": 1084240.79663928,
+    "tx24": {
+     "buys": 10,
+     "sells": 8,
+     "buyers": 7,
+     "sellers": 4
+    },
+    "dex": "uniswap_v3",
+    "base": "0x35d8949372d46b7a3d5a56006ae77b215fc69bc0",
+    "base_sym": "USD0++",
+    "quote": "0x73a15fed60bf67631dc6cd7bc5b6e8da8190acf5",
+    "quote_sym": "USD0",
+    "base_price_usd": "0.970500327467578",
+    "quote_price_usd": "0.997838011737194"
+   },
+   {
+    "network": "eth",
+    "name": "USD0++ / USD0",
+    "address": "0x1d08e7adc263cfc70b1babe6dc5bb339c16eec52",
+    "tvl_usd": 1769714.4185,
+    "vol24_usd": 1574.5395919101,
+    "tx24": {
+     "buys": 0,
+     "sells": 1,
+     "buyers": 0,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0x35d8949372d46b7a3d5a56006ae77b215fc69bc0",
+    "base_sym": "USD0++",
+    "quote": "0x73a15fed60bf67631dc6cd7bc5b6e8da8190acf5",
+    "quote_sym": "USD0",
+    "base_price_usd": "0.970204943268171",
+    "quote_price_usd": "0.998668607685127"
+   }
+  ],
+  "bIB01": [],
+  "sUSDS": [
+   {
+    "network": "eth",
+    "name": "OHM / sUSDS 0.3%",
+    "address": "0x0858e2b0f9d75f7300b38d64482ac2c8df06a755",
+    "tvl_usd": 10634051.628,
+    "vol24_usd": 28157.5121751919,
+    "tx24": {
+     "buys": 35,
+     "sells": 14,
+     "buyers": 25,
+     "sellers": 13
+    },
+    "dex": "uniswap_v3",
+    "base": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
+    "base_sym": "OHM",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "18.2787441679651",
+    "quote_price_usd": "1.0140255117293"
+   },
+   {
+    "network": "eth",
+    "name": "DOLA / sUSDS",
+    "address": "0x8b83c4aa949254895507d09365229bc3a8c7f710",
+    "tvl_usd": 6552730.8909,
+    "vol24_usd": 165746.939842511,
+    "tx24": {
+     "buys": 3,
+     "sells": 13,
+     "buyers": 2,
+     "sellers": 7
+    },
+    "dex": "curve",
+    "base": "0x865377367054516e17014ccded1e7d814edc9ce4",
+    "base_sym": "DOLA",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "0.991928853535635",
+    "quote_price_usd": "1.0174871308839"
+   },
+   {
+    "network": "eth",
+    "name": "XAUt / sUSDS 1%",
+    "address": "0x2f5dff74b96e2df0fa8a5695318d59839c3ce5d058b19024fbfe276100b676ff",
+    "tvl_usd": 2233707.4702,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "uniswap-v4-ethereum",
+    "base": "0x68749665ff8d2d112fa859aa293f07a622782f38",
+    "base_sym": "XAUt",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "3775.81447970812",
+    "quote_price_usd": "1.0024559934179"
+   },
+   {
+    "network": "eth",
+    "name": "hOHM / sUSDS 1%",
+    "address": "0xd80e75faf4cc02f6447287d5b1ef195eac19ffd9",
+    "tvl_usd": 2002936.211,
+    "vol24_usd": 20464.9145422033,
+    "tx24": {
+     "buys": 2,
+     "sells": 2,
+     "buyers": 1,
+     "sellers": 2
+    },
+    "dex": "uniswap_v3",
+    "base": "0x1db1591540d7a6062be0837ca3c808add28844f6",
+    "base_sym": "hOHM",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "0.00843948844566366",
+    "quote_price_usd": "1.01675223957846"
+   },
+   {
+    "network": "eth",
+    "name": "frxUSD / sUSDS",
+    "address": "0x81a2612f6dea269a6dd1f6deab45c5424ee2c4b7",
+    "tvl_usd": 1686576.1654,
+    "vol24_usd": 485360.522704697,
+    "tx24": {
+     "buys": 13,
+     "sells": 11,
+     "buyers": 7,
+     "sellers": 5
+    },
+    "dex": "curve",
+    "base": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
+    "base_sym": "frxUSD",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "0.913729617298016",
+    "quote_price_usd": "1.01680444497174"
+   },
+   {
+    "network": "eth",
+    "name": "sUSDe / sUSDS",
+    "address": "0x3cef1afc0e8324b57293a6e7ce663781bbefbb79",
+    "tvl_usd": 103984.1016,
+    "vol24_usd": 11587.864610686,
+    "tx24": {
+     "buys": 5,
+     "sells": 1,
+     "buyers": 4,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+    "base_sym": "sUSDe",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "1.14575066748225",
+    "quote_price_usd": "1.01807343760847"
+   },
+   {
+    "network": "eth",
+    "name": "ETH / sUSDS 0.3%",
+    "address": "0x51ccd46db78d6988ab156c9b0d023e14b2e848240bc719718e63c4cc5c258bcf",
+    "tvl_usd": 79550.2325,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "uniswap-v4-ethereum",
+    "base": "0x0000000000000000000000000000000000000000",
+    "base_sym": "ETH",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "2534.69",
+    "quote_price_usd": "1.01788067923327"
+   },
+   {
+    "network": "eth",
+    "name": "phUSD / sUSDS 0.3%",
+    "address": "0x642bb6860b4776cc10b26b8f361fd139e7f0db04",
+    "tvl_usd": 60227.9628,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "balancer-v3-ethereum",
+    "base": "0xf3b5b661b92b75c71fa5aba8fd95d7514a9cd605",
+    "base_sym": "phUSD",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "0.830998271252749",
+    "quote_price_usd": "1.00749983756893"
+   },
+   {
+    "network": "eth",
+    "name": "USD3 / sUSDS",
+    "address": "0x65b05f6b0472b1f36a2f6d90a14cd21900851609",
+    "tvl_usd": 58768.4373,
+    "vol24_usd": 22339.4976184444,
+    "tx24": {
+     "buys": 3,
+     "sells": 1,
+     "buyers": 3,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0x0d86883faf4ffd7aeb116390af37746f45b6f378",
+    "base_sym": "USD3",
+    "quote": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+    "quote_sym": "sUSDS",
+    "base_price_usd": "1.02154190502114",
+    "quote_price_usd": "1.01743492549062"
+   }
+  ],
+  "sDAI": [
+   {
+    "network": "xdai",
+    "name": "wstETH / sDAI 0.05%",
+    "address": "0xe8a249626d3f3b876b887c30a3355513cb3fa9e4",
+    "tvl_usd": 2468781.9563,
+    "vol24_usd": 545304.71200378,
+    "tx24": {
+     "buys": 965,
+     "sells": 2141,
+     "buyers": 244,
+     "sellers": 418
+    },
+    "dex": "oku-trade-gnosis",
+    "base": "0x6c76971f98945ae98dd7d4dfca8711ebea946ea6",
+    "base_sym": "wstETH",
+    "quote": "0xaf204776c7245bf4147c2612bf6e5972ee483701",
+    "quote_sym": "sDAI",
+    "base_price_usd": "3136.51347774638",
+    "quote_price_usd": "1.26143505802196"
+   },
+   {
+    "network": "eth",
+    "name": "sDAI / sUSDe",
+    "address": "0x167478921b907422f8e88b43c4af2b8bea278d3a",
+    "tvl_usd": 802907.9165,
+    "vol24_usd": 51673.0722543952,
+    "tx24": {
+     "buys": 2,
+     "sells": 4,
+     "buyers": 2,
+     "sellers": 3
+    },
+    "dex": "curve",
+    "base": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+    "base_sym": "sDAI",
+    "quote": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+    "quote_sym": "sUSDe",
+    "base_price_usd": "1.18929000320623",
+    "quote_price_usd": "1.24544227443281"
+   },
+   {
+    "network": "xdai",
+    "name": "sDAI / USDC.e",
+    "address": "0x4a053d86bcccdfb6f85c46b38c5873129212dc1f",
+    "tvl_usd": 402885.8681,
+    "vol24_usd": 96998.95224834,
+    "tx24": {
+     "buys": 29,
+     "sells": 346,
+     "buyers": 5,
+     "sellers": 17
+    },
+    "dex": "curve-gnosis",
+    "base": "0xaf204776c7245bf4147c2612bf6e5972ee483701",
+    "base_sym": "sDAI",
+    "quote": "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0",
+    "quote_sym": "USDC.e",
+    "base_price_usd": "1.25788698356433",
+    "quote_price_usd": "0.997498329980642"
+   },
+   {
+    "network": "eth",
+    "name": "sDAI / FRAX",
+    "address": "0xce6431d21e3fb1036ce9973a3312368ed96f5ce7",
+    "tvl_usd": 204715.6694,
+    "vol24_usd": 331.8123880495,
+    "tx24": {
+     "buys": 0,
+     "sells": 1,
+     "buyers": 0,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+    "base_sym": "sDAI",
+    "quote": "0x853d955acef822db058eb8505911ed77f175b99e",
+    "quote_sym": "FRAX",
+    "base_price_usd": "1.18620283872034",
+    "quote_price_usd": "0.996094353327727"
+   },
+   {
+    "network": "optimism",
+    "name": "USDC / sDAI 0.01%",
+    "address": "0x131525f3fa23d65dc2b1eb8b6483a28c43b06916",
+    "tvl_usd": 68408.3206,
+    "vol24_usd": 20.3390624258,
+    "tx24": {
+     "buys": 0,
+     "sells": 1,
+     "buyers": 0,
+     "sellers": 1
+    },
+    "dex": "velodrome-finance-slipstream",
+    "base": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+    "base_sym": "USDC",
+    "quote": "0x2218a117083f5b482b0bb821d27056ba9c04b1d3",
+    "quote_sym": "sDAI",
+    "base_price_usd": "1.00145490560691",
+    "quote_price_usd": "1.18302295459957"
+   }
+  ],
+  "syrupUSDC": [
+   {
+    "network": "solana",
+    "name": "syrupUSDC / USDC",
+    "address": "6fteKNvMdv7tYmBoJHhj1jx6rHcEwC6RdSEmVpyS613J",
+    "tvl_usd": 10039576.9362,
+    "vol24_usd": 843847.0155301,
+    "tx24": {
+     "buys": 44,
+     "sells": 91,
+     "buyers": 23,
+     "sellers": 55
+    },
+    "dex": "orca",
+    "base": "AvZZF1YaZDziPY2RCK4oJrRVrbN3mTD9NL24hPeaZeUj",
+    "base_sym": "syrupUSDC",
+    "quote": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.18424212599688468913599632375920369120889522",
+    "quote_price_usd": "0.99722463572257984146648966234319396967703003"
+   },
+   {
+    "network": "monad",
+    "name": "syrupUSDC / USDC 0.05%",
+    "address": "0xe24635d96638b80e53d182b1b96809e189b64e5e28002c01381148493cf9fa01",
+    "tvl_usd": 6970851.5887,
+    "vol24_usd": 79596.317024099,
+    "tx24": {
+     "buys": 11,
+     "sells": 0,
+     "buyers": 3,
+     "sellers": 0
+    },
+    "dex": "uniswap-v4-monad",
+    "base": "0xab6e5a0c3799d020c790d34f7b2c02639e238af7",
+    "base_sym": "syrupUSDC",
+    "quote": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.19161735204273",
+    "quote_price_usd": "1.00333354714561"
+   },
+   {
+    "network": "eth",
+    "name": "syrupUSDC / USDC 0.08%",
+    "address": "0xcdb422a853a4fa2deb364317db92ad76d1cb7a8e1b82a32219bcb41720a90228",
+    "tvl_usd": 3757369.5616,
+    "vol24_usd": 158662.267566724,
+    "tx24": {
+     "buys": 8,
+     "sells": 1,
+     "buyers": 7,
+     "sellers": 1
+    },
+    "dex": "uniswap-v4-ethereum",
+    "base": "0x80ac24aa929eaf5013f6436cda2a7ba190f5cc0b",
+    "base_sym": "syrupUSDC",
+    "quote": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.18722722019778",
+    "quote_price_usd": "0.999769447144205"
+   },
+   {
+    "network": "arc",
+    "name": "syrupUSDC / USDC 0.05%",
+    "address": "0x6bfa4b94d586c160abe60c9d344421a7f6efe8452b34af284f19fb92f83d0cb1",
+    "tvl_usd": 960649.3863,
+    "vol24_usd": 14717.1951944467,
+    "tx24": {
+     "buys": 1,
+     "sells": 1,
+     "buyers": 1,
+     "sellers": 1
+    },
+    "dex": "uniswap-v4-arc",
+    "base": "0x0dc6b79f3c3854e4d74514fd4d29be6c96beee39",
+    "base_sym": "syrupUSDC",
+    "quote": "0x3600000000000000000000000000000000000000",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.18704584173874",
+    "quote_price_usd": "0.999685"
+   },
+   {
+    "network": "arbitrum",
+    "name": "syrupUSDC / USDC 0.08%",
+    "address": "0x64a08d4f8aae62fffa4993f59a6706606f155e3e4133ecedb137de341c7d4564",
+    "tvl_usd": 939259.6444,
+    "vol24_usd": 30386.9150922675,
+    "tx24": {
+     "buys": 1,
+     "sells": 3,
+     "buyers": 1,
+     "sellers": 2
+    },
+    "dex": "uniswap-v4-arbitrum",
+    "base": "0x41ca7586cc1311807b4605fbb748a3b8862b42b5",
+    "base_sym": "syrupUSDC",
+    "quote": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.18428455125824",
+    "quote_price_usd": "0.999333980203366"
+   },
+   {
+    "network": "solana",
+    "name": "syrupUSDC / USDG",
+    "address": "9goWMLg5ZxayhTinjtfNQLCZg2VBzdwERqHqP5tYSP9Z",
+    "tvl_usd": 537164.5375,
+    "vol24_usd": 8609.4186454312,
+    "tx24": {
+     "buys": 20,
+     "sells": 3,
+     "buyers": 17,
+     "sellers": 3
+    },
+    "dex": "orca",
+    "base": "AvZZF1YaZDziPY2RCK4oJrRVrbN3mTD9NL24hPeaZeUj",
+    "base_sym": "syrupUSDC",
+    "quote": "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+    "quote_sym": "USDG",
+    "base_price_usd": "1.18516720103485134202576929225580244577422325",
+    "quote_price_usd": "0.99912495328911141446266640256402239955263307"
+   },
+   {
+    "network": "eth",
+    "name": "syrupUSDC / USDC",
+    "address": "0x79eea4a1be86c43a9a9c4384b0b28a07af24ae29",
+    "tvl_usd": 497872.5923,
+    "vol24_usd": 4914.74990662,
+    "tx24": {
+     "buys": 0,
+     "sells": 7,
+     "buyers": 0,
+     "sellers": 7
+    },
+    "dex": "fluid-ethereum",
+    "base": "0x80ac24aa929eaf5013f6436cda2a7ba190f5cc0b",
+    "base_sym": "syrupUSDC",
+    "quote": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.18675645509674",
+    "quote_price_usd": "1.00030411102817"
+   },
+   {
+    "network": "base",
+    "name": "syrupUSDC / USDC 0.08%",
+    "address": "0x22c561b359abcf57beed5afa859398dc33e0c8cfbfe8b92e94b03a28ba3c08aa",
+    "tvl_usd": 425917.6328,
+    "vol24_usd": 3.5134847307,
+    "tx24": {
+     "buys": 0,
+     "sells": 2,
+     "buyers": 0,
+     "sellers": 2
+    },
+    "dex": "uniswap-v4-base",
+    "base": "0x660975730059246a68521a3e2fbd4740173100f5",
+    "base_sym": "syrupUSDC",
+    "quote": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.18652115581939",
+    "quote_price_usd": "1.00160875364995"
+   },
+   {
+    "network": "solana",
+    "name": "JLP / syrupUSDC",
+    "address": "83cSZEQfeVtUTgtYXPXNCQYM97R4FijzXimGnNzwd35V",
+    "tvl_usd": 148449.2538,
+    "vol24_usd": 4220.4279565578,
+    "tx24": {
+     "buys": 58,
+     "sells": 57,
+     "buyers": 19,
+     "sellers": 20
+    },
+    "dex": "orca",
+    "base": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+    "base_sym": "JLP",
+    "quote": "AvZZF1YaZDziPY2RCK4oJrRVrbN3mTD9NL24hPeaZeUj",
+    "quote_sym": "syrupUSDC",
+    "base_price_usd": "4.6909506041270457574444239488",
+    "quote_price_usd": "1.18747048679790445863052662404"
+   }
+  ],
+  "syrupUSDT": [
+   {
+    "network": "eth",
+    "name": "syrupUSDT / USDT 0.08%",
+    "address": "0xd861038a98942312d1495dd1313fb66c7e7de48f549a15edf3a45decf7338e1d",
+    "tvl_usd": 4742285.5657,
+    "vol24_usd": 202863.929950287,
+    "tx24": {
+     "buys": 3,
+     "sells": 1,
+     "buyers": 3,
+     "sellers": 1
+    },
+    "dex": "uniswap-v4-ethereum",
+    "base": "0x356b8d89c1e1239cbbb9de4815c39a1474d5ba7d",
+    "base_sym": "syrupUSDT",
+    "quote": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "quote_sym": "USDT",
+    "base_price_usd": "1.14898385439446",
+    "quote_price_usd": "1.0013455161659"
+   },
+   {
+    "network": "plasma",
+    "name": "syrupUSDT / USDT0 0.05%",
+    "address": "0x6ba44eaed40e85bd4e5ff0636336ea35827a5939",
+    "tvl_usd": 3370259.8265,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "oku-trade-plasma",
+    "base": "0xc4374775489cb9c56003bf2c9b12495fc64f0771",
+    "base_sym": "syrupUSDT",
+    "quote": "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb",
+    "quote_sym": "USDT0",
+    "base_price_usd": "1.14333816480999",
+    "quote_price_usd": "0.996877965298608"
+   },
+   {
+    "network": "bsc",
+    "name": "syrupUSDT / USDT 0.08%",
+    "address": "0x48466ed2d31d41819ba79cd7100c26ea50a8c59ca44f9e8d3f1ee75ed9542d2c",
+    "tvl_usd": 246146.362,
+    "vol24_usd": 0.04302652726,
+    "tx24": {
+     "buys": 0,
+     "sells": 1,
+     "buyers": 0,
+     "sellers": 1
+    },
+    "dex": "uniswap-v4-bsc",
+    "base": "0x8e9d4cea39299323fe8eda678cad449718556c4e",
+    "base_sym": "syrupUSDT",
+    "quote": "0x55d398326f99059ff775485246999027b3197955",
+    "quote_sym": "USDT",
+    "base_price_usd": "1.1440486919708",
+    "quote_price_usd": "0.999468703532246"
+   },
+   {
+    "network": "ink",
+    "name": "syrupUSDT / USD\u20ae0 0.05%",
+    "address": "0xa63ccedaa12469be90cba403176c7d134a23088d",
+    "tvl_usd": 241170.8199,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "velodrome-finance-slipstream-ink",
+    "base": "0x8a76fe7fa6da27f85a626c5c53730b38d13603d7",
+    "base_sym": "syrupUSDT",
+    "quote": "0x0200c29006150606b650577bbe7b6248f58470c1",
+    "quote_sym": "USD\u20ae0",
+    "base_price_usd": "1.15025722907604",
+    "quote_price_usd": "1.00072378929616"
+   }
+  ],
+  "sfrxUSD": [
+   {
+    "network": "eth",
+    "name": "sfrxUSD / frxUSD",
+    "address": "0xf292eb6c5dcb693eaaf392d0562a01c3710e5978",
+    "tvl_usd": 11932041.5183,
+    "vol24_usd": 100102.329398577,
+    "tx24": {
+     "buys": 3,
+     "sells": 10,
+     "buyers": 2,
+     "sellers": 4
+    },
+    "dex": "curve",
+    "base": "0xcf62f905562626cfcdd2261162a51fd02fc9c5b6",
+    "base_sym": "sfrxUSD",
+    "quote": "0xcacd6fd266af91b8aed52accc382b4e165586e29",
+    "quote_sym": "frxUSD",
+    "base_price_usd": "1.22254120595674",
+    "quote_price_usd": "0.998035081037478"
+   },
+   {
+    "network": "eth",
+    "name": "reUSD / sfrxUSD",
+    "address": "0xed785af60bed688baa8990cd5c4166221599a441",
+    "tvl_usd": 2828775.8964,
+    "vol24_usd": 82799.9628262329,
+    "tx24": {
+     "buys": 2,
+     "sells": 5,
+     "buyers": 1,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0x57ab1e0003f623289cd798b1824be09a793e4bec",
+    "base_sym": "reUSD",
+    "quote": "0xcf62f905562626cfcdd2261162a51fd02fc9c5b6",
+    "quote_sym": "sfrxUSD",
+    "base_price_usd": "0.995743863051956",
+    "quote_price_usd": "1.22254119576095"
+   },
+   {
+    "network": "eth",
+    "name": "dUSD / sfrxUSD",
+    "address": "0x2c2a700766886290359ccf39cb2173a39af1cef9",
+    "tvl_usd": 878436.5058,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "curve",
+    "base": "0x07fff99e1664d9b116fbc158c0e99785f81ca236",
+    "base_sym": "dUSD",
+    "quote": "0xcf62f905562626cfcdd2261162a51fd02fc9c5b6",
+    "quote_sym": "sfrxUSD",
+    "base_price_usd": "1.00784250634302",
+    "quote_price_usd": "1.2278360334598"
+   },
+   {
+    "network": "eth",
+    "name": "sfrxUSD / scrvUSD",
+    "address": "0x15e4ff94b70a8f146b4e4afd069014d126035752",
+    "tvl_usd": 209293.7785,
+    "vol24_usd": 13367.9351010311,
+    "tx24": {
+     "buys": 1,
+     "sells": 2,
+     "buyers": 1,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0xcf62f905562626cfcdd2261162a51fd02fc9c5b6",
+    "base_sym": "sfrxUSD",
+    "quote": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "quote_sym": "scrvUSD",
+    "base_price_usd": "1.20924510212243",
+    "quote_price_usd": "1.104213013935"
+   }
+  ],
+  "scrvUSD": [
+   {
+    "network": "eth",
+    "name": "reUSD / scrvUSD",
+    "address": "0xc522a6606bba746d7960404f22a3db936b6f4f50",
+    "tvl_usd": 15551217.8256,
+    "vol24_usd": 682521.777667413,
+    "tx24": {
+     "buys": 6,
+     "sells": 13,
+     "buyers": 2,
+     "sellers": 6
+    },
+    "dex": "curve",
+    "base": "0x57ab1e0003f623289cd798b1824be09a793e4bec",
+    "base_sym": "reUSD",
+    "quote": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "quote_sym": "scrvUSD",
+    "base_price_usd": "0.995962927257933",
+    "quote_price_usd": "1.11640838645138"
+   },
+   {
+    "network": "eth",
+    "name": "sDOLA / scrvUSD",
+    "address": "0x76a962ba6770068bcf454d34dde17175611e6637",
+    "tvl_usd": 5280594.1366,
+    "vol24_usd": 387587.959621258,
+    "tx24": {
+     "buys": 11,
+     "sells": 9,
+     "buyers": 5,
+     "sellers": 5
+    },
+    "dex": "curve",
+    "base": "0xb45ad160634c528cc3d2926d9807104fa3157305",
+    "base_sym": "sDOLA",
+    "quote": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "quote_sym": "scrvUSD",
+    "base_price_usd": "1.43113194074607",
+    "quote_price_usd": "1.11869232353725"
+   },
+   {
+    "network": "eth",
+    "name": "scrvUSD / sUSDe",
+    "address": "0xd29f8980852c2c76fc3f6e96a7aa06e0bedcc1b1",
+    "tvl_usd": 1923206.4149,
+    "vol24_usd": 76042.7756999571,
+    "tx24": {
+     "buys": 6,
+     "sells": 4,
+     "buyers": 3,
+     "sellers": 4
+    },
+    "dex": "curve",
+    "base": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "base_sym": "scrvUSD",
+    "quote": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+    "quote_sym": "sUSDe",
+    "base_price_usd": "1.11824160860316",
+    "quote_price_usd": "1.26251998278833"
+   },
+   {
+    "network": "eth",
+    "name": "fxSAVE / scrvUSD",
+    "address": "0xb6e4821c6fcabe32f5f452dfd3ef20ce2a3a48e2",
+    "tvl_usd": 800769.4314,
+    "vol24_usd": 158.1809475919,
+    "tx24": {
+     "buys": 0,
+     "sells": 4,
+     "buyers": 0,
+     "sellers": 2
+    },
+    "dex": "curve",
+    "base": "0x7743e50f534a7f9f1791dde7dcd89f7783eefc39",
+    "base_sym": "fxSAVE",
+    "quote": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "quote_sym": "scrvUSD",
+    "base_price_usd": "1.13054097852651",
+    "quote_price_usd": "1.11638633431112"
+   },
+   {
+    "network": "eth",
+    "name": "USD3 / scrvUSD",
+    "address": "0xe99810cd5adcd7b13455ae1be678b382d61f2d1e",
+    "tvl_usd": 772601.9989,
+    "vol24_usd": 114423.270318084,
+    "tx24": {
+     "buys": 1,
+     "sells": 7,
+     "buyers": 1,
+     "sellers": 2
+    },
+    "dex": "curve",
+    "base": "0x0d86883faf4ffd7aeb116390af37746f45b6f378",
+    "base_sym": "USD3",
+    "quote": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "quote_sym": "scrvUSD",
+    "base_price_usd": "1.1248344216445",
+    "quote_price_usd": "1.11701024706395"
+   },
+   {
+    "network": "base",
+    "name": "scrvUSD / USDC",
+    "address": "0x5ab01ee6208596f2204b85bdfa39d34c2add98f6",
+    "tvl_usd": 220663.2763,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "curve-base",
+    "base": "0x646a737b9b6024e49f5908762b3ff73e65b5160c",
+    "base_sym": "scrvUSD",
+    "quote": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.11011806001626",
+    "quote_price_usd": "1.00147847314508"
+   },
+   {
+    "network": "eth",
+    "name": "sfrxUSD / scrvUSD",
+    "address": "0x15e4ff94b70a8f146b4e4afd069014d126035752",
+    "tvl_usd": 209293.7785,
+    "vol24_usd": 13367.9351010311,
+    "tx24": {
+     "buys": 1,
+     "sells": 2,
+     "buyers": 1,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0xcf62f905562626cfcdd2261162a51fd02fc9c5b6",
+    "base_sym": "sfrxUSD",
+    "quote": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "quote_sym": "scrvUSD",
+    "base_price_usd": "1.20924510212243",
+    "quote_price_usd": "1.104213013935"
+   },
+   {
+    "network": "eth",
+    "name": "ynUSDx / scrvUSD",
+    "address": "0xa256d38e73cce6e00447fa64a95069ea7d32f841",
+    "tvl_usd": 53755.3065,
+    "vol24_usd": 475.6266161806,
+    "tx24": {
+     "buys": 0,
+     "sells": 5,
+     "buyers": 0,
+     "sellers": 4
+    },
+    "dex": "curve",
+    "base": "0x3db228fe836d99ccb25ec4dfdc80ed6d2cddcb4b",
+    "base_sym": "ynUSDx",
+    "quote": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "quote_sym": "scrvUSD",
+    "base_price_usd": "0.683173328574689",
+    "quote_price_usd": "1.10219725059189"
+   }
+  ],
+  "USDtb": [
+   {
+    "network": "eth",
+    "name": "USDtb / USDC",
+    "address": "0xc2921134073151490193ac7369313c8e0b08e1e7",
+    "tvl_usd": 20320580.7459,
+    "vol24_usd": 23012.2184355319,
+    "tx24": {
+     "buys": 3,
+     "sells": 5,
+     "buyers": 1,
+     "sellers": 3
+    },
+    "dex": "curve",
+    "base": "0xc139190f447e929f090edeb554d95abb8b18ac1c",
+    "base_sym": "USDtb",
+    "quote": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "quote_sym": "USDC",
+    "base_price_usd": "0.999336274993705",
+    "quote_price_usd": "0.99937562467027"
+   },
+   {
+    "network": "eth",
+    "name": "USDe / USDtb",
+    "address": "0xb0960263e39c70c9b6e9ea2a382b18095264a364",
+    "tvl_usd": 166053.5966,
+    "vol24_usd": 12955.0706071036,
+    "tx24": {
+     "buys": 1,
+     "sells": 2,
+     "buyers": 1,
+     "sellers": 2
+    },
+    "dex": "fluid-ethereum",
+    "base": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+    "base_sym": "USDe",
+    "quote": "0xc139190f447e929f090edeb554d95abb8b18ac1c",
+    "quote_sym": "USDtb",
+    "base_price_usd": "0.994905236899362",
+    "quote_price_usd": "1.00038899357772"
+   }
+  ],
+  "TESOURO": [
+   {
+    "network": "polygon_pos",
+    "name": "TESOURO / BRZ / stBRZ / BRLA",
+    "address": "0xc89f31f74573cc19fffc06108601c1ac71ba9735",
+    "tvl_usd": 135854.4255,
+    "vol24_usd": 96.4289763209,
+    "tx24": {
+     "buys": 2,
+     "sells": 0,
+     "buyers": null,
+     "sellers": null
+    },
+    "dex": "curve_polygon_pos",
+    "base": "pos_0xd574b191b5a00262ff19953d3ce25543ab7c8098",
+    "base_sym": "TESOURO",
+    "quote": "pos_0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc",
+    "quote_sym": "BRZ",
+    "base_price_usd": "0.253211431970853",
+    "quote_price_usd": "0.196343263291119"
+   },
+   {
+    "network": "solana",
+    "name": "TESOURO / USDC",
+    "address": "3bYZCXv6rWpbT3zizsTArUdZ4SEmDRMCWtjzasz8nVpK",
+    "tvl_usd": 83462.0103,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "orca",
+    "base": "BRNTNaZeTJANz9PeuD8drNbBHwGgg7ZTjiQYrFgWQ48p",
+    "base_sym": "TESOURO",
+    "quote": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "quote_sym": "USDC",
+    "base_price_usd": "0.237893880382422548170347709512",
+    "quote_price_usd": "1.001397326763935353259512535529"
+   },
+   {
+    "network": "base",
+    "name": "TESOURO / BRZ",
+    "address": "0x09bf787b9ab2d52d7836272a41e9809481795ab0",
+    "tvl_usd": 74442.2331,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "curve-base",
+    "base": "0x7cee47e7b7cd04cf984e8dd86c42595b5771a9b2",
+    "base_sym": "TESOURO",
+    "quote": "0xe9185ee218cae427af7b9764a011bb89fea761b4",
+    "quote_sym": "BRZ",
+    "base_price_usd": "0.251584154371136",
+    "quote_price_usd": "0.196586085891825"
+   }
+  ],
+  "CETES": [
+   {
+    "network": "solana",
+    "name": "MXNe / CETES",
+    "address": "FvkMd3wr29ZwANx5fUpvqoroX11Mtzog3xDnroSMU9SW",
+    "tvl_usd": 137579.3485,
+    "vol24_usd": 19.9867086459,
+    "tx24": {
+     "buys": 13,
+     "sells": 14,
+     "buyers": 3,
+     "sellers": 3
+    },
+    "dex": "orca",
+    "base": "6zYgzrT7X2wi9a9NeMtUvUWLLmf2a8vBsbYkocYdB9wa",
+    "base_sym": "MXNe",
+    "quote": "CETES7CKqqKQizuSN6iWQwmTeFRjbJR6Vw2XRKfEDR8f",
+    "quote_sym": "CETES",
+    "base_price_usd": "0.0546441940605947301824464236437573855372604404",
+    "quote_price_usd": "0.063734104913673024938139455524539636624135453"
+   },
+   {
+    "network": "monad",
+    "name": "CETES / USDC 0.05%",
+    "address": "0x6926a8ee0f96d04a174aae7474766f9d1a3ea4b2",
+    "tvl_usd": 115481.0756,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "uniswap-v3-monad",
+    "base": "0x834df4c1d8f51be24322e39e4766697be015512f",
+    "base_sym": "CETES",
+    "quote": "0x754704bc059f8c67012fed69bc8a327a5aafb603",
+    "quote_sym": "USDC",
+    "base_price_usd": "0.0648936688425796",
+    "quote_price_usd": "1.00448617527473"
+   },
+   {
+    "network": "solana",
+    "name": "CETES / USDC",
+    "address": "4Lgz21ZmgtgtGikoQy5ZpuCuBCwTZoLx364rHiQwngsH",
+    "tvl_usd": 100451.5035,
+    "vol24_usd": 5.9566077097,
+    "tx24": {
+     "buys": 6,
+     "sells": 5,
+     "buyers": 4,
+     "sellers": 4
+    },
+    "dex": "orca",
+    "base": "CETES7CKqqKQizuSN6iWQwmTeFRjbJR6Vw2XRKfEDR8f",
+    "base_sym": "CETES",
+    "quote": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "quote_sym": "USDC",
+    "base_price_usd": "0.0645921091997880953040548345561996470830231217",
+    "quote_price_usd": "1.00220279858867179835799990455569716837634294"
+   },
+   {
+    "network": "base",
+    "name": "CETES / USDC 0.05%",
+    "address": "0xbb0081ebd30d00c667efba251ec20af37bb03a31",
+    "tvl_usd": 98659.5172,
+    "vol24_usd": 0.07145533453,
+    "tx24": {
+     "buys": 6,
+     "sells": 0,
+     "buyers": 4,
+     "sellers": 0
+    },
+    "dex": "aerodrome-slipstream-2",
+    "base": "0x834df4c1d8f51be24322e39e4766697be015512f",
+    "base_sym": "CETES",
+    "quote": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "quote_sym": "USDC",
+    "base_price_usd": "0.064005564180561",
+    "quote_price_usd": "0.995921203505251"
+   }
+  ],
+  "stBRZ": [],
+  "wUSDM": [
+   {
+    "network": "eth",
+    "name": "wUSDM / USDC 0.01%",
+    "address": "0xd3d6e5a73a27081ddd95955f5ae2efbb063013e736f79431c3a31f2817898a35",
+    "tvl_usd": 1317308.3556,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "uniswap-v4-ethereum",
+    "base": "0x57f5e098cad7a3d1eed53991d4d66c45c9af7812",
+    "base_sym": "wUSDM",
+    "quote": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.08063900869671",
+    "quote_price_usd": "0.999320658336415"
+   }
+  ],
+  "BENJI": [
+   {
+    "network": "eth",
+    "name": "BENJI / WETH 0.3%",
+    "address": "0xb50734c744bbd6c315bfaf3d24f3dd2bf64033a6",
+    "tvl_usd": 15001668.7204,
+    "vol24_usd": 0.06085356845,
+    "tx24": {
+     "buys": 1,
+     "sells": 0,
+     "buyers": 1,
+     "sellers": 0
+    },
+    "dex": "uniswap_v3",
+    "base": "0x16a5f7d5e5524a44adc43916e5e1ae627109053d",
+    "base_sym": "BENJI",
+    "quote": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "quote_sym": "WETH",
+    "base_price_usd": "0.0188913198152982",
+    "quote_price_usd": "2543.64"
+   },
+   {
+    "network": "eth",
+    "name": "BENJI / WETH 0.05%",
+    "address": "0xf0786686630c6d02cd5f6df7972a068635dc4a3e",
+    "tvl_usd": 1325454.6162,
+    "vol24_usd": 0.01736816058,
+    "tx24": {
+     "buys": 1,
+     "sells": 0,
+     "buyers": 1,
+     "sellers": 0
+    },
+    "dex": "uniswap_v3",
+    "base": "0xcc6cc8bb0501a78b2477e4c172455e77faf5c25e",
+    "base_sym": "BENJI",
+    "quote": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "quote_sym": "WETH",
+    "base_price_usd": "0.00262242678974572",
+    "quote_price_usd": "2505.28"
+   },
+   {
+    "network": "base",
+    "name": "BENJI / WETH",
+    "address": "0x16905890a1d02b6f824387419319bf4188b961b0",
+    "tvl_usd": 329150.9083,
+    "vol24_usd": 3145.7938180481,
+    "tx24": {
+     "buys": 29,
+     "sells": 13,
+     "buyers": 21,
+     "sellers": 13
+    },
+    "dex": "uniswap-v2-base",
+    "base": "0xbc45647ea894030a4e9801ec03479739fa2485f0",
+    "base_sym": "BENJI",
+    "quote": "0x4200000000000000000000000000000000000006",
+    "quote_sym": "WETH",
+    "base_price_usd": "0.00126151613388638",
+    "quote_price_usd": "2525.44"
+   }
+  ],
+  "JTRSY": [],
+  "USDz": [
+   {
+    "network": "base",
+    "name": "USDz / sUSDz 0.05%",
+    "address": "0x96cc4b6a75fa1dfea66091589d1f25aff3aa0318",
+    "tvl_usd": 1271570.8124,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "aerodrome-slipstream",
+    "base": "0x04d5ddf5f3a8939889f11e97f8c4bb48317f1938",
+    "base_sym": "USDz",
+    "quote": "0xe31ee12bdfdd0573d634124611e85338e2cbf0cf",
+    "quote_sym": "sUSDz",
+    "base_price_usd": "0.978405356711702",
+    "quote_price_usd": "1.18568944523212"
+   },
+   {
+    "network": "base",
+    "name": "USDz / USDC",
+    "address": "0x6d0b9c9e92a3de30081563c3657b5258b3ffa38b",
+    "tvl_usd": 102742.2812,
+    "vol24_usd": 162.8804815951,
+    "tx24": {
+     "buys": 6,
+     "sells": 1,
+     "buyers": 6,
+     "sellers": 1
+    },
+    "dex": "aerodrome-base",
+    "base": "0x04d5ddf5f3a8939889f11e97f8c4bb48317f1938",
+    "base_sym": "USDz",
+    "quote": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "quote_sym": "USDC",
+    "base_price_usd": "0.972778647324976",
+    "quote_price_usd": "0.996509928228308"
+   }
+  ],
+  "sUSDC": [],
+  "stUSDS": [
+   {
+    "network": "eth",
+    "name": "USDS / stUSDS",
+    "address": "0x2c7c98a3b1582d83c43987202aeff638312478ae",
+    "tvl_usd": 2227339.5479,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "curve",
+    "base": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+    "base_sym": "USDS",
+    "quote": "0x99cd4ec3f88a45940936f469e4bb72a2a701eeb9",
+    "quote_sym": "stUSDS",
+    "base_price_usd": "1.00003936707917",
+    "quote_price_usd": "1.07654318207973"
+   }
+  ],
+  "sUSDa": [],
+  "USTBL": [],
+  "EUTBL": [],
+  "wYLDS": [],
+  "PRIME": [
+   {
+    "network": "robinhood",
+    "name": "PRIME / WETH 0.3%",
+    "address": "0xba588bde60de0a49d4270755e22e79e531de487c",
+    "tvl_usd": 29437637.2215,
+    "vol24_usd": 0.06475428968,
+    "tx24": {
+     "buys": 4,
+     "sells": 0,
+     "buyers": 2,
+     "sellers": 0
+    },
+    "dex": "uniswap-v3-robinhood",
+    "base": "0x212526b15e4e1ef84547ffea600069265be2ddd6",
+    "base_sym": "PRIME",
+    "quote": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "quote_sym": "WETH",
+    "base_price_usd": "0.588343526064063",
+    "quote_price_usd": "2530.4"
+   },
+   {
+    "network": "tempo",
+    "name": "PRIME / pathUSD 0.01%",
+    "address": "0x0b9a0ce880fd51829b650bf2bbacff62f10ffe274b2250b2c3cf1c5614aab427",
+    "tvl_usd": 25171154.1487,
+    "vol24_usd": 1231114.58510655,
+    "tx24": {
+     "buys": 4,
+     "sells": 0,
+     "buyers": 1,
+     "sellers": 0
+    },
+    "dex": "uniswap-v4-tempo",
+    "base": "0x20c00000000000000000000058d0b8b2cfdb358c",
+    "base_sym": "PRIME",
+    "quote": "0x20c0000000000000000000000000000000000000",
+    "quote_sym": "pathUSD",
+    "base_price_usd": "1.06304891810512",
+    "quote_price_usd": "0.99969"
+   },
+   {
+    "network": "robinhood",
+    "name": "PRIME / WETH 0.3%",
+    "address": "0x43894adfbec84b4696cad140852a26d92f67dc27",
+    "tvl_usd": 24819965.6836,
+    "vol24_usd": 0.03288519031,
+    "tx24": {
+     "buys": 2,
+     "sells": 0,
+     "buyers": 2,
+     "sellers": 0
+    },
+    "dex": "uniswap-v3-robinhood",
+    "base": "0x1b3f3f50b629d3965d72921f16e5f64bd4e2f8a0",
+    "base_sym": "PRIME",
+    "quote": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "quote_sym": "WETH",
+    "base_price_usd": "0.446448857647468",
+    "quote_price_usd": "2530.4"
+   },
+   {
+    "network": "solana",
+    "name": "PYUSD / PRIME",
+    "address": "9R9nmGDRdLLwWjc9raRjaRoZZNXiXQBEPGFRj6SfSkPQ",
+    "tvl_usd": 9611903.4606,
+    "vol24_usd": 1383645.80968865,
+    "tx24": {
+     "buys": 14,
+     "sells": 63,
+     "buyers": 10,
+     "sellers": 26
+    },
+    "dex": "orca",
+    "base": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+    "base_sym": "PYUSD",
+    "quote": "3b8X44fLF9ooXaUm3hhSgjpmVs6rZZ3pPoGnGahc3Uu7",
+    "quote_sym": "PRIME",
+    "base_price_usd": "1.00023657501427388931655717120974487908515246",
+    "quote_price_usd": "1.064099018524604417768539204247524658095594092"
+   },
+   {
+    "network": "eth",
+    "name": "PRIME / USDC 0.01%",
+    "address": "0x5b70a1582135bd04e39ca94a6a56fc3a828e3115",
+    "tvl_usd": 8949466.1244,
+    "vol24_usd": 421659.791930214,
+    "tx24": {
+     "buys": 3,
+     "sells": 4,
+     "buyers": 1,
+     "sellers": 2
+    },
+    "dex": "uniswap_v3",
+    "base": "0x19ebb35279a16207ec4ba82799cc64715065f7f6",
+    "base_sym": "PRIME",
+    "quote": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.06313246611739",
+    "quote_price_usd": "0.999395668296422"
+   },
+   {
+    "network": "solana",
+    "name": "AUTO / PRIME",
+    "address": "4D2MXM8H7sKpyeXMQ9T4eULc3qb2fWBBE8Un9P6eEx8W",
+    "tvl_usd": 3588707.1416,
+    "vol24_usd": 103187.17398082,
+    "tx24": {
+     "buys": 44,
+     "sells": 2,
+     "buyers": 26,
+     "sellers": 2
+    },
+    "dex": "orca",
+    "base": "GNE6oDS6jHrfaV3GQVVCCp37fDnT7PiPuewMKBj2bqNm",
+    "base_sym": "AUTO",
+    "quote": "3b8X44fLF9ooXaUm3hhSgjpmVs6rZZ3pPoGnGahc3Uu7",
+    "quote_sym": "PRIME",
+    "base_price_usd": "1.0212612181872429428340977955831941903704989",
+    "quote_price_usd": "1.06095171065940437136361626911576181439755198"
+   },
+   {
+    "network": "eth",
+    "name": "PRIME / WETH 1%",
+    "address": "0xcd423f3ab39a11ff1d9208b7d37df56e902c932b",
+    "tvl_usd": 78378.7928,
+    "vol24_usd": 3767.7849725026,
+    "tx24": {
+     "buys": 3,
+     "sells": 11,
+     "buyers": 3,
+     "sellers": 11
+    },
+    "dex": "uniswap_v3",
+    "base": "0xb23d80f5fefcddaa212212f028021b41ded428cf",
+    "base_sym": "PRIME",
+    "quote": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "quote_sym": "WETH",
+    "base_price_usd": "0.231877564777075",
+    "quote_price_usd": "2551.39"
+   },
+   {
+    "network": "robinhood",
+    "name": "PRIME / AMZN",
+    "address": "0xb2948b5e0f7e892fb1d0b015db8162636e231ad73f2ea92774be9f270ed99a00",
+    "tvl_usd": 67636.6702,
+    "vol24_usd": 1852.8149743022,
+    "tx24": {
+     "buys": 23,
+     "sells": 34,
+     "buyers": 10,
+     "sellers": 10
+    },
+    "dex": "bankr-robinhood",
+    "base": "0x9ac0efe775ef5eadf1fd106a6efe19d0e1421e18",
+    "base_sym": "PRIME",
+    "quote": "0x12f190a9f9d7d37a250758b26824b97ce941bf54",
+    "quote_sym": "AMZN",
+    "base_price_usd": "0.0000685671119516744",
+    "quote_price_usd": "256.976729711831"
+   }
+  ],
+  "srUSD": [],
+  "sUSDf": [],
+  "reUSD": [
+   {
+    "network": "eth",
+    "name": "reUSD / USDT",
+    "address": "0xb96cee75211700bc148b95b1c907d726791f4457",
+    "tvl_usd": 24836731.4029,
+    "vol24_usd": 5982639.21443379,
+    "tx24": {
+     "buys": 38,
+     "sells": 31,
+     "buyers": 4,
+     "sellers": 5
+    },
+    "dex": "fluid-ethereum",
+    "base": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+    "base_sym": "reUSD",
+    "quote": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "quote_sym": "USDT",
+    "base_price_usd": "1.10217090103207",
+    "quote_price_usd": "0.994838335370144"
+   },
+   {
+    "network": "eth",
+    "name": "reUSD / scrvUSD",
+    "address": "0xc522a6606bba746d7960404f22a3db936b6f4f50",
+    "tvl_usd": 15551217.8256,
+    "vol24_usd": 682521.777667413,
+    "tx24": {
+     "buys": 6,
+     "sells": 13,
+     "buyers": 2,
+     "sellers": 6
+    },
+    "dex": "curve",
+    "base": "0x57ab1e0003f623289cd798b1824be09a793e4bec",
+    "base_sym": "reUSD",
+    "quote": "0x0655977feb2f289a4ab78af67bab0d17aab84367",
+    "quote_sym": "scrvUSD",
+    "base_price_usd": "0.995962927257933",
+    "quote_price_usd": "1.11640838645138"
+   },
+   {
+    "network": "eth",
+    "name": "reUSD / sDOLA",
+    "address": "0x48d670d189b4b48757992d36897bca6e3f889040",
+    "tvl_usd": 5767001.7717,
+    "vol24_usd": 61027.8647952204,
+    "tx24": {
+     "buys": 2,
+     "sells": 3,
+     "buyers": 2,
+     "sellers": 2
+    },
+    "dex": "curve",
+    "base": "0x57ab1e0003f623289cd798b1824be09a793e4bec",
+    "base_sym": "reUSD",
+    "quote": "0xb45ad160634c528cc3d2926d9807104fa3157305",
+    "quote_sym": "sDOLA",
+    "base_price_usd": "0.984782379766804",
+    "quote_price_usd": "1.41210840143912"
+   },
+   {
+    "network": "arbitrum",
+    "name": "reusd / USDC",
+    "address": "0xdd72157a021804141817d46d9852a97addfb9f59",
+    "tvl_usd": 3477585.5334,
+    "vol24_usd": 95426.3437359977,
+    "tx24": {
+     "buys": 2,
+     "sells": 4,
+     "buyers": 1,
+     "sellers": 4
+    },
+    "dex": "fluid-arbitrum",
+    "base": "0x76ce01f0ef25aa66cc5f1e546a005e4a63b25609",
+    "base_sym": "reusd",
+    "quote": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.10544999500876",
+    "quote_price_usd": "0.999319011680286"
+   },
+   {
+    "network": "eth",
+    "name": "reUSD / sfrxUSD",
+    "address": "0xed785af60bed688baa8990cd5c4166221599a441",
+    "tvl_usd": 2828775.8964,
+    "vol24_usd": 82799.9628262329,
+    "tx24": {
+     "buys": 2,
+     "sells": 5,
+     "buyers": 1,
+     "sellers": 1
+    },
+    "dex": "curve",
+    "base": "0x57ab1e0003f623289cd798b1824be09a793e4bec",
+    "base_sym": "reUSD",
+    "quote": "0xcf62f905562626cfcdd2261162a51fd02fc9c5b6",
+    "quote_sym": "sfrxUSD",
+    "base_price_usd": "0.995743863051956",
+    "quote_price_usd": "1.22254119576095"
+   },
+   {
+    "network": "eth",
+    "name": "reUSD / sUSDe",
+    "address": "0x5c2ab69eb2bf12a2f4572d178687bd4660512972",
+    "tvl_usd": 2282979.9561,
+    "vol24_usd": 290996.484200146,
+    "tx24": {
+     "buys": 25,
+     "sells": 8,
+     "buyers": 5,
+     "sellers": 3
+    },
+    "dex": "curve",
+    "base": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+    "base_sym": "reUSD",
+    "quote": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+    "quote_sym": "sUSDe",
+    "base_price_usd": "1.10921489256736",
+    "quote_price_usd": "1.24054974158591"
+   },
+   {
+    "network": "eth",
+    "name": "reUSD / fxUSD",
+    "address": "0xb0ef04ace97d350e24efa5139d2590d26a61a8dc",
+    "tvl_usd": 1752478.1415,
+    "vol24_usd": 6104.8843305641,
+    "tx24": {
+     "buys": 0,
+     "sells": 3,
+     "buyers": 0,
+     "sellers": 2
+    },
+    "dex": "curve",
+    "base": "0x57ab1e0003f623289cd798b1824be09a793e4bec",
+    "base_sym": "reUSD",
+    "quote": "0x085780639cc2cacd35e474e71f4d000e2405d8f6",
+    "quote_sym": "fxUSD",
+    "base_price_usd": "0.979511310916163",
+    "quote_price_usd": "0.990343636655213"
+   },
+   {
+    "network": "eth",
+    "name": "sUSG / reUSD",
+    "address": "0xc6ac08424ee6d1373f03611b96f5da849594b6d8",
+    "tvl_usd": 905569.666,
+    "vol24_usd": 0.0,
+    "tx24": {
+     "buys": 0,
+     "sells": 0,
+     "buyers": 0,
+     "sellers": 0
+    },
+    "dex": "curve",
+    "base": "0xf17d6f98a5c6eaa99d149079984119e0a4ef6900",
+    "base_sym": "sUSG",
+    "quote": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+    "quote_sym": "reUSD",
+    "base_price_usd": "0.995354512528829",
+    "quote_price_usd": "1.10464836901384"
+   },
+   {
+    "network": "eth",
+    "name": "reUSD / USDC",
+    "address": "0xf74c91b36c26543a0aa820bef407a577e5498bf0",
+    "tvl_usd": 453240.0829,
+    "vol24_usd": 40652.6227661751,
+    "tx24": {
+     "buys": 14,
+     "sells": 26,
+     "buyers": 8,
+     "sellers": 10
+    },
+    "dex": "curve",
+    "base": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+    "base_sym": "reUSD",
+    "quote": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "quote_sym": "USDC",
+    "base_price_usd": "1.10744179796848",
+    "quote_price_usd": "1.00066051850034"
+   }
+  ]
+ }
+}

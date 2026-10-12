@@ -1,0 +1,758 @@
+{
+ "brla_tokens": [
+  [
+   "base",
+   "0xfcb34c47f850f452c15ea1b84d51231c38a61783"
+  ],
+  [
+   "celo",
+   "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760"
+  ],
+  [
+   "hyperevm",
+   "0xa300c891157803e72370d15a30ccedffc7153142"
+  ],
+  [
+   "hyperliquid",
+   "0x82790bc500d677101986a696d341a156"
+  ],
+  [
+   "polygon_pos",
+   "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb"
+  ],
+  [
+   "robinhood",
+   "0x97cbf8ab394c7bab4e26883e9fc1791b8d9ab999"
+  ],
+  [
+   "robinhood",
+   "0xb0709533aee8c7b92060568a9812b90af7dccb63"
+  ],
+  [
+   "xdai",
+   "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760"
+  ]
+ ],
+ "pools": [
+  {
+   "network": "polygon_pos",
+   "name": "USDC / BRLA 0.05%",
+   "address": "0x0e7754127dedd4097be750825dbb4669bc32c956",
+   "tvl_usd": 150173.8869,
+   "vol24_usd": 38445.2668002029,
+   "tx24": {
+    "buys": 101,
+    "sells": 41,
+    "buyers": 49,
+    "sellers": 25
+   },
+   "dex": "uniswap_v3_polygon_pos",
+   "base": "pos_0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+   "base_sym": "USDC",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "1.00089586085131",
+   "last_price_quote_usd": "0.19902676902503"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "TESOURO / BRZ / stBRZ / BRLA",
+   "address": "0xc89f31f74573cc19fffc06108601c1ac71ba9735",
+   "tvl_usd": 135854.4255,
+   "vol24_usd": 96.4289763209,
+   "tx24": {
+    "buys": 2,
+    "sells": 0,
+    "buyers": null,
+    "sellers": null
+   },
+   "dex": "curve_polygon_pos",
+   "base": "pos_0xd574b191b5a00262ff19953d3ce25543ab7c8098",
+   "base_sym": "TESOURO",
+   "quote": "pos_0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc",
+   "quote_sym": "BRZ",
+   "last_price_base_usd": "0.253211431970853",
+   "last_price_quote_usd": "0.196343263291119"
+  },
+  {
+   "network": "xdai",
+   "name": "USDC.e / BRLA 0.05%",
+   "address": "0x576bf065cbc15cb2d61affb156118fcff01a8238",
+   "tvl_usd": 104377.0668,
+   "vol24_usd": 8749.6210400845,
+   "tx24": {
+    "buys": 4,
+    "sells": 12,
+    "buyers": 3,
+    "sellers": 5
+   },
+   "dex": "oku-trade-gnosis",
+   "base": "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0",
+   "base_sym": "USDC.e",
+   "quote": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "1.000108626",
+   "last_price_quote_usd": "0.197950169930381"
+  },
+  {
+   "network": "xdai",
+   "name": "BRLA / USDC.e",
+   "address": "0xfb8b95fb2296a0ad4b6b1419fdaa5aa5f13e4009",
+   "tvl_usd": 56811.7446,
+   "vol24_usd": 775.3759494856,
+   "tx24": {
+    "buys": 1,
+    "sells": 6,
+    "buyers": 1,
+    "sellers": 1
+   },
+   "dex": "curve-gnosis",
+   "base": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "base_sym": "BRLA",
+   "quote": "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0",
+   "quote_sym": "USDC.e",
+   "last_price_base_usd": "0.1974262005",
+   "last_price_quote_usd": "0.997498330418103"
+  },
+  {
+   "network": "base",
+   "name": "BRLA / USDC 0.05%",
+   "address": "0x1c33aa5cc206ed3d9e29fb136796a8815e48af58",
+   "tvl_usd": 45153.7767,
+   "vol24_usd": 8255.8093356535,
+   "tx24": {
+    "buys": 32,
+    "sells": 52,
+    "buyers": 4,
+    "sellers": 7
+   },
+   "dex": "aerodrome-slipstream-2",
+   "base": "0xfcb34c47f850f452c15ea1b84d51231c38a61783",
+   "base_sym": "BRLA",
+   "quote": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+   "quote_sym": "USDC",
+   "last_price_base_usd": "0.198868169",
+   "last_price_quote_usd": "0.999511345697564"
+  },
+  {
+   "network": "celo",
+   "name": "BRLA / USD\u20ae 0.01%",
+   "address": "0x14e577e42d45fd2200a9b0e31d87fe826467111a",
+   "tvl_usd": 28121.8228,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap_v3_celo",
+   "base": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "base_sym": "BRLA",
+   "quote": "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+   "quote_sym": "USD\u20ae",
+   "last_price_base_usd": "0.197400464",
+   "last_price_quote_usd": "1.00406927918854"
+  },
+  {
+   "network": "robinhood",
+   "name": "BRLA / WETH 0.25%",
+   "address": "0xc3a76155abfe572acce8661ea74372d541c487029dd8edb9ea2d3bf9d184e9ed",
+   "tvl_usd": 23481.5054,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap-v4-robinhood",
+   "base": "0x97cbf8ab394c7bab4e26883e9fc1791b8d9ab999",
+   "base_sym": "BRLA",
+   "quote": "0x0000000000000000000000000000000000000000",
+   "quote_sym": "WETH",
+   "last_price_base_usd": "0.004452529532",
+   "last_price_quote_usd": "2539.25"
+  },
+  {
+   "network": "hyperevm",
+   "name": "BRLA / WHYPE 2%",
+   "address": "0xe191a2f803dfaef9bfeb068796aa49c4580acef3",
+   "tvl_usd": 14161.2849,
+   "vol24_usd": 2253.9935895417,
+   "tx24": {
+    "buys": 97,
+    "sells": 65,
+    "buyers": 13,
+    "sellers": 9
+   },
+   "dex": "ramses-v3-hyperevm",
+   "base": "0xa300c891157803e72370d15a30ccedffc7153142",
+   "base_sym": "BRLA",
+   "quote": "0x5555555555555555555555555555555555555555",
+   "quote_sym": "WHYPE",
+   "last_price_base_usd": "0.001040250494",
+   "last_price_quote_usd": "86.62"
+  },
+  {
+   "network": "xdai",
+   "name": "BRZ / BRLA 0.01%",
+   "address": "0xbe573d9bd4cb28243f4458a6776ae24f9d8d5e83",
+   "tvl_usd": 10912.0524,
+   "vol24_usd": 740.9716814059,
+   "tx24": {
+    "buys": 1,
+    "sells": 7,
+    "buyers": 1,
+    "sellers": 1
+   },
+   "dex": "oku-trade-gnosis",
+   "base": "0x0a06c8354a6cc1a07549a38701eac205942e3ac6",
+   "base_sym": "BRZ",
+   "quote": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.196027014",
+   "last_price_quote_usd": "0.198131263906902"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRZ / BRLA 0.05%",
+   "address": "0x6e05b2e9c6ccca3308a73f597b4c92ea4e6cfb86",
+   "tvl_usd": 10506.9862,
+   "vol24_usd": 1428.7809197194,
+   "tx24": {
+    "buys": 5,
+    "sells": 10,
+    "buyers": 5,
+    "sellers": 9
+   },
+   "dex": "uniswap_v3_polygon_pos",
+   "base": "pos_0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc",
+   "base_sym": "BRZ",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.196969109389457",
+   "last_price_quote_usd": "0.199022579656999"
+  },
+  {
+   "network": "solana",
+   "name": "WENDY / SOL",
+   "address": "FHHnbBAuhBzG1ver923MjxSHy1ADanK75EB5PCcScidh",
+   "tvl_usd": 6226.8825,
+   "vol24_usd": 6.374419233,
+   "tx24": {
+    "buys": 1,
+    "sells": 3,
+    "buyers": 1,
+    "sellers": 3
+   },
+   "dex": "pumpswap",
+   "base": "BRLAEDmZVZsvUKGzfYK7cQyhhJ3VN3sKMhbXUhsapump",
+   "base_sym": "WENDY",
+   "quote": "So11111111111111111111111111111111111111112",
+   "quote_sym": "SOL",
+   "last_price_base_usd": "0.0000067531640828296221263362230987780473840917260934785932410595954",
+   "last_price_quote_usd": "111.04279225666922797259522870810044125997589086"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRLA / USDC 3.495%",
+   "address": "0x579a01d4ce18c9e5e0c34f7db5316dbda10d31bf581b1bdcfa6ebaee1c596e3b",
+   "tvl_usd": 4917.3252,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap-v4-polygon",
+   "base": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "base_sym": "BRLA",
+   "quote": "pos_0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+   "quote_sym": "USDC",
+   "last_price_base_usd": "0.1895212047",
+   "last_price_quote_usd": "0.9992642727"
+  },
+  {
+   "network": "robinhood",
+   "name": "BRLA / WETH",
+   "address": "0xd34f8ac598ac323a605da259dd7b9936f4e5c3d5",
+   "tvl_usd": 4118.5185,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "pons-v2",
+   "base": "0xb0709533aee8c7b92060568a9812b90af7dccb63",
+   "base_sym": "BRLA",
+   "quote": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+   "quote_sym": "WETH",
+   "last_price_base_usd": "0.000004531331668",
+   "last_price_quote_usd": "2715.56"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "USDC / BRLA 0.04%",
+   "address": "0x39dfe42583d6c21aa7c18e8375d97a4fde88a0200598511b27a8df1a7c786e6d",
+   "tvl_usd": 2273.7288,
+   "vol24_usd": 233.5102521076,
+   "tx24": {
+    "buys": 13,
+    "sells": 4,
+    "buyers": 13,
+    "sellers": 3
+   },
+   "dex": "uniswap-v4-polygon",
+   "base": "pos_0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+   "base_sym": "USDC",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.999588163628417",
+   "last_price_quote_usd": "0.198842300768956"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRZ / BRLA 0.3%",
+   "address": "0xcf34484d10ddbb75e474ce12d98588d7d2af3bc3",
+   "tvl_usd": 792.4633,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap_v3_polygon_pos",
+   "base": "pos_0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc",
+   "base_sym": "BRZ",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.1983406782",
+   "last_price_quote_usd": "0.2000786133"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "USDT / BRLA 0.01%",
+   "address": "0xcb6f5b7fa6f0fd63d4d0bfe9063680310056dabab5fef2d4790be7cb620078a1",
+   "tvl_usd": 400.3631,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap-v4-polygon",
+   "base": "pos_0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+   "base_sym": "USDT",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.995069177785717",
+   "last_price_quote_usd": "0.198725347410185"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRLA / USDC 1%",
+   "address": "0x04ea60ca6236ee16ac9b5b4c792695276e8a8b36",
+   "tvl_usd": 271.3337,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap_v3_polygon_pos",
+   "base": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "base_sym": "BRLA",
+   "quote": "pos_0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+   "quote_sym": "USDC",
+   "last_price_base_usd": "0.1975306612",
+   "last_price_quote_usd": "1.0003062654"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRZ / BRLA 0.3%",
+   "address": "0x306953db2b8a15b03b59cfc106cd22a6843a070375bdfbe0362875241e706984",
+   "tvl_usd": 233.5508,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap-v4-polygon",
+   "base": "pos_0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc",
+   "base_sym": "BRZ",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.215163420446715",
+   "last_price_quote_usd": "0.21782012922564"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRL1 / BRLA 0.01%",
+   "address": "0xc948e6c75df845331311be748b085ddbe916ca6d",
+   "tvl_usd": 169.3573,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap_v3_polygon_pos",
+   "base": "pos_0x5c067c80c00ecd2345b05e83a3e758ef799c40b5",
+   "base_sym": "BRL1",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.200041138673474",
+   "last_price_quote_usd": "0.199787732128629"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "USDC / BRLA 0.05%",
+   "address": "0xdf8702c217217eff26e94f073d34209489ba0edf727f92ec4cb40d741cc55c35",
+   "tvl_usd": 60.2316,
+   "vol24_usd": 12.8794203669,
+   "tx24": {
+    "buys": 3,
+    "sells": 1,
+    "buyers": 3,
+    "sellers": 1
+   },
+   "dex": "uniswap-v4-polygon",
+   "base": "pos_0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+   "base_sym": "USDC",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.99971745363963",
+   "last_price_quote_usd": "0.198813225655051"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "PLT / BRLA",
+   "address": "0xae9740fb6ad3ff506934f6ca60454765e7ff44c3",
+   "tvl_usd": 44.288,
+   "vol24_usd": 0.5756968556,
+   "tx24": {
+    "buys": 1,
+    "sells": 0,
+    "buyers": 1,
+    "sellers": 0
+   },
+   "dex": "quickswap",
+   "base": "pos_0xc298812164bd558268f51cc6e3b8b5daaf0b6341",
+   "base_sym": "PLT",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.000000645972898928357",
+   "last_price_quote_usd": "0.198685615091925"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "MegaDoge / BRLA",
+   "address": "0xc6f23d2a2cde8a200f6b39296efcce394d14d7bd",
+   "tvl_usd": 38.9734,
+   "vol24_usd": 0.1886265112,
+   "tx24": {
+    "buys": 1,
+    "sells": 0,
+    "buyers": 1,
+    "sellers": 0
+   },
+   "dex": "uniswap-v2-polygon",
+   "base": "pos_0xcbf4ab00b6aa19b4d5d29c7c3508b393a1c01fe3",
+   "base_sym": "MegaDoge",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.0000709467025436895",
+   "last_price_quote_usd": "0.198722767000309"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "USDC / BRLA",
+   "address": "0xf1b0f124e7e8b5460d1ebe9b859723e0780eb94a",
+   "tvl_usd": 20.0376,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap-v2-polygon",
+   "base": "pos_0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+   "base_sym": "USDC",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.9996389386",
+   "last_price_quote_usd": "0.1944032335"
+  },
+  {
+   "network": "xdai",
+   "name": "BRLA / USDT 0.05%",
+   "address": "0xcb470383bc7191ad71618dff0adbb867dd976e72",
+   "tvl_usd": 19.2909,
+   "vol24_usd": 0.001791658062,
+   "tx24": {
+    "buys": 1,
+    "sells": 0,
+    "buyers": 1,
+    "sellers": 0
+   },
+   "dex": "sushiswap-v3-gnosis",
+   "base": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "base_sym": "BRLA",
+   "quote": "0x4ecaba5870353805a9f068101a40e0f32ed605c6",
+   "quote_sym": "USDT",
+   "last_price_base_usd": "0.1989476146",
+   "last_price_quote_usd": "1.0026066377582"
+  },
+  {
+   "network": "xdai",
+   "name": "BRLA / WXDAI",
+   "address": "0xbcfe7df3ed25696b0f712a1cd395fdc98e0bea67",
+   "tvl_usd": 9.8303,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "honeyswap",
+   "base": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "base_sym": "BRLA",
+   "quote": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d",
+   "quote_sym": "WXDAI",
+   "last_price_base_usd": "0.1971812221",
+   "last_price_quote_usd": "0.997480959228105"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRZ / BRLA 0.01%",
+   "address": "0xb29c03dc6e0d3a9c3dc443d5b4fc84841d2785c8",
+   "tvl_usd": 2.753,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap_v3_polygon_pos",
+   "base": "pos_0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc",
+   "base_sym": "BRZ",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.1980807168",
+   "last_price_quote_usd": "0.1999721026"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRLA / USDT 0.3%",
+   "address": "0xb038a99f0007173557883f6c660ece09c531def5",
+   "tvl_usd": 1.5184,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap_v3_polygon_pos",
+   "base": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "base_sym": "BRLA",
+   "quote": "pos_0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+   "quote_sym": "USDT",
+   "last_price_base_usd": "0.183542469251806",
+   "last_price_quote_usd": "0.996983572074898"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRZ / BRLA 0.05%",
+   "address": "0x58cfff586318552234afa63b85f92b57845c86fbf74e9fb4d17bb0f13ecf9937",
+   "tvl_usd": 1.2579,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap-v4-polygon",
+   "base": "pos_0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc",
+   "base_sym": "BRZ",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.2293628477",
+   "last_price_quote_usd": "0.2299767998"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "USDT / BRLA",
+   "address": "0x9d0fc645ad75d8e55e666749129451f099fb3327",
+   "tvl_usd": 0.2531,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "sushiswap_polygon_pos",
+   "base": "pos_0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+   "base_sym": "USDT",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.996951552818962",
+   "last_price_quote_usd": "0.185928904673976"
+  },
+  {
+   "network": "hyperevm",
+   "name": "BRLA / WHYPE",
+   "address": "0x9aae4efd711bf439464e9a4eb87c3124e375c8ca",
+   "tvl_usd": 0.1119,
+   "vol24_usd": 0.009129628546,
+   "tx24": {
+    "buys": 1,
+    "sells": 0,
+    "buyers": 1,
+    "sellers": 0
+   },
+   "dex": "hyperswap-v2",
+   "base": "0xa300c891157803e72370d15a30ccedffc7153142",
+   "base_sym": "BRLA",
+   "quote": "0x5555555555555555555555555555555555555555",
+   "quote_sym": "WHYPE",
+   "last_price_base_usd": "0.0007703176655",
+   "last_price_quote_usd": "84.73"
+  },
+  {
+   "network": "polygon_pos",
+   "name": "BRS / BRLA 0.01%",
+   "address": "0xd98e7f11f4321cf2405d09b0f9a9394bd59be98f",
+   "tvl_usd": 0.03230508003,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap_v3_polygon_pos",
+   "base": "pos_0x0000006238e3c7797ae71827da303560bae1b125",
+   "base_sym": "BRS",
+   "quote": "pos_0xe6a537a407488807f0bbeb0038b79004f19dddfb",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.199441633862404",
+   "last_price_quote_usd": "0.199391669415215"
+  },
+  {
+   "network": "robinhood",
+   "name": "BRLA / USDG",
+   "address": "0xd524d7356875e62c7996131cf5ba39f32a2c41a42aca78d9b1d9537aebe97d57",
+   "tvl_usd": 0.003782154674,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap-v4-robinhood",
+   "base": "0x97cbf8ab394c7bab4e26883e9fc1791b8d9ab999",
+   "base_sym": "BRLA",
+   "quote": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+   "quote_sym": "USDG",
+   "last_price_base_usd": "0.02178344974",
+   "last_price_quote_usd": "0.9997643185"
+  },
+  {
+   "network": "xdai",
+   "name": "USDC.e / BRLA 0.3%",
+   "address": "0x79e2b76f480a0bdb363ae5b20d3678ad1a3df482",
+   "tvl_usd": 0.002218886008,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "oku-trade-gnosis",
+   "base": "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0",
+   "base_sym": "USDC.e",
+   "quote": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.9998860584",
+   "last_price_quote_usd": "0.2035813148"
+  },
+  {
+   "network": "celo",
+   "name": "cREAL / BRLA 0.05%",
+   "address": "0x45708ce9240fd777b974d76567888b6bb7b5429f",
+   "tvl_usd": 5.08882467438921e-19,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap_v3_celo",
+   "base": "0xe8537a3d056da446677b9e9d6c5db704eaab4787",
+   "base_sym": "cREAL",
+   "quote": "0xfecb3f7c54e2caae9dc6ac9060a822d47e053760",
+   "quote_sym": "BRLA",
+   "last_price_base_usd": "0.1755025124",
+   "last_price_quote_usd": "0.1751215904"
+  },
+  {
+   "network": "hyperliquid",
+   "name": "BRLA / USDC",
+   "address": "0xa9422674699ee85b7d2c403574760a7a",
+   "tvl_usd": 0.0,
+   "vol24_usd": 1362.0769851489,
+   "tx24": {
+    "buys": 8,
+    "sells": 103,
+    "buyers": 4,
+    "sellers": 8
+   },
+   "dex": "hyperliquid",
+   "base": "0x82790bc500d677101986a696d341a156",
+   "base_sym": "BRLA",
+   "quote": "0x6d1e7cde53ba9467b783cb7c530ce054",
+   "quote_sym": "USDC",
+   "last_price_base_usd": "0.001010635029",
+   "last_price_quote_usd": "0.999639"
+  },
+  {
+   "network": "robinhood",
+   "name": "BRLA / WETH",
+   "address": "0x82bfb3c958b4930e1665d0fc5190cde7a62d8b8b1d488f324c2e56177b93c757",
+   "tvl_usd": 0.0,
+   "vol24_usd": 0.0,
+   "tx24": {
+    "buys": 0,
+    "sells": 0,
+    "buyers": 0,
+    "sellers": 0
+   },
+   "dex": "uniswap-v4-robinhood",
+   "base": "0x97cbf8ab394c7bab4e26883e9fc1791b8d9ab999",
+   "base_sym": "BRLA",
+   "quote": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+   "quote_sym": "WETH",
+   "last_price_base_usd": "0.04489578315",
+   "last_price_quote_usd": "2482.51"
+  }
+ ]
+}

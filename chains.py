@@ -68,7 +68,40 @@ CHAINS = {
 }
 
 
-def rpc_list(chain: str) -> list[str]:
+def _load_dotenv() -> None:
+    """Load KEY=VALUE pairs from the repo-root .env into os.environ (no override, never printed)."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    try:
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                k, sep, v = line.strip().partition("=")
+                if sep and k and not k.startswith("#"):
+                    os.environ.setdefault(k.strip(), v.strip().strip("'\""))
+    except OSError:
+        pass
+
+
+_load_dotenv()
+
+# Paid Alchemy key (RPC_API_KEY, from env or repo-root .env). Opt-in only: archive/backfill, Transfers API,
+# things public RPCs can't serve. Never log the URL (it embeds the key).
+ALCHEMY_NETWORKS = {
+    "ethereum": "eth-mainnet", "polygon": "polygon-mainnet", "arbitrum": "arb-mainnet",
+    "base": "base-mainnet", "gnosis": "gnosis-mainnet", "optimism": "opt-mainnet",
+}
+
+
+def alchemy_url(chain: str) -> str | None:
+    key = os.environ.get("RPC_API_KEY")
+    net = ALCHEMY_NETWORKS.get(chain)
+    return f"https://{net}.g.alchemy.com/v2/{key}" if key and net else None
+
+
+def rpc_list(chain: str, paid: bool = False) -> list[str]:
+    """Env override wins; else public RPCs, with Alchemy first only when paid=True."""
     c = CHAINS[chain]
     env = os.environ.get(c["env"])
-    return [env] if env else list(c["rpcs"])
+    if env:
+        return [env]
+    paid_url = alchemy_url(chain) if paid else None
+    return ([paid_url] if paid_url else []) + list(c["rpcs"])
