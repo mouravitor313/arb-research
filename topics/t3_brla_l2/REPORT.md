@@ -218,17 +218,45 @@ Tickets intermediários ($150, $300) e mínimos de 0 e 5 bps estão no JSON.
    qualquer ticket e o teto por fluxo ~R$313/dia. Com o Curve, chega a **~R$120/dia calibrado**. O §5.1 calculava
    R$110–140 somando Oku e Curve com 0 bps e desconto de 2×.
 
-**Checagem no live de 15 s (PARCIAL: 10,5 h, 00:32–11:00 UTC de 12/10; será refeita com as 24 h).** O 1º ticket
-líquido (best dos dois sentidos, com gás) ficou assim:
-- **Gnosis Oku:** +32 a +34 bps em **100% do tempo** (um único episódio de 10,5 h), em qualquer ticket de $20 a $500.
-- **Gnosis Curve:** +15 a +25 bps, também em 100% do tempo.
-- **Base:** só **+0,5 a +1,7 bps** (p50) de $20 a $200, **nunca > 5 bps**, e negativa a $500 (−3,0). Nesta janela, a
-  Base com ticket pequeno não paga o risco.
-- **Polygon:** p50 de −6,5 bps, > 5 bps em ~8% do tempo e > 10 bps em ~3,5%.
+**Checagem no live de 15 s:** ver §5.3 (24 h completas). A checagem parcial de 10,5 h está em
+`optimal_size_partial10h.json`.
 
-O regime "1 ticket por tick de 15 s" (`paced_1_per_tick` no JSON) supõe que ninguém devolve o preço do pool dentro
-do episódio. Por isso ele vai empurrando o pool até a borda da grade do live ($10k). Serve só como checagem e não
-entra nas estimativas.
+### 5.3 Coletor ao vivo de 24 h (00:32 UTC 12/10 → 00:33 UTC 13/10), 13/10
+5.763 ticks de 15 s, **0 erros**, só RPC público. Script `optimal_size.py` re-rodado (→ `optimal_size.json`,
+stdout em `optimal_size_24h.stdout.log`). Líquido = best dos dois sentidos, taker 2 bps, gás, livro OKX ao vivo.
+
+| Pool | $500 p5 / p50 / p95 | $1k p50 | $2k p50 | $5k p50 | % tempo > 10 bps ($500) | Sentido | Mudanças de preço do pool em 24 h |
+|---|---|---|---|---|---|---|---|
+| **Gnosis Oku** | +30 / **+34** / +55 | +31 | +26 | +10 | **100%** | só usd2brla | **8** |
+| Gnosis Curve | +13 / +22 / +48 | +11 | −11 | −92 | 100% | só usd2brla | (sem mid) |
+| Base Aerodrome | −13 / **−5** / −1 | −11 | −23 | −62 | **0%** | nenhum | 67 |
+| *Polygon (ref.)* | −9 / −0,2 / +11 | −1,3 | −3,7 | −11 | 12% | dois lados | 300 |
+
+Desvio de mid na Oku: p50 de **+44 bps** (BRLA barato na Gnosis), entre +40 e +65 bps na média de cada hora.
+
+**Leitura nova, e mais importante que o bps: a Gnosis é um *estoque* de gap, não um *fluxo*.**
+- A Oku ficou num **único episódio de 24 h**, e o preço do pool **mudou só 8 vezes no dia**: +14 e +8 bps às
+  13h10 UTC (alguém vendeu BRLA), −23 bps às 15h27 (alguém comprou), e o resto ≤5 bps. Ninguém fecha o gap porque
+  quase ninguém negocia ali.
+- Assim, o "regime inferior" do `optimal_size.py` no live (**R$108**, 1 rajada por episódio) é uma **captura única**,
+  não R$/dia. Com mínimo de 10 bps, o volume capturável é de **$2k no início e no máximo $5k no dia** (grade do live:
+  500/1k/2k/5k). Depois que o bot leva o pool até ~10 bps, só sobra o que o fluxo orgânico **reabre**.
+- **Reposição orgânica (14 d de swaps, `swaps`):** vendas de BRLA na Oku de **$4,1k/dia (p50)**, média de $6,1k.
+  Compras de BRLA (concorrentes ou usuários) de $2,7k/dia (p50); um dia teve $38k de compra líquida. A venda
+  líquida p50 é de só **$0,9k/dia**. No Curve, $0,6k/dia de vendas.
+- **Nova estimativa central:** o bot captura ~$1–4k/dia de reposição a ~25–35 bps, ou seja, **~R$15–70/dia na Oku**
+  mais ~R$5–10 no Curve. Isso dá **~R$40–80/dia, ~R$1,2–2,4k/mês**, mais uma captura inicial única de ~R$100. Fica
+  **abaixo** dos ~R$120/dia calibrados no §5.2, porque a amostragem de 30 min tratava cada amostra positiva como
+  gap novo, e no live se vê que é o mesmo gap parado. O número é comparável ao bot da Polygon (R$89,50/dia),
+  com uma vantagem: **sem disputa de latência** (gap parado por horas, 8 mudanças/dia).
+- **Base: morta nesta janela.** Negativa 100% do tempo em qualquer tamanho; a $500, o p95 é −1 bps. O +15 bps a
+  $1k do backfill de 14 d era intermitente. **Base sai da fila.**
+- **Polygon:** p50 ≈ 0 e >10 bps em 12% do tempo a $500, com 300 mudanças de preço/dia. É o mercado competitivo.
+- Os dois maiores "senders" da Oku em 14 d (`0xb525…`, com $70k de compra líquida, e `0xc6d2…`) são **contratos
+  roteadores**, então não dá para saber quem opera por trás. Um deles pode ser um arbitrador lento.
+
+**Limitação:** a grade do live ($500/1k/2k/5k) é grossa demais para medir a reposição com precisão. Para isso,
+o próprio piloto (§6) é a medida certa.
 
 ## 6. Conclusão
 **Gnosis é oportunidade, mas depende do lado dólar. Base é uma oportunidade pequena. Celo não é. $100k não cabe em lugar nenhum.**
@@ -256,14 +284,17 @@ entra nas estimativas.
    rebalanceamento manual) for pequeno perto de ~$50–100/dia.
 
 **Recomendação:** abrir **primeiro a Gnosis**, em teste com $2–5k de inventário, depois de responder aos
-itens 7.1–7.3. A Base fica como segunda, condicionada ao adaptador Slipstream.
+itens 7.1–7.3. ~~A Base fica como segunda~~ **Base descartada pelo live de 24 h (§5.3).** Atualização de 13/10: a
+Gnosis é um gap *parado* (estoque, não fluxo), sem disputa de latência. O bot pode ser simples (polling de 15–60 s);
+o que limita o lucro é a reposição orgânica (~$1–4k/dia), não a velocidade.
 
 **Ticket da instância Gnosis (§5.2):** **$500 fixo com mínimo de 10 bps por trade**, ou, se o bot suportar, um swap
 único dimensionado pelo ótimo da amostra (X\* de ~$2k na mediana). O motivo:
 - O R$/dia é praticamente igual de $20 a $500, e o gás na Gnosis é desprezível.
 - Com $500, o bot faz 2,5× menos transações que com $200, fica menos exposto a quem chega primeiro e ganha
   **R$10,9 por trade (42 bps)**. Na Polygon, com $200, são R$1,32 (13 bps) no modelo e R$1,20 no real.
-- Estimativa calibrada: **~R$98/dia na Oku + ~R$24 no Curve ≈ R$120/dia** (regime inferior × 0,5). O teto por
+- Estimativa calibrada (backfill 30 min): ~R$98/dia na Oku + ~R$24 no Curve ≈ R$120/dia (regime inferior × 0,5).
+  **Revista no live de 24 h (§5.3): ~R$40–80/dia**, limitada pela reposição orgânica do gap. O teto por
   fluxo orgânico é ~R$313 + ~R$49/dia.
 
 **Polygon e Base:** não vale baixar o ticket do bot da Polygon. Abaixo de ~$50 o gás come 6–15% do lucro e o R$/dia
@@ -321,6 +352,5 @@ Tudo em `topics/t3_brla_l2/`:
   ótimo, captura, gás, calibração e checagem no live (§5.2).
 - `data.db`: tabelas `dex_hist`, `okx_candles`, `swaps`, `probe`, `rpc_usage`, `live`, `small_resim`.
 
-**Rodando (12/10, ~08h30 local):** o coletor ao vivo (pid 33072, `--hours 24`) para sozinho por volta de
-00:33 UTC de 13/10 (≈21h33 local de 12/10). Os backfills e o re-sim terminaram (`done`). Nenhum arquivo central
-foi editado. O `arb_tracker.db` foi aberto só em modo leitura (`xvenue_ticks`, para calibrar o spread).
+**Status (13/10):** o coletor ao vivo (pid 33072) terminou sozinho às 00:33 UTC de 13/10, após 5.763 ticks e 0 erros.
+Nada está rodando. O `optimal_size.py` foi re-rodado com as 24 h (§5.3).

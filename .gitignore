@@ -12,3 +12,6 @@ venv/
 *.db
 *.sqlite
 *.sqlite3
+
+# b3/ raw downloads (COTAHIST zips, API caches)
+b3/data/raw/

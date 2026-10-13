@@ -3,6 +3,8 @@
 > Context-persistence file for cross-session continuity. Read this first when resuming.
 > Last updated: 2026-10-10 (v3 item B — Polygon atomic cycle measured)
 
+> **Separate track (2026-10-12): B3 small caps** — research + monitor lives in `b3/`; read `b3/PROJECT.md`.
+
 ## v3 alignment (2026-10-10) — see `RECAP.md` FIRST
 
 Goal narrowed: on-chain DEX arb with entry/exit in **BRLA/BRL1** and/or **OKX only** (VIP 9). OKX already
@@ -177,7 +179,9 @@ python arb_tracker.py --interval 30
 - Environment: Windows 11, Python 3.14, PowerShell. Git repo (branch `main`); commit only when the user asks.
 - **Read-only rule:** this repo never signs/sends tx or touches private keys; never read `xend-arb/.env`.
 - Background collectors (detached, survive the terminal): `cycle_collector.py` and `xvenue_collector.py`;
-  stop with `.un_cycle_collector.ps1 -Stop` / `.un_xvenue_collector.ps1 -Stop`. They grow `arb_tracker.db`
+  stop with `.
+un_cycle_collector.ps1 -Stop` / `.
+un_xvenue_collector.ps1 -Stop`. They grow `arb_tracker.db`
   (~100 MB/day for xvenue) — stop them when the measurement window is enough.
 - Public RPCs: publicnode = live only (403 under load); drpc / mainnet.base.org = archive (Polygon/Base);
   Arbitrum has no public archive. Prefer `*_RPC_URL` env vars for multi-day runs.
